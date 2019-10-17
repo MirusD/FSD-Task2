@@ -1,0 +1,4 @@
+# folder webstorm IDE
+.idea/
+# folder npm plagins
+node_modules/
