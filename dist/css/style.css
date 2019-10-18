@@ -1,0 +1,23 @@
+.text-field[disabled] {
+  color: rgba(31, 32, 65, 0.25);
+  background-color: white; }
+
+.text-field {
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 320px;
+  height: 44px;
+  font-size: 14px;
+  padding-left: 15px;
+  padding-top: 13px;
+  padding-bottom: 13px; }
+
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: #1F2041; }
