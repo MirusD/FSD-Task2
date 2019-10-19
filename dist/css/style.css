@@ -13,12 +13,14 @@
 .text-field[disabled] {
   color: rgba(31, 32, 65, 0.25);
   background-color: white; }
+  .text-field[disabled]:hover {
+    border-color: rgba(31, 32, 65, 0.25); }
 
 .text-field:hover, .text-field:focus {
-  outline: none;
   border-color: rgba(31, 32, 65, 0.5); }
 
 .text-field {
+  outline: none;
   font-size: 14px;
   font-family: Montserrat, sans-serif;
   line-height: 18px;
@@ -41,3 +43,6 @@
   line-height: 15px;
   text-transform: uppercase;
   color: #1F2041; }
+
+.dropdown {
+  outline: none; }

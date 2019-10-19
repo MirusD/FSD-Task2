@@ -6,4 +6,11 @@ html(lang="ru")
         link(rel="stylesheet" href="css/style.css")
     body
         label.label(for="email") text field
-        input.text-field(type="text" id="email" value="This is pretty awesome")
+        input.text-field(type="text" id="email" placeholder="Email" disabled)
+        label.label(for="awesome") text field
+        input.text-field(type="text" id="awesome" value="This is pretty awesome")
+        label.label(for="dropdown") dropdown
+        select.dropdown( name="dropdown" id="dropdown")
+            option(value="1") Сколько гострей
+            option(value="2") Сколько гострей
+            option(value="3") Сколько гострей
