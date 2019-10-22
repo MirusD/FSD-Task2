@@ -70,11 +70,11 @@
   background-color: white;
   background-position: right 13px center; }
 
-.dropdown_date {
-  width: 150px; }
-
 .dropdown_display_inline-block {
   display: inline-block; }
 
 .dropdown_middle_width {
   width: 266px; }
+
+.dropdown_small_width {
+  width: 150px; }
