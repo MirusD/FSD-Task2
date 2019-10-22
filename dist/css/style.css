@@ -72,3 +72,9 @@
 
 .dropdown_date {
   width: 150px; }
+
+.dropdown_display_inline-block {
+  display: inline-block; }
+
+.dropdown_middle_width {
+  width: 266px; }

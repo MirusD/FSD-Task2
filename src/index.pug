@@ -16,5 +16,12 @@ html(lang="ru")
             option(value="3") колько гострей
         label.label(for="masked") masked text field
         input.text-field(type="text" id="masked" placeholder="ДД.ММ.ГГГГ")
-        label.label(for="date") date dropdown
-        input.dropdown.dropdown_date(type="text" id="date" placeholder="ДД.ММ.ГГГГ")
+        br
+        div.dropdown_display_inline-block
+            label.label(for="dateMask") date dropdown
+            input.dropdown.dropdown_date(type="text" id="dateMask" placeholder="ДД.ММ.ГГГГ")
+        div.dropdown_display_inline-block
+            label.label(for="date") date dropdown
+            input.dropdown.dropdown_date(type="text" id="date" placeholder="19.08.2019")
+        label.label(for="filterDate") filter date dropdown
+        input.dropdown.dropdown_middle_width(type="text" id="filterDate" placeholder="19 авг - 23 авг")
