@@ -1,0 +1,17 @@
+.dropdown__expanded {
+  display: none;
+  top: $height - 2px;
+  left: -1px;
+  position: absolute;
+  width: $width-middle - 2px !important;
+  height: 100px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-top-color: rgba(31, 32, 65, 0);
+  border-radius: 0 0 4px 4px;
+}
+.dropd {
+  border-radius: 4px 4px 0 0;
+}
+.active {
+  display: block;
+}

@@ -1,3 +1,9 @@
+$width-big: 320px;
+$width-middle: 266px;
+$width-small: 150px;
+
+$height: 44px;
+
 .dropdown {
   position: relative;
   outline: none;
@@ -7,8 +13,8 @@
   font-weight: normal;
   font-style: normal;
   line-height: 24px;
-  width: 320px;
-  height: 44px;
+  width: $width-big;
+  height: $height;
   border: 1px solid rgba(31, 32, 65, 0.25);
   box-sizing: border-box;
   border-radius: 4px;
@@ -24,4 +30,7 @@
   background-position: right 13px center;
 }
 
-
+@import "__expanded/dropdown__expanded.scss";
+@import "_display_inline-block/dropdown_display_inline-block.scss";
+@import "_width/dropdown_middle_width";
+@import "_width/dropdown_small_width.scss";
