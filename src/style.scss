@@ -17,6 +17,8 @@
 }
 
 @import "modules/text-field/text-field.scss";
+@import "modules/text-field/_width/text-field_middle_width.scss";
+@import "modules/text-field/_type/text-field_type_subscription.scss";
 @import "modules/label/label.scss";
 @import "modules/dropdown/dropdown.scss";
 @import "modules/dropdown/_display_inline-block/dropdown_display_inline-block.scss";
