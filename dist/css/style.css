@@ -10,15 +10,6 @@
   font-weight: bold;
   font-style: normal; }
 
-.text-field[disabled] {
-  color: rgba(31, 32, 65, 0.25);
-  background-color: white; }
-  .text-field[disabled]:hover {
-    border-color: rgba(31, 32, 65, 0.25); }
-
-.text-field:hover, .text-field:focus {
-  border-color: rgba(31, 32, 65, 0.5); }
-
 .text-field {
   outline: none;
   font-size: 14px;
@@ -34,6 +25,18 @@
   padding-top: 13px;
   padding-bottom: 13px;
   margin-top: 5px; }
+  .text-field:hover, .text-field:focus {
+    border-color: rgba(31, 32, 65, 0.5); }
+  .text-field::-webkit-input-placeholder {
+    color: rgba(31, 32, 65, 0.25); }
+  .text-field::-moz-placeholder {
+    color: rgba(31, 32, 65, 0.25); }
+  .text-field:-ms-input-placeholder {
+    color: rgba(31, 32, 65, 0.25); }
+  .text-field::-ms-input-placeholder {
+    color: rgba(31, 32, 65, 0.25); }
+  .text-field::placeholder {
+    color: rgba(31, 32, 65, 0.25); }
 
 .text-field_middle_width {
   width: 267px; }
