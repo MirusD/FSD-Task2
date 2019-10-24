@@ -31,6 +31,8 @@ $height: 44px;
 }
 
 @import "__expanded/dropdown__expanded.scss";
+@import "__count/dropdown__count.scss";
 @import "_display_inline-block/dropdown_display_inline-block.scss";
 @import "_width/dropdown_middle_width";
 @import "_width/dropdown_small_width.scss";
+@import "_type/dropdown_type_quantity.scss";

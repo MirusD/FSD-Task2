@@ -35,7 +35,15 @@ html(lang="ru")
         label.label(for="subscription") subscription text field
         input.text-field.text-field_type_subscription.text-field_middle_width(type="text" id="subscription" placeholder="Email")
 
-        label.label(for="dropdown2") dropdown
-        div.dropdown.dropdown_position_relative.dropdown_middle_width
+        label.label(for="dropdownQuantity") dropdown
+        div#dropdownQuantity.dropdown.dropdown_type_quantity.dropdown_middle_width
             span 2спальни, 2 кровати
-            div.dropdown__expanded.dropdown_middle_width
+            div.dropdown__expanded.dropdown_middle_width.active
+                div
+                    span спальни
+                    span кровати
+                    span ванные комнаты
+                div
+                    span.dropdown__count 2
+                    span.dropdown__count 1
+                    span.dropdown__count 1
