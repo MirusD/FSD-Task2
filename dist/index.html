@@ -10,32 +10,73 @@
     <input class="text-field" type="text" id="email" placeholder="Email">
     <label class="label" for="awesome">text field</label>
     <input class="text-field" type="text" id="awesome" value="This is pretty awesome">
-    <label class="label" for="dropdown">dropdown</label>
-    <select class="dropdown" name="dropdown" id="dropdown">
-      <option value="1">Сколько гострей</option>
-      <option value="2">Сколько гострей</option>
-      <option value="3">колько гострей</option>
-    </select>
+        <label class="label" for="dropdown">Dropdown</label>
+        <select class="dropdown" name="dropdown" id="dropdown">
+          <option value="1">Сколько гостей</option>
+          <option value="2">Сколько гостей</option>
+          <option value="3">Сколько гостей</option>
+        </select>
     <label class="label" for="masked">masked text field</label>
     <input class="text-field" type="text" id="masked" placeholder="ДД.ММ.ГГГГ"><br>
-    <div class="dropdown_display_inline-block">
+    <div class="dropdown-date">
       <label class="label" for="dateMask">date dropdown</label>
-      <input class="dropdown dropdown_small_width" type="text" id="dateMask" placeholder="ДД.ММ.ГГГГ">
+      <input class="dropdown dropdown-date__item" type="text" id="dateMask" placeholder="ДД.ММ.ГГГГ">
     </div>
-    <div class="dropdown_display_inline-block">
+    <div class="dropdown-date">
       <label class="label" for="date">date dropdown</label>
-      <input class="dropdown dropdown_small_width" type="text" id="date" placeholder="19.08.2019">
+      <input class="dropdown dropdown-date__item" type="text" id="date" placeholder="19.08.2019">
     </div>
     <label class="label" for="filterDate">filter date dropdown</label>
     <input class="dropdown dropdown_middle_width" type="text" id="filterDate" placeholder="19 авг - 23 авг">
     <label class="label" for="subscription">subscription text field</label>
     <input class="text-field text-field_type_subscription text-field_middle_width" type="text" id="subscription" placeholder="Email">
-    <label class="label" for="dropdownQuantity">dropdown</label>
-    <div class="dropdown dropdown_type_quantity dropdown_middle_width" id="dropdownQuantity"><span>2спальни, 2 кровати</span>
-      <div class="dropdown__expanded dropdown_middle_width active">
-        <div><span>спальни</span><span>кровати</span><span>ванные комнаты</span></div>
-        <div><span class="dropdown__count">2</span><span class="dropdown__count">1</span><span class="dropdown__count">1</span></div>
-      </div>
-    </div>
+        <label class="label">Dropdown</label>
+        <div class="dropdown-counting">
+          <div class="dropdown dropdown-counting__dropdown"><span>2спальни, 2 кровати</span></div>
+          <div class="dropdown-counting__expanded show">
+            <div><span>Спальни</span><span>Ванные комнаты</span><span>кровати</span><span>блабла</span><span>и еще одна</span>
+            </div>
+            <div><span class="dropdown-counting__count">1</span><span class="dropdown-counting__count">1</span><span class="dropdown-counting__count">1</span><span class="dropdown-counting__count">1</span><span class="dropdown-counting__count">1</span>
+            </div>
+          </div>
+        </div>
+        <label class="label">Dropdown</label>
+        <div class="dropdown-counting">
+          <div class="dropdown dropdown-counting__dropdown"><span>2спальни, 2 кровати</span></div>
+          <div class="dropdown-counting__expanded show">
+            <div><span>Взрослые</span><span>Дети</span><span>Младенцы</span>
+            </div>
+            <div><span class="dropdown-counting__count">1</span><span class="dropdown-counting__count">1</span><span class="dropdown-counting__count">1</span>
+            </div>
+          </div>
+        </div>
+        <div class="expandable-checkbox-list">
+          <label class="label expandable-checkbox-list__label activ">expandable checkbox list</label>
+          <div class="expandable-checkbox-list__expanded">
+            <input class="expandable-checkbox-list__checkbox checkbox" type="checkbox" id="expandable-checkbox-list1" name="expandable-checkbox-list1" value="1">
+            <label class="checkbox__text" for="expandable-checkbox-list1">Завтрак</label>
+            <input class="expandable-checkbox-list__checkbox checkbox" type="checkbox" id="expandable-checkbox-list2" name="expandable-checkbox-list2" value="2">
+            <label class="checkbox__text" for="expandable-checkbox-list2">Письменный стол</label>
+            <input class="expandable-checkbox-list__checkbox checkbox" type="checkbox" id="expandable-checkbox-list3" name="expandable-checkbox-list3" value="3">
+            <label class="checkbox__text" for="expandable-checkbox-list3">Стул для кормления</label>
+            <input class="expandable-checkbox-list__checkbox checkbox" type="checkbox" id="expandable-checkbox-list4" name="expandable-checkbox-list4" value="4">
+            <label class="checkbox__text" for="expandable-checkbox-list4">Кроватка</label>
+            <input class="expandable-checkbox-list__checkbox checkbox" type="checkbox" id="expandable-checkbox-list5" name="expandable-checkbox-list5" value="5">
+            <label class="checkbox__text" for="expandable-checkbox-list5">Телевизор</label>
+            <input class="expandable-checkbox-list__checkbox checkbox" type="checkbox" id="expandable-checkbox-list6" name="expandable-checkbox-list6" value="6">
+            <label class="checkbox__text" for="expandable-checkbox-list6">Шампуть</label>
+            <input class="expandable-checkbox-list__checkbox checkbox" type="checkbox" id="expandable-checkbox-list7" name="expandable-checkbox-list7" value="7">
+            <label class="checkbox__text" for="expandable-checkbox-list7">Телевизор</label>
+            <input class="expandable-checkbox-list__checkbox checkbox" type="checkbox" id="expandable-checkbox-list8" name="expandable-checkbox-list8" value="8">
+            <label class="checkbox__text" for="expandable-checkbox-list8">Шампунь</label>
+          </div>
+        </div>
+        <div class="room-information">
+          <label class="label">Информация о комнате</label>
+          <div class="room-information__item">
+            <h3 class="room-information__title">Комфорт</h3>
+            <p class="room-information__text">Шумопоглащающие стены</p>
+          </div>
+        </div>
   </body>
 </html>

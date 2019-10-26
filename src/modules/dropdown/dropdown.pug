@@ -1,0 +1,7 @@
+mixin dropdown(name,...option)
+    - var count = 1;
+    label.label(for="dropdown")= name
+    select.dropdown( name="dropdown" id="dropdown")
+        each opt in option
+            option(value=count)= opt
+            - count++

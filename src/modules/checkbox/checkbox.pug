@@ -1,0 +1,6 @@
+mixin checkbox(...values)
+    - var count = 1;
+    each value in values
+        input(type="checkbox" id=count name=count value=count).checkbox
+        label(for=count).checkbox__text= value
+        - count++

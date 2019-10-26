@@ -16,7 +16,24 @@
   font-style: normal;
 }
 
-@import "modules/text-field/text-field.scss";
-@import "modules/label/label.scss";
-@import "modules/dropdown/dropdown.scss";
+body {
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+}
 
+$width-big: 320px;
+$width-middle: 266px;
+$width-small: 150px;
+
+$height: 44px;
+
+@import "modules/text-field/text-field";
+@import "modules/label/label";
+@import "modules/dropdown/dropdown.scss";
+@import "modules/dropdown-counting/dropdown-counting";
+@import "modules/dropdown-date/dropdown-date";
+@import "modules/checkbox/checkbox";
+@import "modules/expandable-checkbox-list/expandable-checkbox-list";
+@import "modules/room-information/room-information";

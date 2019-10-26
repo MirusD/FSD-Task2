@@ -2,3 +2,5 @@
 .idea/
 # folder npm plagins
 node_modules/
+# bundle files
+dist/

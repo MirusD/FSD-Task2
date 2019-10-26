@@ -1,0 +1,12 @@
+mixin dropdown-counting(name,...values)
+    label.label= name
+    div.dropdown-counting
+        div.dropdown.dropdown-counting__dropdown
+            span 2спальни, 2 кровати
+        div.dropdown-counting__expanded.show
+            div
+                each value in values
+                    span= value
+            div
+                each value in values
+                    span.dropdown-counting__count 1
