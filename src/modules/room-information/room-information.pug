@@ -2,3 +2,5 @@ mixin room-information
     div.room-information
         label.label Информация о комнате
         include __item/room-information__item
+        +room-information-item('Комфорт','Шумопоглощающие стены','comfort')
+        +room-information-item('Удобство','Окно в каждой из спален','convenience')
