@@ -1,1 +1,10 @@
-input(type="text")
+mixin text-field(option, attend)
+    if (attend === true)
+        .text-field
+            //+headline(option.head, option.title, option.blockName)
+            label
+                +input(option.type, option.placeholder, option.classes)&attributes(attributes)
+    else
+        .text-field
+            label
+                +input(option.type, option.placeholder, option.classes)&attributes(attributes)

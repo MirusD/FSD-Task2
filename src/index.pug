@@ -40,3 +40,14 @@ html(lang="ru")
 
         +room-information
         +checkbox-button('checkbox buttons','Можно курить','Можно с питомцами','Можно пригласить гостей <br> (до 10 человек)')
+        +radio-buttons
+
+        +text-field({
+            head: 'h3',
+            title: 'masked text field',
+            type: 'text',
+            blockName: 'text-field',
+            placeholder: 'ДД.ММ.ГГГГ',
+            classes: 'input datepicker-here'
+        }, false
+        )(data-date-format="dd MM yyyy")
