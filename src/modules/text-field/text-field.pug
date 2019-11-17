@@ -1,0 +1,34 @@
+mixin text-field(options)
+    if !options
+        - options = {}
+    if !options.block
+        - options.block = {}
+
+    if options.block.mod.default
+        - var modDefault = 'text-field_default'
+    else
+        - var modDefault = '';
+
+    if options.block.content
+        - var title = options.block.content;
+    else
+        - var title = ''
+
+    if options.mix
+        - var mix = options.mix + '__text-field';
+    else
+        - var mix = '';
+
+    div.text-field(class=modDefault class=mix)
+        +title({
+            block: {
+                content: title,
+                tag: 'label',
+                mod: {
+                    level: 'h3',
+                    transform: 'uppercase'
+                }
+            },
+            mix: 'text-field'
+        })
+        input.text-field__input(type='text' placeholder='Email')

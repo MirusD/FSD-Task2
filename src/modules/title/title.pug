@@ -24,11 +24,16 @@ mixin title(options)
 
     if options.mix
         - var mix = options.mix + '__title';
+    else
+        - var mix = '';
+
+    if !options.mixMod
+        - options.mixMod = {}
+    else
         if options.mixMod.level
             - var mixModLevel = options.mix + '__title_level_' + options.mixMod.level;
         else
             - var mixModLevel = '';
-    else
-        - var mix = '';
+
 
     #{options.block.tag}.title(class=mix class=modLevel class=mixModLevel class=modTransform class=modWidth)=options.block.content
