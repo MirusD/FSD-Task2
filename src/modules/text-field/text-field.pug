@@ -4,11 +4,6 @@ mixin text-field(options)
     if !options.block
         - options.block = {}
 
-    if options.block.mod.default
-        - var modDefault = 'text-field_default'
-    else
-        - var modDefault = '';
-
     if options.block.content
         - var title = options.block.content;
     else
@@ -19,7 +14,7 @@ mixin text-field(options)
     else
         - var mix = '';
 
-    div.text-field(class=modDefault class=mix)
+    div.text-field(class=mix)
         +title({
             block: {
                 content: title,

@@ -8,12 +8,18 @@ section.form-elements
         mix: 'form-elements'
     })
 
-    +text-field({
-        block: {
-            content: 'text field',
-            mod: {
-                default: 'true'
-            }
-        },
-        mix: 'form-elements'
-    })
+    .form-elements__text-field_default
+        +text-field({
+            block: {
+                content: 'text field'
+            },
+            mix: 'form-elements'
+        })
+
+    .form-elements__text-field_focus
+        +text-field({
+            block: {
+                content: 'text field'
+            },
+            mix: 'form-elements'
+        })
