@@ -1,7 +1,10 @@
-mixin dropdown(name,...option)
-    - var count = 1;
-    label.label(for="dropdown")= name
-    select.dropdown( name="dropdown" id="dropdown")
-        each opt in option
-            option(value=count)= opt
-            - count++
+mixin dropdown(options)
+    if !options
+        - options = {}
+    if !options
+        - options.items = []
+    div(class= options.block.blockName)
+        label.label(class= options.block.blockName + '__label')= options.block.title
+        select.select(class= options.block.blockName + '__select')
+            for item in options.block.items
+                option(value = item.value)= item.name

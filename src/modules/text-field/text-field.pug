@@ -1,10 +1,19 @@
-mixin text-field(option, attend)
-    if (attend === true)
-        .text-field
-            //+headline(option.head, option.title, option.blockName)
-            label
-                +input(option.type, option.placeholder, option.classes)&attributes(attributes)
+mixin text-field(options)
+    if !options
+        - options = {}
+    if !options.block
+        - options.block = {}
+
+    if !options.block.type
+        - options.block.type = 'text'
+    if !options.block.blockName
+        - options.block.blockName = 'text-field'
+
+    - var block = options.block
+    if (block.title)
+        div(class=block.blockName)
+            label.label(class=block.blockName + '__title')=block.title
+            +input(block.type, block.placeholder, block.blockName + '__input', block.value)
     else
-        .text-field
-            label
-                +input(option.type, option.placeholder, option.classes)&attributes(attributes)
+        div(class=block.blockName)
+            +input(block.type, block.placeholder, block.blockName + '__input', block.value)
