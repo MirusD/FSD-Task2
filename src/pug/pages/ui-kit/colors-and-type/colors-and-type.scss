@@ -1,0 +1,19 @@
+.color-and-type {
+  display: flex;
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid white;
+  z-index: 1;
+}
+
+@import "__color/colors-and-type__color";
+@import "__color-block/color-and-type__color-block";
+@import "__title-block/color-and-type__title_block";
+@import "__title/colors-and-type__title";
+@import "__title/_level/colors-and-type__title_level_h1";
+@import "__title/_level/colors-and-type__title_level_h2";
+@import "__title/_level/colors-and-type__title_level_h3";
+@import "__text/colors-and-type__text";
+@import "__logo/colors-and-type__logo";

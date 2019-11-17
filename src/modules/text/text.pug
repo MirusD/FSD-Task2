@@ -1,0 +1,20 @@
+mixin text(options)
+    if !options
+        - options = {}
+    if !options.block
+        - options.block = {}
+
+    if options.mix
+        - var mix = options.mix + '__text';
+    else
+        - var mix = '';
+
+    if !options.block.mod
+        - options.block.mod = {}
+    else
+        if options.block.mod.width
+            - var modWidth = 'text_width_' + options.block.mod.width;
+        else
+            - var modWidth = '';
+
+    #{options.block.tag}.text(class=mix class=modWidth)=options.block.content

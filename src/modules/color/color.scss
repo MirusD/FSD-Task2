@@ -1,0 +1,28 @@
+.color {
+  padding-left: 110px;
+  position: relative;
+  font-family: $QuicksandFont;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 29px;
+  height: 70px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0px;
+    height: 70px;
+    width: 70px;
+    border-radius: 6px;
+  }
+}
+
+@import "__title/color__title";
+@import "__text/color__text";
+@import "_bg-color/color_bg-color_dark-shade-100";
+@import "_bg-color/color_bg-color_dark-shade-75";
+@import "_bg-color/color_bg-color_dark-shade-50";
+@import "_bg-color/color_bg-color_dark-shade-25";
+@import "_bg-color/color_bg-color_dark-shade-5";
+@import "_bg-color/color_bg-color_purple";
+@import "_bg-color/color_bg-color_green";

@@ -1,0 +1,23 @@
+mixin color(options)
+    if !options
+        - options = {};
+    if !options.block
+        - options.block = {};
+
+    if !options.block.mod
+        - options.block.mod = {};
+    else
+        if options.block.mod.bgColor
+            - var modBgColor = 'color_bg-color_' + options.block.mod.bgColor;
+        else
+            - var modBgColor = '';
+
+    if options.mix
+        - var mix = options.mix + '__color';
+    else
+        - var mix = '';
+
+
+    .color(class=modBgColor class=mix)
+        h2.color-picker__title=options.block.content.title
+        p.color-picker__text=options.block.content.text

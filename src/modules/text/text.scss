@@ -1,0 +1,10 @@
+.text {
+  font-family: $MontserratFont;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $P;
+  line-height: 24px;
+  margin: 0
+}
+
+@import "_width/text_width_middle";

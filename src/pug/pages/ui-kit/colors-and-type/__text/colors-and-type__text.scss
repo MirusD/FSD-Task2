@@ -1,0 +1,14 @@
+.colors-and-type__text {
+  margin-left: 59px;
+  position: relative;
+  &::before {
+    content: "Body";
+    position: absolute;
+    left: -66px;
+    top: -2px;
+    font-family: $MontserratFont;
+    font-style: normal;
+    font-weight: normal;
+    color: $DarkShade25;
+  }
+}

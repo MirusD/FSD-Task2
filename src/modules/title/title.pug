@@ -1,0 +1,34 @@
+mixin title(options)
+    if !options
+        - options = {}
+    if !options.block
+        - options.block = {}
+
+    if !options.block.mod
+        - options.block.mod = {}
+    else
+        if options.block.mod.level
+            - var modLevel = 'title_level_' + options.block.mod.level
+        else
+            - var modLevel = '';
+
+        if options.block.mod.transform
+            - var modTransform = 'title_transform_' + options.block.mod.transform;
+        else
+            - var modTransform = '';
+
+        if options.block.mod.width
+            - var modWidth = 'title_width_' + options.block.mod.width;
+        else
+            - var modWidth = '';
+
+    if options.mix
+        - var mix = options.mix + '__title';
+        if options.mixMod.level
+            - var mixModLevel = options.mix + '__title_level_' + options.mixMod.level;
+        else
+            - var mixModLevel = '';
+    else
+        - var mix = '';
+
+    #{options.block.tag}.title(class=mix class=modLevel class=mixModLevel class=modTransform class=modWidth)=options.block.content

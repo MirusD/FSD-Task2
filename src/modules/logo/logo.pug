@@ -1,0 +1,22 @@
+mixin logo (options)
+    if !options
+        - options = {}
+    if !options.block
+        - options.block = {}
+
+    if options.block.mod.them
+        - var modThem = 'logo_them_' + options.block.mod.them;
+    else
+        - var modThem = '';
+
+    if options.mix
+        - var mix = options.mix + '__logo';
+    else
+        - var mix = '';
+
+    if options.block.mod.them === 'logo1'
+        div.logo(class=modThem class=mix)
+    else
+        if options.block.mod.them === 'logo2'
+            include  _them/_logo2/logo_them_logo2
+            +logo2(modThem, mix)

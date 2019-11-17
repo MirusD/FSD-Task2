@@ -1,0 +1,14 @@
+.colors-and-type__title_level_h2 {
+  margin-left: 59px;
+  position: relative;
+  &::before {
+    content: "H2";
+    position: absolute;
+    left: -57px;
+    top: 1px;
+    font-family: $MontserratFont;
+    font-style: normal;
+    font-weight: normal;
+    color: $DarkShade25;
+  }
+}
