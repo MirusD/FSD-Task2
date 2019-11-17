@@ -1,0 +1,12 @@
+.dropdown__select {
+  margin-top: 4px;
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 4px;
+  padding: 8px 0 10px 15px;
+  box-sizing: border-box;
+  background: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z' fill='%231F2041' fill-opacity='0.75'/%3e%3c/svg%3e ") no-repeat;
+  background-color: white;
+  background-position: right 15px center;
+}

@@ -1,0 +1,36 @@
+mixin dropdown(options)
+    if !options
+        - options = {}
+    if !options.block
+        - options.block = {}
+
+    if options.block.content
+        - var title = options.block.content
+    else
+        - var title = ''
+
+    if options.mix
+        - var mix = options.mix + "__dropdown"
+    else
+        - var mix = ''
+
+    .dropdown(class=mix)
+        +title({
+            block: {
+                content: title,
+                tag: 'label',
+                mod: {
+                    level: 'h3',
+                    transform: 'uppercase'
+                }
+            },
+            mix: 'text-field'
+        })
+        .dropdown__select
+            +text({
+                block: {
+                    content: 'Сколько гостей',
+                    tag: 'p'
+                },
+                mix: 'dropdown'
+            })
