@@ -23,13 +23,17 @@ mixin dropdown(options)
             - var modDate = 'dropdown_date'
         else
             - var modDate = ''
+        if options.block.mod.marginLeft
+            - var modMargin = 'dropdown_margin_left'
+        else
+            - var modMargin = ''
 
     if options.mix
         - var mix = options.mix + "__dropdown"
     else
         - var mix = ''
 
-    .dropdown(class=mix class=modDate)
+    .dropdown(class=mix class=modDate class=modMargin)
         +title({
             block: {
                 content: title,
