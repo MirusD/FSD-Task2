@@ -5,16 +5,29 @@ mixin text-field(options)
         - options.block = {}
 
     if options.block.content
-        - var title = options.block.content;
+        - var title = options.block.content
     else
         - var title = ''
 
     if options.mix
-        - var mix = options.mix + '__text-field';
+        - var mix = options.mix + '__text-field'
     else
-        - var mix = '';
+        - var mix = ''
 
-    div.text-field(class=mix)
+    if !options.block.mod
+        - options.block.mod = {}
+    else
+        if options.block.mod.masked === "true"
+            - var modMasked = 'text-field_masked'
+        else
+            - var modMadked = ''
+
+    if options.block.placeholder
+        - var placeholder = options.block.placeholder
+    else
+        - var placeholder = ''
+
+    div.text-field(class=mix class=modMasked)
         +title({
             block: {
                 content: title,
@@ -26,4 +39,4 @@ mixin text-field(options)
             },
             mix: 'text-field'
         })
-        input.text-field__input(type='text' placeholder='Email')
+        input.text-field__input(type='text' placeholder=placeholder)
