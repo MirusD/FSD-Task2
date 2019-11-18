@@ -4,17 +4,32 @@ mixin dropdown(options)
     if !options.block
         - options.block = {}
 
-    if options.block.content
-        - var title = options.block.content
+    if !options.block.content
+        - options.block.content = {}
     else
-        - var title = ''
+        if options.block.content.title
+            - var title = options.block.content.title
+        else
+            - var title = ''
+        if options.block.content.text
+            - var text = options.block.content.text
+        else
+            - var text = ''
+
+    if !options.block.mod
+        - options.block.mod = {}
+    else
+        if options.block.mod.date === 'true'
+            - var modDate = 'dropdown_date'
+        else
+            - var modDate = ''
 
     if options.mix
         - var mix = options.mix + "__dropdown"
     else
         - var mix = ''
 
-    .dropdown(class=mix)
+    .dropdown(class=mix class=modDate)
         +title({
             block: {
                 content: title,
@@ -29,7 +44,7 @@ mixin dropdown(options)
         .dropdown__select
             +text({
                 block: {
-                    content: 'Сколько гостей',
+                    content: text,
                     tag: 'p'
                 },
                 mix: 'dropdown'
