@@ -21,13 +21,17 @@ mixin text-field(options)
             - var modMasked = 'text-field_masked'
         else
             - var modMadked = ''
+        if options.block.mod.subscription === "true"
+            - var modSubscription = 'text-field_subscription'
+        else
+            - var modSubscription = ''
 
     if options.block.placeholder
         - var placeholder = options.block.placeholder
     else
         - var placeholder = ''
 
-    div.text-field(class=mix class=modMasked)
+    div.text-field(class=mix class=modMasked class=modSubscription)
         +title({
             block: {
                 content: title,
