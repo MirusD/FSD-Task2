@@ -2,6 +2,11 @@ body {
   background-color: #E5E5E5;
 }
 
+.container {
+  width: 1160px;
+  margin: 0 auto;
+}
+
 @import "utils/fonts";
 @import "utils/vars";
 @import "../../modules/modules";

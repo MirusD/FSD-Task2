@@ -7,27 +7,55 @@ section.form-elements
         },
         mix: 'form-elements'
     })
+    .container.form-elements__container
+        .form-elements__col1
+            .form-elements__text-field_default
+                +text-field({
+                    block: {
+                        content: 'text field',
+                        placeholder: 'Email'
+                    },
+                    mix: 'form-elements'
+                })
 
-    .form-elements__text-field_default
-        +text-field({
-            block: {
-                content: 'text field'
-            },
-            mix: 'form-elements'
-        })
+            .form-elements__text-field_focus
+                +text-field({
+                    block: {
+                        content: 'text field'
+                    },
+                    mix: 'form-elements'
+                })
 
-    .form-elements__text-field_focus
-        +text-field({
-            block: {
-                content: 'text field'
-            },
-            mix: 'form-elements'
-        })
+            .form-elements__dropdown_default
+                +dropdown({
+                    block: {
+                        content: 'Dropdown'
+                    },
+                    mix: 'form-elements'
+                })
 
-    .form-elements__dropdown_default
-        +dropdown({
-            block: {
-                content: 'Dropdown'
-            },
-            mix: 'form-elements'
-        })
+            .form-elements__text-field_default
+                +text-field({
+                    block: {
+                        content: 'masked text field',
+                        mod: {
+                            masked: 'true',
+                            subscription: 'true'
+                        },
+                        placeholder: 'ДД.ММ.ГГГГ'
+                    },
+                    mix: 'form-elements'
+                })
+
+            +text-field({
+                block: {
+                    content: 'subscription text field',
+                    mod: {
+                        subscription: 'true'
+                    },
+                    placeholder: 'Email'
+                },
+                mix: 'form-elements'
+            })
+        .form-elements__col2
+        .form-elements__col3
