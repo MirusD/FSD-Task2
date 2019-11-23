@@ -1,9 +1,9 @@
-.form-elements__dropdown_default .form-elements__dropdown {
+.form-elements__dropdown_default {
   position: relative;
   &::before {
     content: 'default';
     position: absolute;
-    top: 0;
+    top: 2px;
     right: 0;
     text-transform: uppercase;
     font-family: $MontserratFont;

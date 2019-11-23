@@ -29,7 +29,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.pug$/,
-            loader: 'pug-loader'
+            loader: 'pug-loader',
         },{
             test: /\.js$/,
             loader: 'babel-loader',

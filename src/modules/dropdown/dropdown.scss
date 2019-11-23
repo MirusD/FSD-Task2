@@ -2,6 +2,16 @@
   width: 320px;
 }
 
+
+//dependencies
+
+//block
+@import "../title/title";
+@import "../text/text";
+
+//elem
 @import "__select/dropdown__select";
-@import "_date/dropdown_date";
-@import "_margin/_left/dropdown_margin_left";
+
+//mod
+@import "_type/_date/dropdown_type_date";
+@import "_type/_filter-date/dropdown_type_filter-date";

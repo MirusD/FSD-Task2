@@ -1,39 +1,58 @@
+if 0
+    // dependencies
+include ../title/title
+include ../text/text
+
 mixin dropdown(options)
     if !options
         - options = {}
     if !options.block
         - options.block = {}
 
+                    if 0
+                        // === BLOCK.CONTENT ===
+
     if !options.block.content
         - options.block.content = {}
     else
-        if options.block.content.title
-            - var title = options.block.content.title
-        else
-            - var title = ''
-        if options.block.content.text
-            - var text = options.block.content.text
-        else
-            - var text = ''
+        - var title = options.block.content.title ? options.block.content.title : ''
+        - var text = options.block.content.text ? options.block.content.text : ''
+
+                    if 0
+                        // === BLOCK.MOD ===
 
     if !options.block.mod
         - options.block.mod = {}
     else
-        if options.block.mod.date === 'true'
-            - var modDate = 'dropdown_date'
-        else
-            - var modDate = ''
-        if options.block.mod.marginLeft
-            - var modMargin = 'dropdown_margin_left'
-        else
-            - var modMargin = ''
+        - var modFilterDate = options.block.mod.filterDate ? 'dropdown_filter_date' : ''
+        - var modType = options.block.mod.type ? 'dropdown_type_' + options.block.mod.type : ''
 
-    if options.mix
-        - var mix = options.mix + "__dropdown"
+                    if 0
+                        // === MIX ===
+
+    - var mix = options.mix ? options.mix + "__dropdown" : ''
+
+                    if 0
+                        // === MIXMOD ===
+
+    if !options.mixMod
+        - options.mixMod = []
     else
-        - var mix = ''
+        if Array.isArray(options.mixMod)
+            - var mixMod = []
+            - var i = 0
+            each item in options.mixMod
+                - mixMod[i] = mix + '_' + item
+                - i++
+        else
+            - var mixMod = typeof options.mixMod === 'string' ? mix + '_' + options.mixMod : ''
 
-    .dropdown(class=mix class=modDate class=modMargin)
+                    if 0
+                        // === CLASSALL ===
+
+    - var classAll = [modType,modFilterDate,mix,mixMod]
+
+    .dropdown(class=classAll)
         +title({
             block: {
                 content: title,

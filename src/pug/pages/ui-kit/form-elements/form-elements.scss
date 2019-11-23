@@ -1,7 +1,7 @@
 .form-elements {
   position: relative;
   max-width: 1440px;
-  padding-top: 141px;
+  padding-top: 139px;
   margin: 0 auto;
   margin-top: 50px;
   background-color: white;
@@ -10,9 +10,19 @@
 }
 
 @import "__container/form-elements__container";
-@import "__col1/form-elements__col1";
 @import "__logo/form-elements__logo";
+
+//Text-field
 @import "__text-field/form-elements__text-field";
 @import "__text-field/_default/form-elements__text-filed_default";
 @import "__text-field/_focus/form-elements__text-field_focus";
+@import "__text-field/_margin/form-elements__text-field_margin_top-19";
+@import "__text-field/_margin/form-elements__text-field_margin_top-20";
+@import "__text-field/_margin/form-elements__text-field_margin_top-39";
+
+//Dropdown
 @import "__dropdown/_default/form-elements__dropdown_default";
+@import "__dropdown/_margin/form-elements__dropdown_margin_top-18";
+@import "__dropdown/_margin/form-elements__dropdown_margin_top-39";
+@import "__dropdown/_margin/form-elements__dropdown_margin_left-20";
+
