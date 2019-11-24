@@ -1,63 +1,52 @@
-section.color-and-type
-    +logo({
-        block: {
-            mod: {
-                them: 'logo1'
-            }
-        },
-        mix: 'colors-and-type'
-    })
-
-    .color-and-type__color-block
-        - var title = ['Dark Shade 100%','Dark Shade 75%','Dark Shade 50%','Dark Shade 25%','Dark Shade 5%','Purple','Green'];
-        - var text = ['#1F2041','#1F2041','#1F2041','#1F2041','#1F2041','#BC9CFF','#6FCF97'];
-        - var modBgColor = ['dark-shade-100','dark-shade-75','dark-shade-50','dark-shade-25','dark-shade-5','purple','green'];
-
-        - for (var i=0; i<7; i++)
-            +color({
+section.colors-and-type
+    div.container.colors-and-type__container
+        div.colors-and-type__logo
+            +logo({
                 block: {
-                    content: {
-                        title: title[i],
-                        text: text[i]
-                    },
                     mod: {
-                        bgColor: modBgColor[i]
+                        them: 'logo1'
                     }
-                },
-                mix: 'colors-and-type'
-            })
-
-    .color-and-type__title-block
-
-        - var content = ['This one is the sub-section or widget title','Next one is the item title inside widgets','This is a label or CTA text'];
-        - var tag = ['h1','h2','h3'];
-        - var modLevel = ['h1','h2','h3'];
-        - var mixModLevel = ['h1','h2','h3'];
-        - var modTransform = ['','','uppercase'];
-
-        - for (var i=0; i<3; i++)
-            +title({
-                block: {
-                    content: content[i],
-                    tag: tag[i],
-                    mod: {
-                        level: modLevel[i],
-                        transform: modTransform[i]
-                    }
-                },
-                mix: 'colors-and-type',
-                mixMod: {
-                    level: mixModLevel[i]
-                    }
-            })
-
-        +text({
-            block: {
-                content: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
-                tag: 'p',
-                mod: {
-                    width: 'middle'
                 }
-            },
-            mix: 'colors-and-type'
-        })
+            })
+
+        .colors-and-type__color-block
+            - var title = ['Dark Shade 100%','Dark Shade 75%','Dark Shade 50%','Dark Shade 25%','Dark Shade 5%','Purple','Green'];
+            - var text = ['#1F2041','#1F2041','#1F2041','#1F2041','#1F2041','#BC9CFF','#6FCF97'];
+            - var modBgColor = ['dark-shade-100','dark-shade-75','dark-shade-50','dark-shade-25','dark-shade-5','purple','green'];
+
+            - for (var i=0; i<7; i++)
+                div.colors-and-type__color
+                    +color({
+                        block: {
+                            content: {
+                                title: title[i],
+                                text: text[i]
+                            },
+                            mod: {
+                                bgColor: modBgColor[i]
+                            }
+                        },
+                        mix: ''
+                    })
+
+        .colors-and-type__title-block
+
+            - var content = ['This one is the sub-section or widget title','Next one is the item title inside widgets','This is a label or CTA text'];
+            - var level = ['h1','h2','h3'];
+            - var transform = ['','','uppercase'];
+
+            - for (var i=0; i<3; i++)
+                div.colors-and-type__title(class='colors-and-type__title_level_' + level[i])
+                    +title({content: content[i], level: level[i], transform: transform[i]})
+
+            div.colors-and-type__text
+                +text({
+                    block: {
+                        content: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
+                        tag: 'p',
+                        mod: {
+                            width: 'middle'
+                        }
+                    },
+                    mix: ''
+                })
