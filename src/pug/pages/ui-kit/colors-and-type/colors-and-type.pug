@@ -10,18 +10,7 @@ section.colors-and-type
 
             - for (var i=0; i<7; i++)
                 div.colors-and-type__color
-                    +color({
-                        block: {
-                            content: {
-                                title: title[i],
-                                text: text[i]
-                            },
-                            mod: {
-                                bgColor: modBgColor[i]
-                            }
-                        },
-                        mix: ''
-                    })
+                    +color({title: title[i], text: text[i], bgColor: modBgColor[i]})
 
         .colors-and-type__title-block
 
