@@ -13,7 +13,6 @@ section.colors-and-type
                     +color({title: title[i], text: text[i], bgColor: modBgColor[i]})
 
         .colors-and-type__title-block
-
             - var content = ['This one is the sub-section or widget title','Next one is the item title inside widgets','This is a label or CTA text'];
             - var level = ['h1','h2','h3'];
             - var transform = ['','','uppercase'];
@@ -24,12 +23,6 @@ section.colors-and-type
 
             div.colors-and-type__text
                 +text({
-                    block: {
-                        content: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
-                        tag: 'p',
-                        mod: {
-                            width: 'middle'
-                        }
-                    },
-                    mix: ''
+                    content: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
+                    width: 'middle'
                 })

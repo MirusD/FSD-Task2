@@ -1,113 +1,131 @@
 section.form-elements
-    +logo({
-        block: {
-            mod: {
-                them: 'logo1'
-            }
-        },
-        mix: 'form-elements'
-    })
-    .container.form-elements__container
-        .form-elements__row1
-            .form-elements__col1
-                +text-field({
-                    block: {
-                        content: {
-                            title: 'text field',
-                            placeholder: 'Email'
-                        }
-                    },
-                    mix: 'form-elements',
-                    mixMod: 'default'
-                })
-                +text-field({
-                    block: {
-                        content: {
-                            title: 'text field',
-                            value: 'This is pretty awesome'
-                        }
-                    },
-                    mix: 'form-elements',
-                    mixMod: ['focus','margin_top-19']
-                })
-                +dropdown({
-                    block: {
-                        content: {
-                            title: 'Dropdown',
-                            text: 'Сколько гостей'
-                        }
-                    },
-                    mix: 'form-elements',
-                    mixMod: ['default', 'margin_top-18']
-                })
-                +text-field({
-                    block: {
-                        content: {
-                            title: 'masked text field',
-                            placeholder: 'ДД.ММ.ГГГГ'
-                        },
-                        mod: {
-                            masked: 'true'
-                        }
-                    },
-                    mix: 'form-elements',
-                    mixMod: ['default','margin_top-20']
-                })
+    div.form-elements__logo
+        +logo({them: 'logo1'})
 
-                +dropdown({
-                    block: {
-                        content: {
-                            title: 'Date dropdown',
-                            text: 'ДД.ММ.ГГГГ'
-                        },
-                        mod: {
-                            type: 'date'
-                        }
-                    },
-                    mix: 'form-elements'
-                })
-
-                +dropdown({
-                    block: {
-                        content: {
-                            title: 'Date dropdown',
-                            text: '19.08.2019'
-                        },
-                        mod: {
-                            type: 'date'
-                        }
-                    },
-                    mix: 'form-elements',
-                    mixMod: ['margin_left-20','margin_top-39']
-                })
-                +dropdown({
-                    block: {
-                        content: {
-                            title: 'filter date dropdown',
-                            text: '19 авг - 23 авг'
-                        },
-                        mod: {
-                            type: 'filter-date'
-                        }
-                    },
-                    mix: 'form-elements',
-                    mixMod: 'margin_top-39'
-                })
-                +text-field({
-                    block: {
-                        content: {
-                            title: 'subscription text field',
-                            placeholder: 'Email'
-                        },
-                        mod: {
-                            type: 'subscription'
-                        }
-                    },
-                    mix: 'form-elements',
-                    mixMod: 'margin_top-39'
-                })
-
-
-            .form-elements__col2
-            .form-elements__col3
-        .form-elements__row2
+    div.container.form-elements__container
+        div.form-elements__col1
+            +text-field({
+                block: {
+                    content: {
+                        title: 'text field',
+                        placeholder: 'Email'
+                    }
+                },
+                mix: 'form-elements',
+                mixMod: 'default'
+            })
+        div.form-elements__col2
+            +text-field({
+                block: {
+                    content: {
+                        title: 'text field',
+                        placeholder: 'Email'
+                    }
+                },
+                mix: 'form-elements',
+                mixMod: 'default'
+            })
+        div.form-elements__col3
+    //    div.form-elements__row1
+    //        div.form-elements__col1
+    //            +text-field({
+    //                block: {
+    //                    content: {
+    //                        title: 'text field',
+    //                        placeholder: 'Email'
+    //                    }
+    //                },
+    //                mix: 'form-elements',
+    //                mixMod: 'default'
+    //            })
+    //            +text-field({
+    //                block: {
+    //                    content: {
+    //                        title: 'text field',
+    //                        value: 'This is pretty awesome'
+    //                    }
+    //                },
+    //                mix: 'form-elements',
+    //                mixMod: ['focus','margin_top-19']
+    //            })
+    //            +dropdown({
+    //                block: {
+    //                    content: {
+    //                        title: 'Dropdown',
+    //                        text: 'Сколько гостей'
+    //                    }
+    //                },
+    //                mix: 'form-elements',
+    //                mixMod: ['default', 'margin_top-18']
+    //            })
+    //            +text-field({
+    //                block: {
+    //                    content: {
+    //                        title: 'masked text field',
+    //                        placeholder: 'ДД.ММ.ГГГГ'
+    //                    },
+    //                    mod: {
+    //                        masked: 'true'
+    //                    }
+    //                },
+    //                mix: 'form-elements',
+    //                mixMod: ['default','margin_top-20']
+    //            })
+    //
+    //            +dropdown({
+    //                block: {
+    //                    content: {
+    //                        title: 'Date dropdown',
+    //                        text: 'ДД.ММ.ГГГГ'
+    //                    },
+    //                    mod: {
+    //                        type: 'date'
+    //                    }
+    //                },
+    //                mix: 'form-elements'
+    //            })
+    //
+    //            +dropdown({
+    //                block: {
+    //                    content: {
+    //                        title: 'Date dropdown',
+    //                        text: '19.08.2019'
+    //                    },
+    //                    mod: {
+    //                        type: 'date'
+    //                    }
+    //                },
+    //                mix: 'form-elements',
+    //                mixMod: ['margin_left-20','margin_top-39']
+    //            })
+    //            +dropdown({
+    //                block: {
+    //                    content: {
+    //                        title: 'filter date dropdown',
+    //                        text: '19 авг - 23 авг'
+    //                    },
+    //                    mod: {
+    //                        type: 'filter-date'
+    //                    }
+    //                },
+    //                mix: 'form-elements',
+    //                mixMod: 'margin_top-39'
+    //            })
+    //            +text-field({
+    //                block: {
+    //                    content: {
+    //                        title: 'subscription text field',
+    //                        placeholder: 'Email'
+    //                    },
+    //                    mod: {
+    //                        type: 'subscription'
+    //                    }
+    //                },
+    //                mix: 'form-elements',
+    //                mixMod: 'margin_top-39'
+    //            })
+    //
+    //
+    //        .form-elements__col2
+    //        .form-elements__col3
+    //    .form-elements__row2

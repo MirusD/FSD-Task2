@@ -1,3 +1,6 @@
 .form-elements__container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 320px 126px 320px 72px 320px;
+  grid-template-areas:
+          "block1 . block2 . block3";
 }

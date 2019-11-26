@@ -7,6 +7,7 @@
   background-color: white;
   border: 1px solid white;
   z-index: 1;
+  height: 500px;
 }
 
 @import "__container/form-elements__container";
@@ -25,4 +26,8 @@
 @import "__dropdown/_margin/form-elements__dropdown_margin_top-18";
 @import "__dropdown/_margin/form-elements__dropdown_margin_top-39";
 @import "__dropdown/_margin/form-elements__dropdown_margin_left-20";
+
+@import "__col/form-elements__col1";
+@import "__col/form-elements__col2";
+@import "__col/form-elements__col3";
 
