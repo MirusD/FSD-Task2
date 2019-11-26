@@ -1,71 +1,20 @@
-if 0
-    // dependencies
 include ../title/title
 
 mixin text-field(options)
     if !options
         - options = {}
-    if !options.block
-        - options.block = {}
 
-                    if 0
-                        // === BLOCK.CONTENT ===
+    - var title = options.title ? options.title : ''
+    - var value = options.value ? options.value : ''
+    - var placeholder = options.placeholder ? options.placeholder : ''
 
-    if !options.block.content
-        - options.block.content = {}
-    else
-        - var title = options.block.content.title ? options.block.content.title : ''
-        - var value = options.block.content.value ? options.block.content.value : ''
-        - var placeholder = options.block.content.placeholder ? options.block.content.placeholder : ''
+    - var masked = options.masked === "true" ? 'text-field_masked' : ''
+    - var type = options.type ? 'text-field_type_' + options.type : ''
 
-                    if 0
-                        // === BLOCK.MOD ===
 
-    if !options.block.mod
-        - options.block.mod = {}
-    else
-        - var modMasked = options.block.mod.masked === "true" ? 'text-field_masked' : ''
-        - var modSubscription = options.block.mod.subscription === "true" ? 'text-field_subscription' : ''
-        - var modType = options.block.mod.type ? 'text-field_type_' + options.block.mod.type : ''
-
-                    if 0
-                        // === MIX ===
-
-    - var mix = options.mix ? options.mix + '__text-field' : ''
-
-                    if 0
-                        // === MIXMOD ===
-
-    if !options.mixMod
-        - options.mixMod = []
-    else
-        if Array.isArray(options.mixMod)
-            - var mixMod = []
-            - var i = 0
-            each item in options.mixMod
-                - mixMod[i] = mix + '_' + item
-                - i++
-        else
-            - var mixMod = typeof options.mixMod === 'string' ? mix + '_' + options.mixMod : ''
-
-                    if 0
-                        // === CLASSALL ===
-
-    - var classAll = [modMasked,modType,mix,mixMod]
-
-                    if 0
-                        // === TEMPLATE ===
+    - var classAll = [masked,type, subscription]
 
     div.text-field(class=classAll)
-        +title({
-            block: {
-                content: title,
-                tag: 'label',
-                mod: {
-                    level: 'h3',
-                    transform: 'uppercase'
-                }
-            },
-            mix: 'text-field'
-        })
-        input.text-field__input(type='text' placeholder=placeholder value=value)
+        label
+            +title({content: title, level: 'h3', transform: 'uppercase'})
+            input.text-field__input(type='text' placeholder=placeholder value=value)

@@ -4,16 +4,9 @@ section.form-elements
 
     div.container.form-elements__container
         div.form-elements__col1
-            +text-field({
-                block: {
-                    content: {
-                        title: 'text field',
-                        placeholder: 'Email'
-                    }
-                },
-                mix: 'form-elements',
-                mixMod: 'default'
-            })
+            div.form-elements__text-field_default
+                +text-field({title: 'text field', placeholder: 'Email', masked: 'true', type: 'subscription'})
+
         div.form-elements__col2
             +text-field({
                 block: {

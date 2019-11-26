@@ -2,8 +2,6 @@
   width: 320px;
 }
 
-//dependencies
-
 //block
 @import "../title/title";
 
@@ -11,4 +9,4 @@
 @import "__input/text-field__input";
 
 //mod
-@import "_type/_subscription/text-field_subscription";
+@import "_type/_subscription/text-field_type_subscription";
