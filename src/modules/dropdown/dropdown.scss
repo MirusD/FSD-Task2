@@ -10,8 +10,11 @@
 @import "../text/text";
 
 //elem
-@import "__select/dropdown__select";
+@import "__show-button/dropdown__show-button";
+@import "__expanded-block/dropdown__expanded-block";
+@import "__item-text/dropdown__item-text";
 
 //mod
 @import "_type/_date/dropdown_type_date";
 @import "_type/_filter-date/dropdown_type_filter-date";
+@import "_list-for-choosing-the-number-of-rooms/dropdown_list-for-choosing-the-number-of-rooms";

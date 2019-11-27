@@ -1,0 +1,14 @@
+include ../../title/title
+
+mixin expanded-block(options)
+    if !options
+        - options = {}
+
+    - var item = options.item ? options.item : ''
+
+    div(class=item)
+        div.dropdown__item-text
+            +title({content: options.text, level: 'h3', transform: 'uppercase'})
+        span.dropdown__button-plus
+        span.dropdown__count=options.count
+        span.dropdown__button-minus

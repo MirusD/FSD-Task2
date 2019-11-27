@@ -1,18 +1,25 @@
 include ../title/title
 include ../text/text
+include __expanded-block/dropdown__expanded-block
 
-mixin dropdown(options)
+mixin dropdown(options,visible)
     if !options
         - options = {}
 
     - var title = options.title ? options.title : ''
     - var text = options.text ? options.text : ''
     - var filterDate = options.filterDate === 'true' ? 'dropdown_filter_date' : ''
-    - var type = options.type ? 'dropdown_type_' + options.type : ''
+    - var type = options.type ? 'dropdown_' + options.type : ''
 
-    - var classAll = [type,filterDate]
+    - var classAll = [type,filterDate,visible]
 
     .dropdown(class=classAll)
         +title({content: title, level: 'h3', transform: 'uppercase'})
-        .dropdown__select
+        .dropdown__show-button
             +text({content: text})
+        if type === 'dropdown_list-for-choosing-the-number-of-guests'
+            .dropdown__expanded-block
+                include _list-for-choosing-the-number-of-guests/dropdown_list-for-choosing-the-number-of-guests
+        else if type === 'dropdown_list-for-choosing-the-number-of-rooms'
+            .dropdown__expanded-block
+                include _list-for-choosing-the-number-of-rooms/dropdown_list-for-choosing-the-number-of-rooms

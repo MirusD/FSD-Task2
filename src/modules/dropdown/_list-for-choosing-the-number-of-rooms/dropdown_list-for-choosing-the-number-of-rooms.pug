@@ -1,0 +1,8 @@
+include ../__expanded-block/dropdown__expanded-block
+
+- var items = ['bedroom','the-beds','bathrooms']
+- var texts = ['Спальни','Кровати','Ванные комнаты']
+- var counts = ['1','2','3']
+
+- for (var i=0; i<3; i++)
++expanded-block({item: items[i], text: texts[i], count: counts[i]})
