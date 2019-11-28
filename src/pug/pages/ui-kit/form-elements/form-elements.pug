@@ -31,6 +31,12 @@ section.form-elements
         .form-elements__row1-col2
             .form-elements__text-field_default
                 +text-field({title: 'text field', placeholder: 'Email'})
+            .form-elements__dropdown_list-for-choosing-the-number-of-rooms
+                +dropdown({
+                    title: 'Dropdown',
+                    text: '2 спальни, 2 кровати',
+                    type: "list-for-choosing-the-number-of-rooms"
+                }, 'visible')
 
         .form-elements__row1-col3
             .form-elements__text-field_default

@@ -11,10 +11,18 @@
 
 //elem
 @import "__show-button/dropdown__show-button";
+@import "__show-button/_clicked/.dropdown__show-button_clicked";
 @import "__expanded-block/dropdown__expanded-block";
+@import "__expanded-block/_visible/dropdown__expanded-block_visible";
 @import "__item-text/dropdown__item-text";
+@import "__button-plus/dropdown__button-plus.scss";
+@import "__button-minus/dropdown__button-minus.scss";
+@import "__count/dropdown__count";
+@import "__item/dropdown__item.scss";
+@import "__counting-unit/dropdown__counting-unit";
 
 //mod
 @import "_type/_date/dropdown_type_date";
 @import "_type/_filter-date/dropdown_type_filter-date";
 @import "_list-for-choosing-the-number-of-rooms/dropdown_list-for-choosing-the-number-of-rooms";
+@import "_list-for-choosing-the-number-of-guests/dropdown_list-for-choosing-the-number-of-guests";
