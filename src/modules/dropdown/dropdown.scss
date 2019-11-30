@@ -1,5 +1,6 @@
 .dropdown {
   width: 320px;
+  user-select: none;
 }
 
 
@@ -10,6 +11,7 @@
 @import "../text/text";
 
 //elem
+@import "__block/dropdown__block";
 @import "__show-button/dropdown__show-button";
 @import "__show-button/_clicked/.dropdown__show-button_clicked";
 @import "__expanded-block/dropdown__expanded-block";
@@ -20,6 +22,9 @@
 @import "__count/dropdown__count";
 @import "__item/dropdown__item.scss";
 @import "__counting-unit/dropdown__counting-unit";
+@import "__control-panel-for-apply-and-reset/dropdown__control-panel-for-apply-and-reset.scss";
+@import "__button-apply/dropdown__button-apply.scss";
+@import "__button-reset/dropdown__button-reset";
 
 //mod
 @import "_type/_date/dropdown_type_date";

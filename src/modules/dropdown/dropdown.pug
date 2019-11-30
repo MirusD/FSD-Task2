@@ -11,15 +11,23 @@ mixin dropdown(options,visible)
     - var filterDate = options.filterDate === 'true' ? 'dropdown_filter_date' : ''
     - var type = options.type ? 'dropdown_' + options.type : ''
 
-    - var classAll = [type,filterDate,visible]
+    - var shadow = visible === 'expanded' ? 'dropdown__block_shadow' : ''
+    - var clicked = visible === 'expanded' ? 'dropdown__show-button_clicked' : ''
+    - var visible = visible === 'expanded' ? 'dropdown__expanded-block_visible' : ''
+
+    - var classAll = [type,filterDate]
 
     .dropdown(class=classAll)
         +title({content: title, level: 'h3', transform: 'uppercase'})
-        .dropdown__show-button
-            +text({content: text})
-        if type === 'dropdown_list-for-choosing-the-number-of-guests'
-            .dropdown__expanded-block
-                include _list-for-choosing-the-number-of-guests/dropdown_list-for-choosing-the-number-of-guests
-        else if type === 'dropdown_list-for-choosing-the-number-of-rooms'
-            .dropdown__expanded-block
-                include _list-for-choosing-the-number-of-rooms/dropdown_list-for-choosing-the-number-of-rooms
+        div.dropdown__block(class=shadow)
+            .dropdown__show-button(class=clicked)
+                +text({content: text})
+            .dropdown__expanded-block(class=visible)
+                if type === 'dropdown_list-for-choosing-the-number-of-guests'
+                    include _list-for-choosing-the-number-of-guests/dropdown_list-for-choosing-the-number-of-guests
+                else if type === 'dropdown_list-for-choosing-the-number-of-rooms'
+                    include _list-for-choosing-the-number-of-rooms/dropdown_list-for-choosing-the-number-of-rooms
+                if type ===  'dropdown_list-for-choosing-the-number-of-guests'
+                    div.dropdown__control-panel-for-apply-and-reset
+                        a.dropdown__button-reset(href="/mock-address/change-me") очистить
+                        a.dropdown__button-apply(href="/mock-address/change-me") применить

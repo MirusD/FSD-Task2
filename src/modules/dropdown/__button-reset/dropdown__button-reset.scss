@@ -1,0 +1,13 @@
+.dropdown__button-reset {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(31, 32, 65, 0.5);
+  float: left;
+}
+
+@import "_hide/dropdown__button-reset_hide";

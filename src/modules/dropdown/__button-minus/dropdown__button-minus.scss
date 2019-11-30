@@ -15,6 +15,15 @@
     font-size: 18px;
     font-weight: normal;
     font-style: normal;
-    color: rgba(31, 32, 65, 0.5);
+    color: rgba(31, 32, 65, 0.25);
+  }
+  &:hover {
+    border: 1px solid rgba(31, 32, 65, 0.5);
+
+    &:before {
+      font-weight: bold;
+    }
   }
 }
+
+@import "_disabled/dropdown__button-minus_disabled";
