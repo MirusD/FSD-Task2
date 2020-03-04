@@ -1,0 +1,283 @@
+extends ../base/base
+include ../../components/toggle/toggle
+include ../../components/text-field/text-field
+include ../../components/dropdown/dropdown
+include ../../components/checkbox/checkbox
+include ../../components/checkbox-list/checkbox-list
+include ../../components/radio-buttons/radio-buttons
+include ../../components/toggle/toggle
+include ../../components/like-button/like-button
+include ../../components/rate-buttons/rate-button
+include ../../components/range-slider/range-slider
+include ../../components/button/button
+include ../../components/pagination/pagination
+include ../../components/bullet-list/bullet-list
+include ../../components/details/details
+include ../../components/comments/comments
+
+block title
+    | UI-KIT
+block header
+block main
+    section.demo-colors-and-type
+        | Colors and type
+        .container
+            header.demo-logo
+                img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
+            .demo-colors-and-type__container
+                .demo-colors
+                    - var title = ['Dark Shade 100%','Dark Shade 75%','Dark Shade 50%','Dark Shade 25%','Dark Shade 5%','Purple','Green'];
+                    - var text = ['#1F2041','#1F2041','#1F2041','#1F2041','#1F2041','#BC9CFF','#6FCF97'];
+                    - var modBgColor = ['first','second','third','fourth','fifth','sixth','seventh'];
+
+                    - for (var i=0; i<7; i++)
+                        .demo-colors__item(class='demo-colors__item_bg-color_' + modBgColor[i])
+                            h2.header_level-2=title[i]
+                            p.header_level-2.demo-colors__text=text[i]
+                .demo-type
+                    - var content = ['This one is the sub-section or widget title','Next one is the item title inside widgets','This is a label or CTA text'];
+                    - var tag = ['h1','h2','h3'];
+                    - var transform = ['','','uppercase'];
+                        .demo-type__title
+                            - for (var i=0; i<3; i++)
+                                - var level = tag[i] === 'h1' ? 'header-level-1' : tag[i] === 'h2' ? 'header-level-2' : tag[i] === 'h3' ? 'header-level-3' : ''
+                                #{tag[i]}(class="demo-type__item" class=level)=content[i]
+                            p.demo-type__item(style='max-width: 301px; margin-top: -2px;') This is the body text which is used for most of the design, like paragraphs, lists, etc.
+
+    section.demo-form-elements
+        header
+            p Form elementss
+        .container
+            .demo-logo
+                img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
+            .form-elements__container
+                .row1-col1
+                    .demo-text-field__default
+                        h3.header_level-3 Text field
+                        +text-field({
+                            placeholder: 'Email'
+                        })
+                    .demo-text-field__hovered-and-focused
+                        h3.header_level-3 Text field
+                        +text-field({
+                            value: 'This is pretty awesome'
+                        })
+                    .demo-dropdown__default_big
+                        h3.header_level-3 Dropdown
+                        +dropdown({
+                            value: 'Сколько гостей',
+                            items: ['Взрослые', 'Дети', 'Младенцы'],
+                            size: 'big',
+                            controlBar: 'true'
+                        })
+                    .demo-text-field__masked
+                        h3.header_level-3 Masked text field
+                        +text-field({
+                            placeholder: 'ДД.ММ.ГГГГ'
+                        })
+                    .demo-dropdown__date(style= "max-width: 320px")
+                        .demo-dropdown__from
+                            h3.header_level-3 Date dropdown
+                            +dropdown({
+                                value: 'ДД.ММ.ГГГГ',
+                                size: 'small'
+                            })
+                        .demo-dropdown__to
+                            h3.header_level-3 Date dropdown
+                            +dropdown({
+                                value: '19.08.2019',
+                                size: 'small'
+                            })
+                    .demo-dropdown__filter-date
+                        h3.header_level-3 Filter date dropdown
+                        +dropdown({
+                            value: '19 авг - 23 авг',
+                            size: 'middle'
+                        })
+                    .demo-text-field__subscription
+                        h3.header_level-3 Subscription text field
+                        +text-field({
+                            placeholder: 'Email',
+                            type: 'subscription'
+                        })
+                .row1-col2
+                    .demo-checkbox-buttons
+                        - var itemsCheckboxButtons = ['Можно курить','Можно с питомцами','Можно пригласить гостей <br> (до 10 человек)']
+
+                        h3.header_level-3.demo-checkbox-buttons__title Checkbox buttons
+                        - for (var i=0; i<3; i++)
+                            .demo-checkbox-buttons__items
+                                +checkbox({value: itemsCheckboxButtons[i]})
+                    .demo-radio-buttons
+                        h3.header_level-3 Radio buttons
+                        +radio-buttons({
+                            items: ['Мужчина','Женщина']
+                        })
+                    .demo-toggle
+                        h3.header_level-3.demo-toggle__title Toggle
+                        +toggle({items: ['Получать спецпредложения','Получать спецпредложения']})
+                    .demo-like-buttons
+                        h3.header_level-3.demo-like-buttons__title Like button
+                        .demo-like-buttons__first
+                            +like-button({
+                                likes: '2',
+                                id: 'like-button1'
+                            })
+                        .demo-like-buttons__second
+                            +like-button({
+                                likes: "12",
+                                id: 'like-button2'
+                            })
+                    .demo-rate-button
+                        h3.header_level-3.demo-rate-button__title Rate button
+                        .demo-rate-button__first
+                            +rate-buttons({
+                                name: 'rate-first',
+                                stars: '4'
+                            })
+                        .demo-rate-button__second
+                            +rate-buttons({
+                                name: 'rate-second',
+                                stars: '5'
+                            })
+
+                .row1-col3
+                    .demo-range-slider
+                        h3.header_level-3.demo-range-slider__title Range slider
+                        +range-slider()
+                    .demo-buttons
+                        h3.header_level-3.demo-buttons__title Buttons
+                        .demo-buttons__btn-default
+                            .demo-buttons__first
+                                +button({
+                                    text: 'click me'
+                                })
+                            .demo-buttons__second
+                                +button({
+                                    text: 'click me'
+                                })
+                        .demo-buttons__btn-outline
+                            .demo-buttons__first
+                                +button({
+                                    text: 'click me',
+                                    type: 'outline'
+                                })
+                            .demo-buttons__second
+                                +button({
+                                    text: 'click me',
+                                    type: 'outline'
+                                })
+                        .demo-buttons__btn-link
+                            .demo-buttons__first
+                                +button({
+                                    text: 'click me',
+                                    type: 'link'
+                                })
+                            .demo-buttons__second
+                                +button({
+                                    text: 'click me',
+                                    type: 'link'
+                                })
+                        .demo-buttons__btn-arrow
+                            +button({
+                                text: 'Перейти к оплате',
+                                type: 'arrow-btn'
+                            })
+                    .demo-pagination
+                        h3.header_level-3.demo-pagination__title Pagination
+                        +pagination()
+                .row2-col1
+                    .demo-dropdown__default
+                        h3.header_level-3 dropdown
+                        +dropdown({
+                            value: 'Сколько комнат',
+                            items: [{value: 'Спальни', defaultCount: '2'}, {value: 'Кровати', defaultCount: 2}, 'Ванные комнаты'],
+                            size: 'middle'
+                        })
+                    .demo-dropdown__expanded
+                        h3.header_level-3 dropdown
+                        +dropdown({
+                            value: 'Сколько комнат',
+                            items: [{value: 'Спальни', defaultCount: '2'}, {value: 'Кровати', defaultCount: 2}, 'Ванные комнаты'],
+                            isExpanded: 'true'
+                        })
+                .row2-col2
+                    h3.header_level-3 dropdown
+                    +dropdown({
+                        value: 'Сколько гостей',
+                        items: ['Взрослые', 'Дети', 'Младенцы'],
+                        isExpanded: 'true',
+                        controlBar: 'true',
+                        size: 'big'
+                    })
+                .row2-col3
+                    h3.header_level-3 dropdown
+                    +dropdown({
+                        value: 'Сколько гостей',
+                        items: [{value: 'Взрослые', defaultCount: '2'}, {value: 'Дети', defaultCount: '1'}, 'Младенцы'],
+                        isExpanded: 'true',
+                        controlBar: 'true',
+                        size: 'big'
+                    })
+                .row3-col1
+                    .demo-checkbox-list__default
+                        +checkbox-list({
+                            title: 'Expandable checkbox list',
+                            items: [{value: 'Завтрак', id: 'breakfast'}, {value: 'Письменный стол', id: 'desk'}, {value: 'Стул для кормления', id: 'feeding-chair'}, {value: 'Кроватка', id: 'bed'}, {value: 'Телевизор', id: 'tv'}, {value: 'Шампунь', id: 'shampoo'}, {value: 'Телевизор', id: 'second-tv'}, {value: 'Шампунь', id: 'second-shampoo'}],
+                            isExpanded: 'false'
+                        })
+                    .demo-checkbox-list__expanded
+                        +checkbox-list({
+                            title: 'Expandable checkbox list',
+                            items: ['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь', 'Телевизор', 'Шампунь'],
+                            isExpanded: 'true'
+                        })
+                .row3-col2
+                    .demo-rich-checkbox-buttons
+                        h3.header_level-3.demo-rich-checkbox-buttons__title Rich checkbox buttons
+                        .demo-rich-checkbox-buttons__first
+                            +checkbox({
+                                value: 'Широкий коридор',
+                                description: 'Ширина коридоров в номере <br> не менее 91 см.',
+                                isRich: 'true'
+                            })
+                        .demo-rich-checkbox-buttons__second
+                            +checkbox({
+                                value: 'Помощник для инвалидов',
+                                description: 'На 1 этаже вас встретит специалист <br> и проводит до номера',
+                                isRich: 'true'
+                            })
+                .row3-col3
+                    .demo-bullet-list
+                        h3.header_level-3.demo-bullet-list__title Bullet list
+                        +bullet-list({
+                            value: ['Нельзя с питомцами','Без вечеринок и мероприятий','Время прибытия - после 13:00 <br> а выезд до 12:00']
+                        })
+                .row4-col1
+                    .demo-details__first
+                        +details({
+                            header: 'Комфорт',
+                            description: 'Шумопоглощающие стены',
+                            icon: require('./img/insert_emoticon.svg')
+                        })
+                    .demo-details__second
+                        +details({
+                            header: 'Удобство',
+                            description: 'Окно в каждой из спален',
+                            icon: require('./img/location_city.svg')
+                        })
+                .row4-col2
+                    .demo-comments
+                        +comments({
+                            name: 'Мурад Сарафанов',
+                            comment: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.\n' +
+                                'И стены, действительно, шумопдавляющие. Выкрикивал комплименты повару - никто\n' +
+                                'не жаловался из соседей.',
+                            avatar: require('./img/avatar/avatar.jpg')
+                        })
+                        +comments({
+                            name: 'Дамир Салихов',
+                            comment: 'Хуета полная, бегают тараканы, пахнет говном, и стены хуета та та, выкрикивал что повар мудак \n' +
+                                'соседи со мной согласились)))',
+                            avatar: require('./img/avatar/avatar.jpg')
+                        })

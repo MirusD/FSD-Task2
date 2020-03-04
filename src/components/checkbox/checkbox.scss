@@ -1,0 +1,47 @@
+@import "../../theme/variables";
+
+.checkbox {
+  position: relative;
+  user-select: none;
+  &__input {
+    display: none;
+  }
+  &__text {
+    display: inline-block;
+    padding-left: 30px;
+    //line-height: 18px;
+    &_bold {
+      font-weight: bold;
+    }
+  }
+  &__text:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    height: 18px;
+    width: 18px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 4px;
+  }
+  &__input:checked + &__text:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.46439 4.29245L5.70703 8.53509L4.29282 9.9493L0.0501771 5.70666L1.46439 4.29245Z' fill='url(%23paint0_linear)'/%3e%3cpath d='M8.53546 2.87823L9.94967 4.29245L4.29282 9.9493L2.8786 8.53509L8.53546 2.87823Z' fill='url(%23paint1_linear)'/%3e%3cdefs%3e%3clinearGradient id='paint0_linear' x1='7.82835' y1='2.17112' x2='2.1715' y2='7.82798' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23BC9CFF'/%3e%3cstop offset='1' stop-color='%238BA4F9'/%3e%3c/linearGradient%3e%3clinearGradient id='paint1_linear' x1='7.82835' y1='2.17112' x2='2.1715' y2='7.82798' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23BC9CFF'/%3e%3cstop offset='1' stop-color='%238BA4F9'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  &__input:checked + &__text:before {
+    border-color: $color-sixth;
+  }
+  &__description {
+    display: block;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 4px;
+  }
+}

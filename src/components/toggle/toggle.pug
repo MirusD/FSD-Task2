@@ -1,0 +1,12 @@
+//-
+  options.items - массив элементов
+
+mixin toggle(options)
+  if !options
+    - options = {}
+
+  .toggle
+    each item in options.items
+      .toggle__item
+        input.toggle__input(type="checkbox" id=item)
+        label.toggle__text(for=item)=item

@@ -1,0 +1,13 @@
+//-
+    options.items - массив элементов блока radio buttons
+
+mixin radio-buttons(options)
+    if !options
+        - options = {}
+
+    .radio-buttons
+        .radio-buttons__items
+            each item in options.items
+                .radio-buttons__item
+                    input.radio-buttons__input(name="radio-buttons" type="radio" id=item)
+                    label.radio-buttons__text(for=item)=item

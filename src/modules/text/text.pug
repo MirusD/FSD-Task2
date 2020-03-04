@@ -1,7 +1,0 @@
-mixin text(options)
-    if !options
-        - options = {}
-
-    - var width = options.width ? 'text_width_' + options.width : ''
-
-    p.text(class=width)=options.content

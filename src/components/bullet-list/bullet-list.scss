@@ -1,0 +1,21 @@
+@import '../../theme/variables';
+
+.bullet-list {
+  list-style: none;
+  &__item {
+    position: relative;
+    margin-left: 21px;
+    margin-bottom: 10px;
+    &:before {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 7px;
+      //transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      background-color: $color-fourth;
+      border-radius: 22px;
+    }
+  }
+}

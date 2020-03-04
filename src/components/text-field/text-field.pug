@@ -1,0 +1,22 @@
+//-
+    options.value - значение в поле input
+    options.placeholder - вывод подсказывающего текста
+    options.type - тип блока text field
+
+mixin text-field(options)
+    if !options
+        - options = {}
+    -
+        var value = options.value ? options.value : ''
+        var placeholder = options.placeholder ? options.placeholder : ''
+        var type = options.type === 'masked' ? 'text-field__input_masked' :
+            options.type === 'subscription' ? 'text-field_subscription' : ''
+
+
+        var classAll = [masked,type]
+
+    .text-field(class=classAll)
+        .text-field__form
+            input.text-field__input(type='text', placeholder=placeholder, value=value)
+            if(options.type === 'subscription')
+                button.text-field__btn_arrow

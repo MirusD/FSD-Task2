@@ -1,0 +1,19 @@
+//-
+    options.value - значение поля
+    options.id - уникальный идентификатор
+    options.name - имя инпута
+    options.description - описание значения поля, имеет значение только если включен расширенный вариант isRich: 'true'
+    options.isRich - расширенный вариант по умолчанию 'false' (bool)
+
+mixin checkbox(options)
+    if !options
+        - options = {}
+
+    - var isRich = options.isRich === 'true' ? 'checkbox_rich' : '';
+
+    .checkbox(class=isRich)
+        input.checkbox__input(type="checkbox" name=options.name || options.id, id=options.id || options.value)
+        label.checkbox__text(class=options.isRich === 'true' ? 'checkbox__text_bold':'' for=options.id || options.value)
+            | !{options.value}
+            if(options.isRich === 'true')
+                span.checkbox__description!=options.description

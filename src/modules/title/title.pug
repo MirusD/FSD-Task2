@@ -1,8 +1,0 @@
-mixin title(options)
-    if !options
-        - options = {}
-
-    - var level = options.level ? 'title_level_' + options.level : ''
-    - var transform = options.transform ? 'title_transform_' + options.transform : ''
-
-    #{options.level}.title(class=level class=transform)=options.content

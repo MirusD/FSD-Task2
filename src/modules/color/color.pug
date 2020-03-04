@@ -1,9 +1,0 @@
-mixin color(options)
-    if !options
-        - options = {};
-
-    - var bgColor = options.bgColor ? 'color_bg-color_' + options.bgColor : ''
-
-    .color(class=bgColor)
-        h2.color-picker__title=options.title
-        p.color-picker__text=options.text

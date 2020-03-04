@@ -1,11 +1,7 @@
-const merge = require('webpack-merge');
-const baseWebpackConfig = require('./webpack.base.conf');
+const configurator = require('webpack-config');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const buildWebpackConfig = merge(baseWebpackConfig, {
+module.exports = new configurator.default().extend('build/webpack.base.conf.js').merge({
     mode: 'production',
-    plugins: []
-});
-
-module.exports = new Promise((resolve, reject) => {
-    resolve(buildWebpackConfig)
+    plugins: [],
 });

@@ -1,0 +1,424 @@
+@import '../../theme/variables.scss';
+
+.container {
+  background-color: white;
+  padding-bottom: 117px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+section {
+  margin-bottom: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+.form-elements {
+  &__container {
+    margin: 0 auto;
+    max-width: 1160px;
+    display: grid;
+    grid-template-columns: 1fr minmax(10px, 125px) 1fr minmax(10px, 71px) 1fr;
+    grid-template-rows: auto 100px auto 55px auto 33px auto;
+    grid-template-areas:
+      'row1-col1 . row1-col2 . row1-col3'
+      '. . . . .'
+      'row2-col1 . row2-col2 . row2-col3'
+      '. . . . .'
+      'row3-col1 . row3-col2 . row3-col3'
+      '. . . . .'
+      'row4-col1 . row4-col2 row4-col2 row4-col2';
+    justify-items: stretch;
+  }
+}
+
+.row1-col1 {
+  grid-area: row1-col1;
+}
+.row1-col2 {
+  grid-area: row1-col2;
+}
+.row1-col3 {
+  grid-area: row1-col3;
+}
+
+.row2-col1 {
+  grid-area: row2-col1;
+}
+.row2-col2 {
+  grid-area: row2-col2;
+}
+.row2-col3 {
+  grid-area: row2-col3;
+}
+
+.row3-col1 {
+  grid-area: row3-col1;
+}
+.row3-col2 {
+  grid-area: row3-col2;
+}
+.row3-col3 {
+  grid-area: row3-col3;
+}
+
+.row4-col1 {
+  grid-area: row4-col1;
+}
+.row4-col2 {
+  grid-area: row4-col2;
+}
+
+
+@mixin info($text) {
+  position: relative;
+  &:after {
+    content: $text;
+    position: absolute;
+    right: 0;
+    top: -20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $color-third;
+  }
+}
+
+.demo {
+  &-logo {
+    padding-top: 30px;
+    margin-bottom: 60px;
+  }
+  &-colors-and-type {
+    &__container {
+      margin: 0 auto;
+      max-width: 1140px;
+      display: flex;
+      justify-content: space-between;
+    }
+    @include media-breakpoint-down(767px) {
+      &__container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+  &-colors {
+    margin-top: 9px;
+    &__text {
+      font-weight: normal;
+      margin-top: 5px;
+    }
+    &__item {
+      position: relative;
+      margin-bottom: 37px;
+      margin-left: 110px;
+      &:before {
+        content: '';
+        position: absolute;
+        top: -9px;
+        left: -110px;
+        width: 70px;
+        height: 70px;
+        border-radius: 6px;
+        background-color: red;
+      }
+      &_bg-color_first:before {
+        background-color: $color-first;
+      }
+      &_bg-color_second:before {
+        background-color: $color-second;
+      }
+      &_bg-color_third:before {
+        background-color: $color-third;
+      }
+      &_bg-color_fourth:before {
+        background-color: $color-fourth;
+      }
+      &_bg-color_fifth:before {
+        background-color: $color-fifth;
+      }
+      &_bg-color_sixth:before {
+        background-color: $color-sixth;
+      }
+      &_bg-color_seventh:before {
+        background-color: $color-seventh;
+      }
+    }
+  }
+  &-type {
+    margin-left: 70px;
+    margin-right: 40px;
+    max-width: 336px;
+    &__item {
+      margin-bottom: 50px;
+      position: relative;
+    }
+    @include media-breakpoint-down(767px) {
+      margin-top: 50px;
+    }
+    @include media-breakpoint-down(820px) {
+      margin-right: 0;
+    }
+    @at-root h1.demo-type__item:before  {
+      content: 'H1';
+      position: absolute;
+      left: -57px;
+      color: $color-fourth;
+      font-weight: normal;
+    }
+    @at-root h2.demo-type__item:before {
+      content: 'H2';
+      position: absolute;
+      left: -56px;
+      color: $color-fourth;
+      font-weight: normal;
+    }
+    @at-root h3.demo-type__item:before {
+      content: 'H3';
+      position: absolute;
+      left: -50px;
+      top: 1px;
+      color: $color-fourth;
+      font-weight: normal;
+    }
+    @at-root p.demo-type__item:before {
+      content: 'Body';
+      position: absolute;
+      top: -2px;
+      left: -66px;
+      color: $color-fourth;
+    }
+  }
+
+  //=== TEXT-FIELD ===
+  &-text-field {
+    &__default > .text-field {
+      @include info('default');
+    }
+    &__hovered-and-focused {
+      margin-top: 21px;
+      &> .text-field {
+        @include info('hover / focus');
+      }
+      & input {
+        outline: none;
+        border: 1px solid $color-third;
+      }
+    }
+    &__masked {
+      margin-top: 22px;
+    }
+    &__masked > .text-field {
+      @include info('default');
+    }
+    &__subscription {
+      margin-top: 41px;
+    }
+  }
+
+  //=== DROPDOWN ===
+  &-dropdown {
+    &__default {
+      &_big {
+        margin-top: 20px;
+      }
+    }
+    &__default > .iqdropdown{
+      @include info('default');
+    }
+    &__expanded {
+      margin-top: 20px;
+    }
+    &__expanded > .iqdropdown {
+      @include info('expanded');
+    }
+    &__filter-date {
+      margin-top: 41px;
+    }
+    &__date {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  // === CHECKBOX-LIST ===
+  &-checkbox-list {
+    &__expanded {
+      margin-top: 49px;
+    }
+  }
+
+  // === CHECKBOX-BUTTONS ===
+  &-checkbox-buttons {
+    &__title {
+      margin-bottom: 16px;
+    }
+    &__items {
+      margin-top: 7px;
+    }
+  }
+
+  // === RADIO-BUTTONS ===
+  &-radio-buttons {
+    margin-top: 39px;
+  }
+
+  // === TOGGLE ===
+  &-toggle {
+    margin-top: 39px;
+    &__title {
+      margin-bottom: 14px;
+    }
+  }
+
+  // === LIKE-BUTTONS ===
+  &-like-buttons {
+    &__title {
+      margin-top: 42px;
+      margin-bottom: 11px;
+    }
+    &__first, &__second {
+      display: inline-block;
+    }
+    &__second {
+      margin-left: 6px;
+    }
+  }
+
+  // === RATE-BUTTON ===
+  &-rate-button {
+    &__title {
+      margin-top: 41px;
+      margin-bottom: 15px;
+    }
+    &__first, &__second {
+      display: inline-block;
+    }
+    &__second {
+      margin-left: 16px;
+    }
+  }
+
+  // === RANGE-SLIDER ===
+  &-range-slider {
+    &__title {
+      margin-bottom: 23px;
+    }
+  }
+
+  // === BUTTONS ===
+  &-buttons {
+    margin-top: 44px;
+    &__title {
+    }
+    &__btn-default {
+      margin-top: 16px;
+      margin-left: 2px;
+    }
+    &__btn-outline {
+      margin-top: 30px;
+      margin-left: 2px;
+    }
+    &__btn-link {
+      margin-top: 27px;
+      margin-left: 2px;
+    }
+    &__btn-arrow {
+      margin-top: 25px;
+    }
+    &__first, &__second {
+      display: inline-block;
+    }
+    &__second {
+      margin-left: 16px;
+    }
+  }
+
+  // === PAGINATION ===
+  &-pagination {
+    margin-top: 40px;
+    &__title {
+      margin-bottom: 16px;
+    }
+  }
+
+  // === RICH-CHECKBOX-BUTTONS ===
+  &-rich-checkbox-buttons {
+    &__title {
+      margin-bottom: 13px;
+    }
+    &__second {
+      margin-top: 2px;
+    }
+  }
+  // === BULLET LIST ===
+  &-bullet-list {
+    &__title {
+      margin-bottom: 13px;
+    }
+  }
+  // === DETAILS ===
+  &-details__second {
+    margin-top: 20px;
+  }
+  // === COMMENTS ===
+  &-comments {
+    max-width: 700px;
+    margin-top: 10px;
+    margin-left: 1px;
+  }
+}
+
+@include media-breakpoint-down(1200px) {
+  .form-elements {
+    &__container {
+      grid-template-columns: 1fr minmax(0, 10%) 1fr;
+      grid-template-rows: auto;
+      grid-row-gap: 70px;
+      grid-template-areas:
+              'row1-col1 . row1-col2'
+              'row1-col3 . row2-col1'
+              'row2-col2 . row2-col3'
+              'row3-col1 . row3-col2'
+              'row3-col3 . row4-col1'
+              'row4-col2 row4-col2 row4-col2';
+      justify-items: center;
+    }
+  }
+}
+
+@include media-breakpoint-between(0px, 767px) {
+  .container {
+    margin: 0;
+  }
+  section {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .demo-logo {
+    //margin-left: 10px;
+  }
+  .form-elements {
+    &__container {
+      grid-template-columns: minmax(0, 100%);
+      grid-template-rows: auto;
+      grid-row-gap: 100px;
+      grid-template-areas:
+              'row1-col1'
+              'row1-col2'
+              'row1-col3'
+              'row2-col1'
+              'row2-col2'
+              'row2-col3'
+              'row3-col1'
+              'row3-col2'
+              'row3-col3'
+              'row4-col1'
+              'row4-col2';
+      justify-items: center;
+    }
+  }
+}
+

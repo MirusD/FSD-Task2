@@ -1,11 +1,12 @@
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const configurator = require('webpack-config');
 const baseWebpackConfig = require('./webpack.base.conf');
 
-const devWebpackConfig = merge(baseWebpackConfig, {
+module.exports = new configurator.default().extend('build/webpack.base.conf.js').merge({
     mode: 'development',
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'cheap -module-eval-source-map',
     devServer: {
+        stats: 'errors-only',
         contentBase: baseWebpackConfig.externals.paths.dist,
         port: 8081,
         overlay: {
@@ -18,8 +19,4 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             filename: "[file].map"
         })
     ]
-});
-
-module.exports = new Promise((resolve, reject) => {
-    resolve(devWebpackConfig)
 });

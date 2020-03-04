@@ -1,0 +1,10 @@
+//-
+    options.value - содержимое
+
+mixin bullet-list(options)
+    if !options
+        - options = {}
+
+    ul.bullet-list
+        each value in options.value
+            li.bullet-list__item!=value

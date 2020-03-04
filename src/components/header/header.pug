@@ -1,0 +1,16 @@
+include ../menu/menu
+
+//-
+  options.menuItems - массив елементов меню
+  options.logoThem - тема логотипа, возможны след. значения 'logo1', 'logo2'
+
+mixin header(options)
+  if !options
+    - options = {}
+
+  .header
+    if options.logoThem
+      div.header__logo
+    if options.menuItems
+      .header__menu
+        +menu({items: options.menuItems})

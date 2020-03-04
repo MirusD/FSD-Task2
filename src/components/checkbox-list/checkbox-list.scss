@@ -1,0 +1,41 @@
+@import "../../theme/variables";
+
+.checkbox-list {
+  user-select: none;
+  width: 266px;
+  &__btn {
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 15px;
+    &:before {
+      content: '';
+      position: absolute;
+      right: 19px;
+      top: 2px;
+      transform-origin: 6px 6px ;
+      transform: rotate(225deg);
+      width: 7px;
+      height: 7px;
+      border: 2px solid $color-second;
+      border-left: none;
+      border-top: none;
+    }
+    &[aria-expanded="true"]:before {
+      transform: rotate(225deg);
+      transition: transform 0.3s ease;
+    }
+    &[aria-expanded="false"]:before {
+      transform: rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+  }
+  &__items {
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
+  &__item {
+    margin-bottom: 6px;
+  }
+}

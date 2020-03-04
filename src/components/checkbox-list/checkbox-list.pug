@@ -1,0 +1,24 @@
+include ../checkbox/checkbox
+
+//-
+    options.title - заголовок блока
+    options.items - массив объектов со свойсвами value и id  Пример: {value: 'Первый чекбокс', id: 'first-checkbox', name: 'first-checkbox'}
+    options.isExpanded - expanded checkbox list, по умолчанию 'false' (bool)
+
+mixin checkbox-list(options)
+    if !options
+        - options = {}
+    if !options.isExpanded
+        - options.isExpanded = 'false'
+
+    - var isExpanded = options.isExpanded === 'true' ? 'show' : '';
+
+    .checkbox-list(class=isExpanded)
+        .checkbox-list__btn(aria-expanded=options.isExpanded)
+            h3.header_level-3=options.title
+        .checkbox-list__items(class=isExpanded)
+            - var id = 0;
+            each item in options.items
+                .checkbox-list__item
+                    +checkbox({value:item.value || item, id:item.id || 'checkbox-item-'+id, name:item.name || ''})
+                - id++;

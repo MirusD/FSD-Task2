@@ -1,0 +1,67 @@
+@import '../../theme/variables';
+
+.btn {
+  outline: none;
+  display: inline-block;
+  cursor: pointer;
+  padding: 14px 18px 15px 20px;
+  border: none;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  color: white;
+  &:hover {
+    opacity: 0.5;
+  }
+  &__text {
+    display: block;
+    color: inherit;
+    text-align: center;
+  }
+  &_outline {
+    background: white;
+    position: relative;
+    color: $color-sixth;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='99' height='44' viewBox='0 0 99 44' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 22C1 10.402 10.402 1 22 1H77C88.598 1 98 10.402 98 22C98 33.598 88.598 43 77 43H22C10.402 43 1 33.598 1 22Z' stroke='url(%23paint0_linear)' stroke-width='2'/%3e%3cdefs%3e%3clinearGradient id='paint0_linear' x1='49.5' y1='0' x2='49.5' y2='44' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23BC9CFF'/%3e%3cstop offset='1' stop-color='%238BA4F9'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
+      background-repeat: no-repeat;
+    }
+    &:hover {
+      opacity: 1;
+      &:after {
+        opacity: 0.5;
+      }
+    }
+  }
+  &_link {
+    padding: 0;
+    background: none;
+    color: $color-sixth;
+    &:hover {
+      opacity: 1;
+      color: $color-third;
+    }
+  }
+  &_with-arrow {
+    display: block;
+    position: relative;
+    width: 100%;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 44px;
+      height: 44px;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9 0.984375L17.0156 9L9 17.0156L7.59375 15.6094L13.1719 9.98438H0.984375V8.01562H13.1719L7.59375 2.39062L9 0.984375Z' fill='white'/%3e%3c/svg%3e ");
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+
+}
