@@ -9,14 +9,14 @@ mixin text-field(options)
     -
         var value = options.value ? options.value : ''
         var placeholder = options.placeholder ? options.placeholder : ''
-        var type = options.type === 'masked' ? 'text-field__input_masked' :
+        var type = options.type === 'masked' ? 'text-field_masked' :
             options.type === 'subscription' ? 'text-field_subscription' : ''
 
 
-        var classAll = [masked,type]
+        var classAll = type
 
     .text-field(class=classAll)
         .text-field__form
-            input.text-field__input(type='text', placeholder=placeholder, value=value)
+            input.text-field__input(class=type type=options.type, placeholder=placeholder, value=value)
             if(options.type === 'subscription')
                 button.text-field__btn_arrow

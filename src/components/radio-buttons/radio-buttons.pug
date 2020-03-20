@@ -1,13 +1,21 @@
 //-
-    options.items - массив элементов блока radio buttons
+    options.items - массив элементов блока radio buttons.
+        Принимает массив объектов со след. св-вами:
+        - value - текст
+        - id - идентификатор
+        - isChecked - bool
+
 
 mixin radio-buttons(options)
     if !options
         - options = {}
 
     .radio-buttons
-        .radio-buttons__items
+        if (options.items instanceof Array)
+            - var id = 0;
             each item in options.items
                 .radio-buttons__item
-                    input.radio-buttons__input(name="radio-buttons" type="radio" id=item)
-                    label.radio-buttons__text(for=item)=item
+                    input.radio-buttons__input(name=options.name || 'radio-buttons'  type="radio" id=item.id || 'radio-button-item-' + id checked = item.isChecked || false)
+                    label.radio-buttons__text(for=item.id || 'radio-button-item-' + id)=item.value
+                    - id++
+

@@ -1,12 +1,35 @@
 //-
-  options.items - массив элементов
+  options.items - массив элементов или просто срока
+  options.value - текст переключателя
+  options.id - идентификатор переключателя
+  options.isChecked - bool
+
+    else more toggle
+
+      +toggle({
+          items: [{value: 'text-1', id: 'id-1'},{value: 'text-2', id: 'id-2'}]
+      })
+
+    or else 1 toggle
+
+      +toggle({
+          value: 'text',
+          id: 'id'
+      })
 
 mixin toggle(options)
   if !options
     - options = {}
 
   .toggle
-    each item in options.items
+    if (options.items instanceof Array)
+      - var id = 0;
+      each item in options.items
+        .toggle__item
+          input.toggle__input(type="checkbox" id=item.id || 'toggle-item-' + id checked = item.isChecked || false)
+          label.toggle__text(for=item.id || 'toggle-item-' + id)=item.value
+          - id++
+    else if (options.value)
       .toggle__item
-        input.toggle__input(type="checkbox" id=item)
-        label.toggle__text(for=item)=item
+        input.toggle__input(type="checkbox" id=options.id || options.value checked = options.isChecked || false)
+        label.toggle__text(for=options.id || options.value)=options.value

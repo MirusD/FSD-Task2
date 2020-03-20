@@ -1,0 +1,44 @@
+.registration-card {
+  max-width: 380px;
+  padding: 40px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  &__name {
+    margin-top: 20px;
+  }
+  &__surname {
+    margin-top: 10px;
+  }
+  &__gender {
+    margin-top: 10px;
+  }
+  &__date-of-birth {
+    margin-top: 23px;
+  }
+  &__login-information {
+    margin-top: 20px;
+  }
+  &__password {
+    margin-top: 10px;
+  }
+  &__special-offers {
+    margin-top: 10px;
+  }
+  &__payment-btn {
+    margin-top: 20px;
+  }
+  &__entrance-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+  }
+  &_text-color_black {
+    color: black;
+  }
+  &__text-field-title {
+    margin-bottom: 5px;
+  }
+}

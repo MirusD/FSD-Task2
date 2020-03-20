@@ -7,7 +7,6 @@
   border: 1px solid $color-fourth;
   border-radius: 2px;
   height: 44px;
-  padding: 9px 0 9px 15px;
   &:before {
     content: '';
     position: absolute;
@@ -20,6 +19,9 @@
     border-left: none;
     border-top: none;
         }
+  &-selection {
+    padding: 9px 0 9px 15px;
+  }
   &.menu-open {
     border: 1px solid $color-third;
   }
@@ -139,6 +141,150 @@
     box-shadow: 0 7px 15px $color-fifth;
   }
 }
+
+.datepicker {
+  width: 290px;
+  box-sizing: content-box;
+  padding-left: 15px;
+  padding-right: 13px;
+  &-here {
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    outline: none;
+    padding: 9px 0 9px 15px;
+  }
+  &--pointer {
+    display: none;
+  }
+  &--nav {
+    height: 62px;
+    border-bottom: none;
+    &-action path {
+      fill: $color-sixth;
+      stroke: none;
+    }
+    &-action svg {
+      width: 17px;
+    }
+  }
+  &--nav-title, i {
+    font-family: Quicksand, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    color: #1F2041;
+  }
+  &--days-names {
+    margin-top: 15px;
+    margin-bottom: 7px;
+  }
+  &--day-name {
+    color: $color-sixth;
+    font-weight: bold;
+    text-transform: none;
+  }
+  &--content {
+
+  }
+  &--cell-day {
+    width: 39.88px !important;
+    height: 40px !important;
+  }
+  &--day-name {
+    width: 39.88px !important;
+    //height: 40px !important;
+  }
+  &--cell.datepicker--cell-day {
+    font-size: 12px;
+    line-height: 15px;
+    color: $color-third;
+    &.-other-month- {
+      color: $color-fourth;
+    }
+    &.-in-range- {
+      background: linear-gradient(180deg, rgba(188,156,255,0.25) 0%, rgba(139,164,249,0.25) 100%);
+      position: relative;
+      &.-current-:after,&.-focus-:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(180deg, rgba(188,156,255,0.25) 0%, rgba(139,164,249,0.25) 100%);
+      }
+    }
+    &.-current-,&.-selected-,&.-focus- {
+      color: white;
+      border-radius: 22px;
+      font-weight: bold;
+      position: relative;
+      border: none;
+    }
+    &.-current- {
+      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    }
+    &.-selected-,&.-focus-{
+      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    }
+    &.-range-from-:before,&.-range-to-:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(180deg, rgba(188,156,255,0.25) 0%, rgba(139,164,249,0.25) 100%);
+    }
+    &.-range-from- {
+      position: relative;
+      &:before {
+        border-radius: 22px 0 0 22px;
+      }
+    }
+    &.-range-to- {
+      position: relative;
+      &:before {
+        border-radius: 0 22px 22px 0;
+      }
+    }
+  }
+  &--buttons {
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  &--button {
+    display: inline-block;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 44px;
+    text-transform: uppercase;
+    text-decoration: none;
+    height: auto;
+    flex: none;
+    &[data-action="clear"] {
+      color: $color-third;
+      &:hover {
+        background: none;
+      }
+    }
+    &[data-action="apply"] {
+      color: $color-sixth;
+
+      &:hover {
+        background: none;
+      }
+    }
+  }
+}
+
 
 
 

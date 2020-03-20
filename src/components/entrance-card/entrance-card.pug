@@ -1,0 +1,30 @@
+include ../text-field/text-field
+include ../button/button
+
+mixin entrance-card(options)
+    if !options
+        - options = {}
+
+    .entrance-card
+        h1.header_level-1 Войти
+        .entrance-card__email
+            +text-field({
+                type: 'email',
+                placeholder: 'Email'
+            })
+        .entrance-card__password
+            +text-field({
+                type: 'password',
+                placeholder: 'Пароль'
+            })
+        .entrance-card__log-in-btn
+            +button({
+                type: 'arrow-btn',
+                text: 'Войти'
+            })
+        .entrance-card__create-an-account
+            span.entrance-card___text_color_black Нет аккаунта на Toxin?
+            +button({
+                type: 'outline',
+                text: 'Создать'
+            })

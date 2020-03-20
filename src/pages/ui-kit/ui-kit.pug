@@ -14,6 +14,8 @@ include ../../components/pagination/pagination
 include ../../components/bullet-list/bullet-list
 include ../../components/details/details
 include ../../components/comments/comments
+include ../../components/registration-card/registration-card
+include ../../components/entrance-card/entrance-card
 
 block title
     | UI-KIT
@@ -46,7 +48,7 @@ block main
 
     section.demo-form-elements
         header
-            p Form elementss
+            p Form elements
         .container
             .demo-logo
                 img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
@@ -73,26 +75,32 @@ block main
                     .demo-text-field__masked
                         h3.header_level-3 Masked text field
                         +text-field({
-                            placeholder: 'ДД.ММ.ГГГГ'
+                            placeholder: 'ДД.ММ.ГГГ',
+                            type: 'masked'
                         })
                     .demo-dropdown__date(style= "max-width: 320px")
                         .demo-dropdown__from
                             h3.header_level-3 Date dropdown
                             +dropdown({
+                                id: 'date-from',
                                 value: 'ДД.ММ.ГГГГ',
-                                size: 'small'
+                                size: 'small',
+                                type: 'date'
                             })
                         .demo-dropdown__to
                             h3.header_level-3 Date dropdown
                             +dropdown({
-                                value: '19.08.2019',
-                                size: 'small'
+                                id: 'date-to',
+                                value: 'ДД.ММ.ГГГГ',
+                                size: 'small',
+                                type: 'date'
                             })
                     .demo-dropdown__filter-date
                         h3.header_level-3 Filter date dropdown
                         +dropdown({
                             value: '19 авг - 23 авг',
-                            size: 'middle'
+                            size: 'middle',
+                            type: 'filterDate'
                         })
                     .demo-text-field__subscription
                         h3.header_level-3 Subscription text field
@@ -111,11 +119,12 @@ block main
                     .demo-radio-buttons
                         h3.header_level-3 Radio buttons
                         +radio-buttons({
-                            items: ['Мужчина','Женщина']
+                            name: 'radio-buttons',
+                            items: [{value: 'Мужчина', isChecked: true},{value: 'Женщина'}]
                         })
                     .demo-toggle
                         h3.header_level-3.demo-toggle__title Toggle
-                        +toggle({items: ['Получать спецпредложения','Получать спецпредложения']})
+                        +toggle({items: [{value: 'Получать спецпредложения', isChecked: true}, {value: 'Получать спецпредложения'}]})
                     .demo-like-buttons
                         h3.header_level-3.demo-like-buttons__title Like button
                         .demo-like-buttons__first
@@ -281,3 +290,13 @@ block main
                                 'соседи со мной согласились)))',
                             avatar: require('./img/avatar/avatar.jpg')
                         })
+
+    section.demo-cards
+        header
+            p Cards
+        .container
+            .demo-logo
+                img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
+            .demo-carsd__container
+                +registration-card()
+                +entrance-card()

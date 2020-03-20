@@ -2,6 +2,8 @@
 
 
 mixin range-slider(options)
+    if !options
+        - options = {}
 
     .range-slider
         .range-slider__container
