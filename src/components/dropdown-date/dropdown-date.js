@@ -1,24 +1,32 @@
 import './dropdown-date.scss'
 import 'air-datepicker'
 
-$('#date-from').datepicker({
-    onSelect: (formattedDate, date, inst) => {
-        if(inst.$datepicker[0].classList.contains('active')) {
-            let dateTo = $('#date-to').datepicker().data('datepicker');
-            dateTo.clear();
-            dateTo.selectDate(date);
-        }
-        inst.el.value = inst._prevOnSelectValue.slice(0, 10);
-    }
-});
-$('#date-to').datepicker({
-    onSelect: (formattedDate, date, inst) => {
-        if(inst.$datepicker[0].classList.contains('active')) {
-            let dateFrom = $('#date-from').datepicker().data('datepicker');
-            dateFrom.clear();
-            dateFrom.selectDate(date);
-        }
+let dropdownDate = $('.dropdown-date');
 
-        inst.el.value = inst._prevOnSelectValue.slice(11);
-    }
-});
+for(let i = 0; i < dropdownDate.length; i++) {
+    let item = dropdownDate.eq(i).find('.datepicker-here');
+
+    item.eq(0).datepicker({
+        onSelect: (formattedDate, date, inst) => {
+            if(inst.$datepicker[0].classList.contains('active')) {
+                let dateTo = item.eq(1).datepicker().data('datepicker');
+                dateTo.clear();
+                dateTo.selectDate(date);
+            }
+            inst.el.value = inst._prevOnSelectValue.slice(0, 10);
+        }
+    });
+
+    item.eq(1).datepicker({
+        onSelect: (formattedDate, date, inst) => {
+            if(inst.$datepicker[0].classList.contains('active')) {
+                let dateFrom = item.eq(0).datepicker().data('datepicker');
+                dateFrom.clear();
+                dateFrom.selectDate(date);
+            }
+
+            inst.el.value = inst._prevOnSelectValue.slice(11);
+        }
+    });
+}
+
