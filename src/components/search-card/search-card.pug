@@ -1,6 +1,6 @@
-include ../text-field/text-field
 include ../dropdown/dropdown
 include ../dropdown-date/dropdown-date
+include ../button/button
 
 mixin search-card(options)
     if !options
@@ -8,13 +8,20 @@ mixin search-card(options)
 
     .search-card
         h1.header_level-1 Найдём номера под <br> ваши пожелания
-        +dropdown-date({
-            items: [{title: 'Прибытие'},{title: 'Выезд'}]
-        })
-        h3.header_level-3 Гости
-        +dropdown({
-            value: 'Сколько гостей',
-            items: ['Взрослые', 'Дети', 'Младенцы'],
-            size: 'big',
-            controlBar: 'true'
-        })
+        .search-card__date-range
+            +dropdown-date({
+                items: [{title: 'Прибытие'},{title: 'Выезд'}]
+            })
+        .search-card__number-of-guests
+            h3.header_level-3.search-card__dropdown-title Гости
+            +dropdown({
+                value: 'Сколько гостей',
+                items: ['Взрослые', 'Дети', 'Младенцы'],
+                size: 'big',
+                controlBar: 'true'
+            })
+        .search-card__btn-search
+            +button({
+                text: 'Подобрать номер',
+                type: 'arrow-btn'
+            })

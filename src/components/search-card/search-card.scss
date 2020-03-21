@@ -5,4 +5,14 @@
   box-sizing: border-box;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  &__date-range {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  &__dropdown-title {
+    margin-bottom: 5px;
+  }
+  &__btn-search {
+    margin-top: 31px;
+  }
 }
