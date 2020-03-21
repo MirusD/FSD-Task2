@@ -2,6 +2,7 @@ extends ../base/base
 include ../../components/toggle/toggle
 include ../../components/text-field/text-field
 include ../../components/dropdown/dropdown
+include ../../components/dropdown-date/dropdown-date
 include ../../components/checkbox/checkbox
 include ../../components/checkbox-list/checkbox-list
 include ../../components/radio-buttons/radio-buttons
@@ -79,22 +80,9 @@ block main
                             type: 'masked'
                         })
                     .demo-dropdown__date(style= "max-width: 320px")
-                        .demo-dropdown__from
-                            h3.header_level-3 Date dropdown
-                            +dropdown({
-                                id: 'date-from',
-                                value: 'ДД.ММ.ГГГГ',
-                                size: 'small',
-                                type: 'date'
-                            })
-                        .demo-dropdown__to
-                            h3.header_level-3 Date dropdown
-                            +dropdown({
-                                id: 'date-to',
-                                value: 'ДД.ММ.ГГГГ',
-                                size: 'small',
-                                type: 'date'
-                            })
+                        +dropdown-date({
+                            items: [{title: 'Date dropdown'},{title: 'Date dropdown'}]
+                        })
                     .demo-dropdown__filter-date
                         h3.header_level-3 Filter date dropdown
                         +dropdown({

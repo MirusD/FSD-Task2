@@ -1,23 +1,23 @@
 include ../dropdown/dropdown
 
+//-
+    options.items -
+    options.titleTo - заголовок второго поля
+
 mixin dropdown-date (options)
     if !options
         - options = {}
 
+    - var idDate = ['date-from','date-to']
+    - for(var i=0; i < options.items.length; i++)
+        - options.items[i].id = idDate[i]
+
     .dropdown-date
-        .demo-dropdown__date(style= "max-width: 320px")
-            .dropdown-date__from
-                h3.header_level-3 Date dropdown
+        each item in options.items
+            .dropdown-date__item
+                h3.header_level-3=item.title
                 +dropdown({
-                    id: 'date-from',
-                    value: 'ДД.ММ.ГГГГ',
-                    size: 'small',
-                    type: 'date'
-                })
-            .dropdown-date__to
-                h3.header_level-3 Date dropdown
-                +dropdown({
-                    id: 'date-to',
+                    id: item.id,
                     value: 'ДД.ММ.ГГГГ',
                     size: 'small',
                     type: 'date'
