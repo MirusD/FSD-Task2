@@ -29,10 +29,10 @@ mixin dropdown(options)
 
     .iqdropdown(class=size class=isExpanded)
         if (options.type === 'date')
-            input(type="text", id=options.id || "" class="datepicker-here" placeholder=options.value autocomplete="off" readonly)
+            input(type="text", id=options.id class="datepicker-here" placeholder=options.value autocomplete="off" readonly)
         else
             if (options.type === 'filterDate')
-                input(type="text", id=options.id || "" class="datepicker-here" placeholder=options.value data-multiple-dates-separator=" - " autocomplete="off" readonly)
+                input(type="text", id=options.id class="datepicker-here" placeholder=options.value data-multiple-dates-separator=" - " autocomplete="off" readonly)
             else
                 p.iqdropdown-selection=options.value
                 .iqdropdown-menu
