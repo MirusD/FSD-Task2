@@ -1,0 +1,24 @@
+include ../dropdown/dropdown
+
+mixin dropdown-date (options)
+    if !options
+        - options = {}
+
+    .dropdown-date
+        .demo-dropdown__date(style= "max-width: 320px")
+            .dropdown-date__from
+                h3.header_level-3 Date dropdown
+                +dropdown({
+                    id: 'date-from',
+                    value: 'ДД.ММ.ГГГГ',
+                    size: 'small',
+                    type: 'date'
+                })
+            .dropdown-date__to
+                h3.header_level-3 Date dropdown
+                +dropdown({
+                    id: 'date-to',
+                    value: 'ДД.ММ.ГГГГ',
+                    size: 'small',
+                    type: 'date'
+                })
