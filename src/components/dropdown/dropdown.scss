@@ -134,8 +134,7 @@
     width: 266px;
   }
   &_big {
-    max-width: 320px;
-    min-width: 310px;
+    width: auto;
   }
   &.show {
     box-shadow: 0 7px 15px $color-fifth;
