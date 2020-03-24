@@ -19,6 +19,7 @@ include ../../components/registration-card/registration-card
 include ../../components/entrance-card/entrance-card
 include ../../components/search-card/search-card
 include ../../components/booking-card/booking-card
+include ../../components/room-card/room-card
 
 block title
     | UI-KIT
@@ -292,3 +293,26 @@ block main
                 +entrance-card()
                 +search-card()
                 +booking-card()
+                .datepicker-here
+                +room-card({
+                    number: '888',
+                    slider: {
+                        images: [{img: require('./img/rooms/1/room_1.jpg')},{img: require('./img/rooms/1/room_2.jpg')},{img: require('./img/rooms/1/room_3.jpg')},{img: require('./img/rooms/1/room_4.jpg')}],
+                    },
+                    category: 'Люкс',
+                    priceDay: '9 900',
+                    rate: '5',
+                    reviews: '145'
+                })
+                +room-card({
+                    number: '840',
+                    slider: {
+                        images: [{img: require('./img/rooms/1/room_1.jpg')}, {img: require('./img/rooms/1/room_2.jpg')}, {img: require('./img/rooms/1/room_3.jpg')}, {img: require('./img/rooms/1/room_4.jpg')}],
+                        arrows: false
+                    },
+                    category: '',
+                    priceDay: '9 900',
+                    rate: '4',
+                    reviews: '65'
+                })
+
