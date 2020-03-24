@@ -8,6 +8,7 @@
   border: none;
   position: relative;
   z-index: 0;
+  background-color: transparent;
   &_with-arrow {
     display: block;
     width: 100%;
@@ -25,7 +26,6 @@
       opacity: 0.5;
     }
     &_outline {
-      //min-width: 103px;
       margin: 2px;
       position: relative;
       padding: 12px 17px 12px 17px;
