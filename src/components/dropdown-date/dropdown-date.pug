@@ -15,7 +15,7 @@ mixin dropdown-date (options)
     .dropdown-date
         each item in options.items
             .dropdown-date__item
-                h3.header_level-3=item.title
+                h3.dropdown-date__title.header_level-3=item.title
                 +dropdown({
                     id: false,
                     value: 'ДД.ММ.ГГГГ',
