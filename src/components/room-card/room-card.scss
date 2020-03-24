@@ -1,0 +1,117 @@
+@import "../../theme/variables";
+
+.room-card {
+  overflow: hidden;
+  width: 270px;
+  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+  &__info {
+    padding: 20px;
+  }
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(31, 32, 65, 0.1);;
+
+  }
+  &__rate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  &__symbol {
+    font-size: 14px;
+    margin-right: 5px;
+  }
+  &__category-of-room {
+    color: $color-sixth;
+    margin-left: 5px;
+  }
+  &__price-day {
+    font-size: 12px;
+  }
+  &_weight_bold {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+}
+
+.slick {
+  &-list {
+    width: 270px;
+    height: 152px;
+    position: relative;
+  }
+  &-arrow {
+    user-select: none;
+    outline: none;
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: transparent;
+    border: none;
+    color: transparent;
+    transition: background-color 1s ease;
+    &:hover {
+      background-color: rgba(100,100,100,0.5);
+    }
+    &:before {
+      position: absolute;
+      display: inline-block;
+      content: "";
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-top: 2px;
+      border-right: 2px;
+      border-bottom: 0;
+      border-left: 0;
+      border-style: solid;
+      border-color: white;
+      transform-origin: 50% 50%;
+      z-index: 2;
+    }
+  }
+  &-next {
+    right: 0;
+    &:before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+  &-prev {
+    &:before {
+      transform: translate(-50%, -50%) rotate(-135deg);
+    }
+  }
+  &-dots {
+    display: flex;
+    position: absolute;
+    bottom: 15.1px;
+    right: 15px;
+    & li {
+      width: 7.5px;
+      height: 7.5px;
+      overflow: hidden;
+      list-style-type: none;
+      border-radius: 100%;
+      border: 1px solid white;
+      margin-right: 3.75px;
+      & button {
+        width: 100%;
+        height: 100%;
+        border: none;
+        opacity: 0;
+      }
+    }
+  }
+  &-active {
+    background-color: white;
+  }
+}
