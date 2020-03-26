@@ -369,6 +369,32 @@ section {
     margin-top: 10px;
     margin-left: 1px;
   }
+  &-cards {
+    &__container {
+      max-width: 1160px;
+      display: flex;
+      margin: 0 auto;
+      //display: flex;
+      //flex-wrap: wrap;
+      //align-items: flex-start;
+      justify-content: space-between;
+
+    }
+    &__card {
+      margin-top: 5px;
+      margin-bottom: 40px;
+    }
+    &__datepicker-here {
+      width: auto !important;
+      padding: 0 !important;
+    }
+    &__block {
+      flex-basis: 33.33%;
+      &:last-child {
+        flex-basis: 27%;
+      }
+    }
+  }
 }
 
 @include media-breakpoint-down(1200px) {
