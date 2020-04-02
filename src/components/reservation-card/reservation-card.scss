@@ -72,11 +72,13 @@
   }
 }
 
-@include media-breakpoint-down(410px) {
-  .booking-card {
+@include media-breakpoint-down(400px) {
+  .search-card {
     max-width: 320px;
-    padding: 0;
-    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-left: 0;
+    border-right: 0;
     box-shadow: none;
   }
 }
