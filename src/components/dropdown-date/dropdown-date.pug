@@ -3,14 +3,11 @@ include ../dropdown/dropdown
 //-
     options.items -
     options.titleTo - заголовок второго поля
+    options.placeholder -
 
 mixin dropdown-date (options)
     if !options
         - options = {}
-
-    // - var idDate = ['date-from','date-to']
-    // - for(var i=0; i < options.items.length; i++)
-    //     - options.items[i].id = idDate[i]
 
     .dropdown-date
         each item in options.items
@@ -18,7 +15,7 @@ mixin dropdown-date (options)
                 h3.dropdown-date__title.header_level-3=item.title
                 +dropdown({
                     id: false,
-                    value: 'ДД.ММ.ГГГГ',
+                    value: item.placeholder || 'ДД.ММ.ГГГГ',
                     size: 'small',
                     type: 'date'
                 })

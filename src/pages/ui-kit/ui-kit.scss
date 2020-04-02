@@ -7,6 +7,13 @@
   padding-right: 30px;
 }
 
+@include media-breakpoint-down(380px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 section {
   margin-bottom: 50px;
   margin-left: 10px;
@@ -374,7 +381,7 @@ section {
       max-width: 1160px;
       display: flex;
       margin: 0 auto;
-      justify-content: space-between;
+      justify-content: center;
 
     }
     &__card {

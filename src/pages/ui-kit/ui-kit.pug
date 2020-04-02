@@ -18,7 +18,7 @@ include ../../components/comments/comments
 include ../../components/registration-card/registration-card
 include ../../components/entrance-card/entrance-card
 include ../../components/search-card/search-card
-include ../../components/booking-card/booking-card
+include ../../components/reservation-card/reservation-card
 include ../../components/room-card/room-card
 
 block title
@@ -82,10 +82,10 @@ block main
                             placeholder: 'ДД.ММ.ГГГ',
                             type: 'masked'
                         })
-                    .demo-dropdown__date(style= "max-width: 320px")
-                        +dropdown-date({
-                            items: [{title: 'Date dropdown'},{title: 'Date dropdown'}]
-                        })
+                    //.demo-dropdown__date(style= "max-width: 320px")
+                    //    +dropdown-date({
+                    //        items: [{title: 'Date dropdown'},{title: 'Date dropdown'}]
+                    //    })
                     .demo-dropdown__filter-date
                         h3.header_level-3 Filter date dropdown
                         +dropdown({
@@ -289,50 +289,64 @@ block main
             .demo-logo
                 img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
             .demo-cards__container
-                .demo-cards__block
-                    .demo-cards__card
-                        +search-card()
-                    .demo-cards__card
-                        +registration-card()
-                .demo-cards__block
-                    .demo-cards__card
-                        +booking-card()
-                    .demo-cards__card
-                        +entrance-card()
-                .demo-cards__block
-                    .demo-cards__card
-                        .demo-cards__datepicker-here.datepicker-here
-                    .demo-cards__card
-                        +room-card({
-                            number: '888',
-                            slider: {
-                                images: [
-                                    {img: require('./img/rooms/1/room_1.jpg')},
-                                    {img: require('./img/rooms/1/room_2.jpg')},
-                                    {img: require('./img/rooms/1/room_3.jpg')},
-                                    {img: require('./img/rooms/1/room_4.jpg')}
-                                ]
-                            },
-                            category: 'Люкс',
-                            priceDay: '9 900',
-                            rate: '5',
-                            reviews: '145'
-                        })
-                        +room-card({
-                            number: '840',
-                            slider: {
-                                images: [
-                                    {img: require('./img/rooms/1/room_1.jpg')},
-                                    {img: require('./img/rooms/1/room_2.jpg')},
-                                    {img: require('./img/rooms/1/room_3.jpg')},
-                                    {img: require('./img/rooms/1/room_4.jpg')}
-                                ],
-                                arrows: false
-                            },
-                            category: '',
-                            priceDay: '9 900',
-                            rate: '4',
-                            reviews: '65'
-                        })
+                +reservation-card({
+                    number: '',
+                    category: 'Люкс',
+                    priceDay: '9 900',
+                    startDate: '20.03.2020',
+                    endDate: '24.03.2020',
+                    guests: [{value: 'Взрослые', defaultCount: '2'}, {value: 'Дети', defaultCount: '1'}, 'Младенцы'],
+                    services: [
+                        {description: 'Сбор за услуги: скидка 2 179&#8381', price: '0', mark: true},
+                        {description: 'Сбор за дополнительные услуги', price: 'fgf', mark: true}
+                    ]
+                })
+                div
+                    +reservation-card()
+                //.demo-cards__block
+                //    .demo-cards__card
+                //        +search-card()
+                //    .demo-cards__card
+                //        +registration-card()
+                //.demo-cards__block
+                //    .demo-cards__card
+                //        +booking-card()
+                //    .demo-cards__card
+                //        +entrance-card()
+                //.demo-cards__block
+                //    .demo-cards__card
+                //        .demo-cards__datepicker-here.datepicker-here
+                //    .demo-cards__card
+                //        +room-card({
+                //            number: '888',
+                //            slider: {
+                //                images: [
+                //                    {img: require('./img/rooms/1/room_1.jpg')},
+                //                    {img: require('./img/rooms/1/room_2.jpg')},
+                //                    {img: require('./img/rooms/1/room_3.jpg')},
+                //                    {img: require('./img/rooms/1/room_4.jpg')}
+                //                ]
+                //            },
+                //            category: 'Люкс',
+                //            priceDay: '9 900',
+                //            rate: '5',
+                //            reviews: '145'
+                //        })
+                //        +room-card({
+                //            number: '840',
+                //            slider: {
+                //                images: [
+                //                    {img: require('./img/rooms/1/room_1.jpg')},
+                //                    {img: require('./img/rooms/1/room_2.jpg')},
+                //                    {img: require('./img/rooms/1/room_3.jpg')},
+                //                    {img: require('./img/rooms/1/room_4.jpg')}
+                //                ],
+                //                arrows: false
+                //            },
+                //            category: '',
+                //            priceDay: '9 900',
+                //            rate: '4',
+                //            reviews: '65'
+                //        })
 
 

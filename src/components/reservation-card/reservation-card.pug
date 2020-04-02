@@ -1,0 +1,108 @@
+include ../dropdown/dropdown
+include ../dropdown-date/dropdown-date
+include ../button/button
+
+//-
+    - options.number - номер комнаты.
+        Тип: string
+        Значени по умолчанию: '000'
+        Пример: number: '777'
+
+    - options.category - категория номера.
+        Тип: string
+        Значение по умолчанию: 'Категория номера'
+        Пример: category: 'Люкс'
+
+    - options.priceDay - цена аренды номера за сутки
+        Тип: string
+        Значение по умолчанию: '0'
+        Пример: priceDay: '5 000'
+
+    - options.startDate - Дата прибытия. (Необязательное поле)
+        Тип: string
+        Формат: ДД.ММ.ГГГГ
+        Значение по умолчанию: ''
+        Пример: startDate: '20.03.2020'
+
+    - options.endDate - Дата убытия.(Необязательное поле)
+        Тип: string
+        Формат: ДД.ММ.ГГГГ
+        Значение по умолчанию: ''
+        Пример: endDate: '20.03.2020'
+
+    - options.services - Перечень оказываемых услуг.
+        Тип: array
+        Формат: [{description: 'string', price: 'string', mark: bool},{...},[...]]
+        Значение по умолчанию; [{description: 'Первая услуга', price: '100'},{description: 'Вторая услуга', price: '500', mark: true}]
+        опции:
+                description - описание услуги
+                    Тип: string
+                    Значение по умолчанию: ''
+
+                price - цена за услугу
+                    Тип: string
+                    Значение по умолчанию: ''
+
+                mark - отметки
+                    Тип: bool
+                    Значение по умолчанию: false
+        Пример: services: [
+                             {description: 'Уборка номера', price: '0'},
+                             {description: 'Сбор за дополнительные услуги', price: '300', mark: true},
+                          ]
+
+mixin reservation-card (options)
+    if !options
+        - options = {}
+
+    - options.number = options.number || '000'
+    - options.category = options.category || 'Demo'
+    - options.priceDay = options.priceDay || '0'
+    - options.startDate = options.startDate || ''
+    - options.endDate = options.endDate || ''
+    - options.services = options.services || [{description: 'Первая услуга', price: '100'},{description: 'Вторая услуга', price: '500', mark: true}]
+
+    .reservation-card.cards
+        .reservation-card__room-info.room-info
+            span.room-info__room-number
+                span.header_level-2.room-info__symbol №
+                span.header_level-1=options.number
+                span.header_level-3.room-info__category=options.category
+            span.room-info__price
+                span.room-info__price-day(data-price=options.priceDay)=options.priceDay
+                    | &#8381
+                span.room-info_font-size-12 в сутки
+        .reservation-card__date-range
+            +dropdown-date({
+                items: [
+                    {title: 'Прибытие', placeholder: options.startDate},
+                    {title: 'Выезд', placeholder: options.endDate}
+                    ]
+            })
+        .reservation-card__number-of-guests
+            h3.header_level-3.booking-card__dropdown-title Гости
+            +dropdown({
+                value: 'Сколько гостей',
+                items: options.guests,
+                size: 'big',
+                controlBar: 'true'
+            })
+        .reservation-card__services
+            p.services__item
+                span.services__description=options.priceDay
+                    |  x 0 суток
+                span.services__price 0&#8381
+            each service in options.services
+                p.services__item
+                    span.services__description(class=service.mark === true ? 'services__mark': '')!=service.description
+                    span.services__price=service.price
+                        | &#8381
+        .reservation-card__total
+            span.header_level-2 Итого
+            span.booking-card__dotted-line
+            span.header_level-2.price__total
+        .reservation-card__btn-book
+            +button({
+                text: 'Забронировать',
+                type: 'arrow-btn'
+            })

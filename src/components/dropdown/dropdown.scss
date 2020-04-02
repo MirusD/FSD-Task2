@@ -128,14 +128,14 @@
 
 .dropdown {
   &_small {
-    width: 150px;
+    overflow: hidden;
+    max-width: 150px;
   }
   &_middle {
-    width: 266px;
+    max-width: 266px;
   }
   &_big {
     max-width: 320px;
-    min-width: 300px;
   }
   &.show {
     box-shadow: 0 7px 15px $color-fifth;
@@ -194,7 +194,6 @@
   }
   &--day-name {
     width: 39.88px !important;
-    //height: 40px !important;
   }
   &--cell.datepicker--cell-day {
     font-size: 12px;
