@@ -288,24 +288,23 @@ block main
         .container
             .demo-logo
                 img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
-            .demo-cards__container
-                +reservation-card({
-                    number: '',
-                    category: 'Люкс',
-                    priceDay: '9 900',
-                    startDate: '20.03.2020',
-                    endDate: '24.03.2020',
-                    guests: [{value: 'Взрослые', defaultCount: '2'}, {value: 'Дети', defaultCount: '1'}, 'Младенцы'],
-                    services: [
-                        {description: 'Сбор за услуги: скидка 2 179&#8381', price: '0', mark: true},
-                        {description: 'Сбор за дополнительные услуги', price: 'fgf', mark: true}
-                    ]
-                })
-                div
-                    +reservation-card()
+            //.demo-cards__container
+            //    +reservation-card({
+            //        number: '',
+            //        category: 'Люкс',
+            //        priceDay: '9 900',
+            //        startDate: '20.03.2020',
+            //        endDate: '24.03.2020',
+            //        guests: [{value: 'Взрослые', defaultCount: '2'}, {value: 'Дети', defaultCount: '1'}, 'Младенцы'],
+            //        services: [
+            //            {description: 'Сбор за услуги: скидка 2 179&#8381', price: '0', mark: true},
+            //            {description: 'Сбор за дополнительные услуги', price: 'fgf', mark: true}
+            //        ]
+            //    })
+            .demo-cards__card
+                +search-card()
                 //.demo-cards__block
-                //    .demo-cards__card
-                //        +search-card()
+
                 //    .demo-cards__card
                 //        +registration-card()
                 //.demo-cards__block
