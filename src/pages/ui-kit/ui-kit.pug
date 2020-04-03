@@ -20,6 +20,7 @@ include ../../components/entrance-card/entrance-card
 include ../../components/search-card/search-card
 include ../../components/reservation-card/reservation-card
 include ../../components/room-card/room-card
+include ../../components/header/header
 
 block title
     | UI-KIT
@@ -344,8 +345,18 @@ block main
             p Header & Footer
         .container
             .demo-logo
-                img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
+                img(alt="logo-uikit" src=require('./img/logo/logo-toxin.svg'))
             .demo-header-footer__container
+                +header({
+                    logo: require('./img/logo/logo.svg'),
+                    menuItems: [{name: 'Home'},{name: 'About Ua'},{name: 'Services'},{name: 'Careers'},{name: 'News'},{name: 'Documentation'}],
+                    authorization: false
+                })
+                +header({
+                    logo: require('./img/logo/logo.svg'),
+                    menuItems: [{name: 'Home'}, {name: 'About Ua'}, {name: 'Services'}, {name: 'Careers'}, {name: 'News'}, {name: 'Documentation'}],
+                    authorization: true
+                })
 
 
 

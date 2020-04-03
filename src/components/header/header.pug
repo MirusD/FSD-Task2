@@ -1,16 +1,30 @@
 include ../menu/menu
+include ../button/button
 
 //-
   options.menuItems - массив елементов меню
-  options.logoThem - тема логотипа, возможны след. значения 'logo1', 'logo2'
+  options.logoTheme - тема логотипа, возможны след. значения 'logo1', 'logo2'
 
 mixin header(options)
   if !options
     - options = {}
 
   .header
-    if options.logoThem
-      div.header__logo
-    if options.menuItems
-      .header__menu
-        +menu({items: options.menuItems})
+      if options.logo
+        .header__logo
+          img(alt="logo" src=options.logo)
+      if options.menuItems
+        .header__menu
+          +menu({items: options.menuItems})
+      if options.authorization
+        .header__authorization.header__user-name Damir Salickhov
+      else
+        .header__authorization
+          +button({
+            type: 'outline',
+            text: 'Login'
+          })
+          +button({
+            type: 'no-outline',
+            text: 'Register'
+          })
