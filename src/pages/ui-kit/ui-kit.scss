@@ -379,10 +379,17 @@ section {
   &-cards {
     &__container {
       max-width: 1160px;
+      //column-count: 3;
+      //column-gap: 95px;
       display: flex;
+      flex-wrap: wrap;
       margin: 0 auto;
-      justify-content: center;
-
+      justify-content: space-between;
+      @include media-breakpoint-down(1161px) {
+        & {
+          justify-content: space-around;
+        }
+      }
     }
     &__card {
       margin-top: 5px;
@@ -392,10 +399,16 @@ section {
       width: auto !important;
       padding: 0 !important;
     }
-    &__block {
+    &__col {
       flex-basis: 33.33%;
       &:last-child {
         flex-basis: 27%;
+        @include media-breakpoint-down(1161px) {
+          //flex-basis: 100%;
+        }
+      }
+      & > div {
+        margin-bottom: 40px;
       }
     }
   }

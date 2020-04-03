@@ -1,9 +1,6 @@
 @import '../../theme/variables.scss';
 
 .reservation-card {
-  max-width: 380px;
-  min-width: 330px;
-
   flex-basis: 100%;
   &__date-range {
     margin-top: 20px;
@@ -69,16 +66,5 @@
         top: -3px;
         right: 0;
       }
-  }
-}
-
-@include media-breakpoint-down(400px) {
-  .search-card {
-    max-width: 320px;
-    padding-left: 0;
-    padding-right: 0;
-    border-left: 0;
-    border-right: 0;
-    box-shadow: none;
   }
 }

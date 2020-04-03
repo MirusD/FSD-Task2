@@ -1,8 +1,6 @@
 @import '../../theme/variables.scss';
 
 .search-card {
-  max-width: 380px;
-  min-width: 300px;
   &__date-range {
     margin-top: 21px;
     margin-bottom: 20px;
@@ -12,16 +10,5 @@
   }
   &__btn-search {
     margin-top: 31px;
-  }
-}
-
-@include media-breakpoint-down(400px) {
-  .search-card {
-    max-width: 320px;
-    padding-left: 0;
-    padding-right: 0;
-    border-left: 0;
-    border-right: 0;
-    box-shadow: none;
   }
 }
