@@ -1,12 +1,26 @@
-.header {
-  display: flex;
-  flex: 1 1 auto;
-  padding: 1rem 2rem;
-  align-items: center;
-  //background-color: yellow;
-  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.2);
+@import "../../theme/variables";
 
-  .header__logo {
+$header-override: ();
+@if variable-exists(header-settings) {
+  $header-override: $header-settings;
+}
+
+// ****** Settings ******
+$header-settings-default: map-merge((
+        content-max-width: 900px,
+), $header-override);
+
+
+.header {
+  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.2);
+  &__container {
+    display: flex;
+    max-width: map-get($header-settings-default, content-max-width);
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  &__logo {
     display: flex;
     flex: 0 0 auto;
     text-decoration: none;
@@ -16,14 +30,38 @@
     font-weight: bold;
   }
 
-  .header__menu {
+  &__menu {
     flex: 1 0 auto;
-    padding-left: 1rem;
+    //padding-left: 1rem;
   }
 
   &__user-name {
     margin-left: 20px;
     border-left: 1px solid rgba(31, 32, 65, 0.1);
     padding-left: 20px;
+  }
+
+  &__authorization {
+    display: flex;
+    & .btn__text {
+      padding: {
+        top: 9px;
+        right: 19px;
+        bottom: 10px;
+        left: 19px;
+      }
+    }
+    & .btn__text_outline {
+      padding: {
+        top: 7px;
+        right: 18px;
+        bottom: 8px;
+        left: 18px;
+      }
+    }
+  }
+
+  &__btn-login {
+    margin-right: 20px;
   }
 }

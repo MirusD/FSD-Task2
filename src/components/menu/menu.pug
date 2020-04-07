@@ -12,6 +12,16 @@ mixin menu(options)
   .menu.js-menu
     .menu__button.js-menu__button
       include ./img/menu-options.svg
-    nav.menu__list.js-menu__list
-      for item in options.items
-        a.menu__item(href = item.href)= item.name
+    nav.js-menu__list
+      ul.menu__list
+        for item in options.items
+          if (!item.submenu)
+            li.menu__item
+              a.menu__link(href = item.href)= item.name
+          else
+            li.menu__item.menu__with-submenus
+              a.menu__link(href = item.href)= item.name
+              ul.menu__submenu
+                each submenu in item.submenu
+                  li.menu__submenu-item
+                    a.menu__submenu-link(href = submenu.href)= submenu.name

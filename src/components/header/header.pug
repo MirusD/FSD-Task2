@@ -10,6 +10,7 @@ mixin header(options)
     - options = {}
 
   .header
+    .header__container
       if options.logo
         .header__logo
           img(alt="logo" src=options.logo)
@@ -17,14 +18,16 @@ mixin header(options)
         .header__menu
           +menu({items: options.menuItems})
       if options.authorization
-        .header__authorization.header__user-name Damir Salickhov
+        .header__authorization.header__user-name Cosmin Negoita
       else
         .header__authorization
-          +button({
-            type: 'outline',
-            text: 'Login'
-          })
-          +button({
-            type: 'no-outline',
-            text: 'Register'
-          })
+          .header__btn-login
+            +button({
+              type: 'outline',
+              text: 'Login'
+            })
+          .header__btn-register
+            +button({
+              type: 'no-outline',
+              text: 'Register'
+            })

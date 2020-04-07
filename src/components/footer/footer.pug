@@ -1,3 +1,5 @@
+include ../text-field/text-field
+
 //-
   options.items - массив с элементами меню
   options.items[0].name - имя элемента меню
@@ -10,8 +12,60 @@ mixin footer(options)
     - options.items = []
 
   .footer
-     nav.footer__nav
-       for item in options.items
-         a.footer__nav-item(href = item.href)= item.name
-     .footer__copyright
-       | &copy; 2016-2017
+      if (options.nav || options.aboutUs || options.support)
+          .footer__container
+              .footer__top
+                  .footer__top-item.footer__logo
+                      img(alt="logo" src=options.logo)
+                      .footer__subtext
+                          p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellemtesque
+                            |  aliquam curabitur cocils
+                  if (options.nav)
+                      .footer__top-item.footer__navigation
+                          h3.header_level-3 Navigation
+                          nav.footer__nav
+                              each item in options.nav
+                                  a.footer__nav-item(href = item.href)= item.name
+                  if (options.aboutUs)
+                      .footer__top-item.footer__about-us
+                          h3.header_level-3 About us
+                          nav.footer__nav.footer__about-us
+                              each item in options.aboutUs
+                                  a.footer__nav-item(href = item.href)= item.name
+                  if (options.support)
+                      .footer__top-item.footer__support
+                          h3.header_level-3 Support
+                          nav.footer__nav.footer__support
+                              each item in options.support
+                                  a.footer__nav-item(href = item.href)= item.name
+                  .footer__top-item.footer__subscribe
+                      h3.header_level-3 Subscribe to our newsletter
+                      p.footer__subscribe-text Receive our latest news and promotion in your inbox
+                      +text-field({
+                          placeholder: 'You email address',
+                          type: 'subscription'
+                      })
+          .footer_border-top
+              .footer__copyright
+                  | Copyright &copy; 2018 Toxin Ui Kit All rights reserved
+                  .social.footer__social
+                      span.social__icon.social__twitter-icon
+                          include ./img/twitter-icon.svg
+                      span.social__icon.social__facebook-icon
+                          include ./img/facebook-icon.svg
+                      span.social__icon.social__inst-icon
+                          include ./img/inst-icon.svg
+      else
+          .footer__container.footer_center
+              .footer__logo
+                  img(alt="logo" src=options.logo)
+                  .footer__subtext
+                      p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellemtesque
+                        | aliquam curabitur cocils
+              .social.footer__social
+                  span.social__icon.social__twitter-icon
+                      include ./img/twitter-icon.svg
+                  span.social__icon.social__facebook-icon
+                      include ./img/facebook-icon.svg
+                  span.social__icon.social__inst-icon
+                      include ./img/inst-icon.svg

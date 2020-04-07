@@ -1,7 +1,7 @@
 @import '../../theme/variables';
 
 .btn {
-  $min-width: 99px;
+  //$min-width: 99px;
   outline: none;
   display: inline-block;
   cursor: pointer;
@@ -14,7 +14,7 @@
     width: 100%;
   }
   &__text {
-    min-width: $min-width;
+    //min-width: $min-width;
     display: inline-block;
     padding: 14px 20px 15px 20px;
     border-radius: 22px;

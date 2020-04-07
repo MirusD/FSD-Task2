@@ -1,4 +1,4 @@
-extends ../base/base
+extends ../base/base-uikit
 include ../../components/toggle/toggle
 include ../../components/text-field/text-field
 include ../../components/dropdown/dropdown
@@ -21,16 +21,14 @@ include ../../components/search-card/search-card
 include ../../components/reservation-card/reservation-card
 include ../../components/room-card/room-card
 include ../../components/header/header
+include ../../components/footer/footer
 
 block title
     | UI-KIT
-block header
 block main
-    section.demo-colors-and-type
-        | Colors and type
+    | Colors and type
+    +layout__section('demo-colors-and-type')
         .container
-            header.demo-logo
-                img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
             .demo-colors-and-type__container
                 .demo-colors
                     - var title = ['Dark Shade 100%','Dark Shade 75%','Dark Shade 50%','Dark Shade 25%','Dark Shade 5%','Purple','Green'];
@@ -51,12 +49,9 @@ block main
                                 #{tag[i]}(class="demo-type__item" class=level)=content[i]
                             p.demo-type__item(style='max-width: 301px; margin-top: -2px;') This is the body text which is used for most of the design, like paragraphs, lists, etc.
 
-    section.demo-form-elements
-        header
-            p Form elements
+    | Form elements
+    +layout__section('demo-form-elements')
         .container
-            .demo-logo
-                img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
             .form-elements__container
                 .row1-col1
                     .demo-text-field__default
@@ -282,13 +277,9 @@ block main
                                 'соседи со мной согласились)))',
                             avatar: require('./img/avatar/avatar.jpg')
                         })
-
-    section.demo-cards
-        header
-            p Cards
+    | Cards
+    +layout__section('demo-cards')
         .container
-            .demo-logo
-                img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
             .demo-cards__container
                 .demo-cards__col
                     +search-card()
@@ -340,23 +331,58 @@ block main
                         rate: '4',
                         reviews: '65'
                     })
-    section.demo-header-footer
-        header
-            p Header & Footer
-        .container
-            .demo-logo
-                img(alt="logo-uikit" src=require('./img/logo/logo-toxin.svg'))
-            .demo-header-footer__container
-                +header({
-                    logo: require('./img/logo/logo.svg'),
-                    menuItems: [{name: 'Home'},{name: 'About Ua'},{name: 'Services'},{name: 'Careers'},{name: 'News'},{name: 'Documentation'}],
-                    authorization: false
-                })
-                +header({
-                    logo: require('./img/logo/logo.svg'),
-                    menuItems: [{name: 'Home'}, {name: 'About Ua'}, {name: 'Services'}, {name: 'Careers'}, {name: 'News'}, {name: 'Documentation'}],
-                    authorization: true
-                })
+    | Header & Footer
+    +layout__section('demo-header-footer')
+        .demo-header-footer__header-first
+            +header({
+                logo: require('./img/logo/logo.svg'),
+                menuItems: [
+                    {name: 'Home'},
+                    {name: 'About Us'},
+                    {name: 'Services', submenu: [
+                            {name: 'Room reservation'},
+                            {name: 'Services2'},
+                            {name: 'Services3'}
+                            ]
+                    },
+                    {name: 'Careers'},
+                    {name: 'News'},
+                    {name: 'Documentation'}
+                    ],
+                authorization: false
+            })
+        .demo-header-footer__header-second
+            +header({
+                logo: require('./img/logo/logo.svg'),
+                menuItems: [
+                    {name: 'Home'},
+                    {name: 'About Us'},
+                    {
+                        name: 'Services', submenu: [
+                            {name: 'Room reservation'},
+                            {name: 'Services2'},
+                            {name: 'Services3'}
+                        ]
+                    },
+                    {name: 'Careers'},
+                    {name: 'News'},
+                    {name: 'Documentation'}
+                ],
+                authorization: true
+            })
+        .demo-header-footer__footer-first
+            +footer({
+                logo: require('./img/logo/logo.svg'),
+                nav: [{name: 'About Us'}, {name: 'News'}, {name: 'Support'}, {name: 'Products'}],
+                aboutUs: [{name: 'Who we are'}, {name: 'Our team'}, {name: 'Carrers'}, {name: 'Investors'}],
+                support: [{name: 'Documentation'}, {name: 'Community'}, {name: 'Get in Touch'}]
+            })
+        .demo-header-footer__footer-second
+            +footer({
+                logo: require('./img/logo/logo.svg')
+            })
+
+
 
 
 

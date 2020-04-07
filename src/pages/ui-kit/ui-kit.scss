@@ -1,30 +1,22 @@
 @import '../../theme/variables.scss';
 
 .container {
-  background-color: white;
-  padding-bottom: 117px;
-  padding-left: 30px;
-  padding-right: 30px;
+  max-width: $lg;
+  margin: 0 auto;
 }
 
 @include media-breakpoint-down(380px) {
   .container {
-    padding-left: 10px;
-    padding-right: 10px;
+    //padding-left: 10px;
+    //padding-right: 10px;
   }
-}
-
-section {
-  margin-bottom: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 
 .form-elements {
   &__container {
-    margin: 0 auto;
-    max-width: 1160px;
+    //margin: 0 auto;
+    //max-width: 1160px;
     display: grid;
     grid-template-columns: 1fr minmax(10px, 125px) 1fr minmax(10px, 71px) 1fr;
     grid-template-rows: auto 100px auto 55px auto 33px auto;
@@ -92,14 +84,20 @@ section {
 }
 
 .demo {
-  &-logo {
+  padding-bottom: 117px;
+  margin-bottom: 50px;
+  background-color: white;
+  overflow: hidden;
+  &__logo {
     padding-top: 30px;
-    margin-bottom: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 65px;
   }
   &-colors-and-type {
     &__container {
-      margin: 0 auto;
-      max-width: 1140px;
+      //margin: 0 auto;
+      //max-width: 1140px;
       display: flex;
       justify-content: space-between;
     }
@@ -378,12 +376,12 @@ section {
   }
   &-cards {
     &__container {
-      max-width: 1160px;
+      //max-width: 1160px;
       //column-count: 3;
       //column-gap: 95px;
       display: flex;
       flex-wrap: wrap;
-      margin: 0 auto;
+      //margin: 0 auto;
       justify-content: space-between;
       @include media-breakpoint-down(1161px) {
         & {
@@ -410,6 +408,15 @@ section {
       & > div {
         margin-bottom: 40px;
       }
+    }
+  }
+  &-header-footer {
+    &__header-second {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    &__footer-first {
+      margin-bottom: 40px;
     }
   }
 }

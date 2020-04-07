@@ -1,10 +1,20 @@
 @import '../../theme/variables';
 
+$layout-override: ();
+@if variable-exists(layout-settings) {
+  $layout-override: $layout-settings;
+}
+
+// ****** Settings ******
+$layout-settings: map-merge((
+        content-max-width: 1460px,
+), $layout-override);
+
 .layout {
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 1460px;
+  max-width: map_get($layout-settings, content-max-width);
   margin: 0 auto;
   background-color: transparent;
   background-repeat: no-repeat;

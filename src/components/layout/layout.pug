@@ -16,6 +16,12 @@ mixin layout__main()
   main
     block
 
+mixin layout__section(name)
+  section.demo(class=name)
+    header.demo__logo
+      img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))
+    block
+
 mixin layout__footer()
   footer.layout__footer
     block
