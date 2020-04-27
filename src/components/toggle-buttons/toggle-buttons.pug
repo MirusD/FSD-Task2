@@ -1,0 +1,11 @@
+include ../input/input
+
+mixin toggle-buttons(options)
+    if !options
+        - options = {}
+
+    .toggle-buttons
+        .toggle-buttons__items
+            each item in options.items
+                .toggle-buttons__item
+                    +input({type: 'toggle', label: item.label, isChecked: item.isChecked})

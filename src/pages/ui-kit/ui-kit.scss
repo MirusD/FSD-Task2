@@ -76,7 +76,7 @@
     content: $text;
     position: absolute;
     right: 0;
-    top: -20px;
+    top: -10px;
     font-size: 12px;
     text-transform: uppercase;
     color: $color-third;
@@ -195,63 +195,61 @@
       color: $color-fourth;
     }
   }
-
   //=== TEXT-FIELD ===
   &-text-field {
-    &__default > .text-field {
+    &__title {
+      margin-bottom: 5px;
+    }
+    &_default {
       @include info('default');
     }
-    &__hovered-and-focused {
+    &_hovered-and-focused {
       margin-top: 21px;
-      &> .text-field {
-        @include info('hover / focus');
-      }
-      & input {
-        outline: none;
-        border: 1px solid $color-third;
-      }
+      @include info('hover / focus');
     }
-    &__masked {
+    &_masked {
       margin-top: 22px;
-    }
-    &__masked > .text-field {
       @include info('default');
     }
-    &__subscription {
+    &_subscription {
       margin-top: 41px;
+      max-width: 267px;
     }
   }
 
   //=== DROPDOWN ===
   &-dropdown {
-    &__default {
+    &__title {
+      margin-bottom: 5px;
+    }
+    &_default {
       &_big {
         margin-top: 20px;
       }
     }
-    &__default > .iqdropdown{
+    &_default {
       @include info('default');
     }
-    &__expanded {
+    &_expanded {
       margin-top: 20px;
     }
-    &__expanded > .iqdropdown {
+    &_expanded {
       @include info('expanded');
     }
-    &__filter-date {
+    &_filter-date {
       margin-top: 41px;
     }
-    &__date {
+    &_date {
       margin-top: 40px;
-      display: flex;
-      justify-content: space-between;
+      //display: flex;
+      //justify-content: space-between;
     }
   }
 
   // === CHECKBOX-LIST ===
   &-checkbox-list {
-    &__expanded {
-      margin-top: 49px;
+    &_first {
+      margin-bottom: 49px;
     }
   }
 
@@ -268,6 +266,15 @@
   // === RADIO-BUTTONS ===
   &-radio-buttons {
     margin-top: 39px;
+    &__title {
+      margin-bottom: 16px;
+    }
+    &__items {
+      max-width: 210px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
   }
 
   // === TOGGLE ===
@@ -276,19 +283,22 @@
     &__title {
       margin-bottom: 14px;
     }
+    &__items {
+      //margin-bottom: 14px;
+    }
   }
 
   // === LIKE-BUTTONS ===
   &-like-buttons {
+    margin-top: 42px;
     &__title {
-      margin-top: 42px;
       margin-bottom: 11px;
     }
-    &__first, &__second {
-      display: inline-block;
-    }
-    &__second {
-      margin-left: 6px;
+    &__items {
+      display: flex;
+      & div:first-child {
+        margin-right: 6px;
+      }
     }
   }
 
@@ -365,8 +375,8 @@
     }
   }
   // === DETAILS ===
-  &-details__second {
-    margin-top: 20px;
+  &-details_first {
+    margin-bottom: 20px;
   }
   // === COMMENTS ===
   &-comments {
@@ -412,7 +422,7 @@
   }
   &-header-footer {
     &__header-second {
-      margin-top: 40px;
+      margin-top: 41px;
       margin-bottom: 40px;
     }
     &__footer-first {
@@ -468,6 +478,13 @@
               'row4-col2';
       justify-items: center;
     }
+  }
+}
+
+.test-flex {
+  display: flex;
+  &__in {
+
   }
 }
 

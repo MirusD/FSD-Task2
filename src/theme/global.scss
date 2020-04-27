@@ -8,20 +8,20 @@
   font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.714285714285714rem;
   color: rgba(31, 32, 65, 0.75);
 }
 
 html {
-  font-size: 8px;
+  font-size: 10px;
 
   @include media-breakpoint-up($xxs) {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   @include media-breakpoint-up($xs) {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
@@ -33,16 +33,16 @@ h1, .header_level-1 {
   font-family: Quicksand, Noto-Sans, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 1.714285714285714rem; //24/14
+  line-height: 2.142857142857143rem; //30/14
   color: #1F2041;
 }
 h2, .header_level-2 {
   font-family: Quicksand, Noto-Sans, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 19px;
-  line-height: 24px;
+  font-size: 1.357142857142857rem; //19/14
+  line-height: 1.714285714285714rem; //24/14
   color: #1F2041;
 }
 
@@ -50,8 +50,8 @@ h3, .header_level-3 {
   font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 12px;
-  line-height: 15px;
+  font-size: 0.8571428571428571rem; //12/14
+  line-height: 1.071428571428571rem; //15/14
   color: #1F2041;
   text-transform: uppercase;
   text-decoration: none;

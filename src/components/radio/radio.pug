@@ -1,0 +1,12 @@
+//-
+    - options.label - ярлык radio button
+    - options.name - больше как указатель что элемент radio принадлежит к какой-то группе
+    - options.isChecked - checked
+
+mixin radio(options)
+    if !options
+        - options = {}
+
+    .radio(class= options.name ? '': 'js-radio')
+        .radio__element(class=options.isChecked === true ? 'radio_checked':'')
+        span.radio__label!=options.label || 'Radio label'

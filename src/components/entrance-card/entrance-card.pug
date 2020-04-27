@@ -1,28 +1,28 @@
-include ../text-field/text-field
+include ../input/input
 include ../button/button
 
-mixin entrance-card(options)
+mixin signin-card(options)
     if !options
         - options = {}
 
-    .entrance-card.cards
+    form.signin-card
         h1.header_level-1 Войти
-        .entrance-card__email
+        .signin-card__email
             +text-field({
                 type: 'email',
                 placeholder: 'Email'
             })
-        .entrance-card__password
+        .signin-card__password
             +text-field({
                 type: 'password',
                 placeholder: 'Пароль'
             })
-        .entrance-card__log-in-btn
+        .signin-card__log-in-btn
             +button({
                 type: 'arrow-btn',
                 text: 'Войти'
             })
-        .entrance-card__create-an-account
+        .signin-card__signup-an-account
             span.entrance-card___text_color_black Нет аккаунта на Toxin?
             +button({
                 type: 'outline',

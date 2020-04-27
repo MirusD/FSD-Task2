@@ -1,49 +1,47 @@
-include ../checkbox/checkbox
-
 //-
-    options.size - ширина блока dropdown, возможные значения 'small', 'middle', 'big' по умолчанию 'middle'
+    options.selectionText - значение элемента по умолчанию устанавливается через js можно установить в ручную на случай если js не будет работать
     options.items - массив элементов выпадающего списка
+            - options.text - текст элемента.
+            - options.defaultCount - определяет количество при инициализации.
+            - options.textPlural - текс который будет выводиться в textSelection в зависимости от количества: '1, 2-4, 5...'
     options.isExpanded - expanded dropdown, определяет будет ли раскрыт при инициализации, по умолчанию 'false' (bool)
-    options.value - значение элемента по умолчанию устанавливается через js можно установить в ручную на случай если js не будет работать
-    options.controlBar - включает панель управления с кнопками: "Очистить", "Применить" по умолчанию 'false' (bool)
+    options.controls - включает панель управления с кнопками: "Очистить", "Применить" по умолчанию 'false' (bool)
     options.type - тип dropdown возможные значения: 'date', 'filter-date'
-    options.id -
+
+    Пример:
+
+    +dropdown({
+        selectionText: 'Сколько гостей',
+        items: [
+            {text: 'Взрослые', defaultCount: 2, textPlural: 'Гость, Гостя, Гостей'},
+            {text: 'Дети', defaultCount: 1, textPlural: 'Гость, Гостя, Гостей'},
+            {text: 'Младенцы', defaultCount: 1, textPlural: 'Младенец, Младенца, Младенцев'}
+        ],
+        isExpanded: true,
+        controls: true
+    })
 
 mixin dropdown(options)
     if !options
         - options = {}
     if !options.isExpanded
-        - options.isExpanded = 'false'
+        - options.isExpanded = false
     if !options.controlBar
-        - options.controlBar = 'false'
+        - options.controlBar = false
 
-    case options.size
-        when 'big'
-            - var size = 'dropdown_big'
-        when 'small'
-            - var size = 'dropdown_small'
-        default
-            - var size = 'dropdown_middle'
+    - var isExpanded = options.isExpanded === true ? 'menu-open' : ''
 
-    - var isExpanded = options.isExpanded === 'true' ? 'menu-open' : ''
-
-    .iqdropdown(class=size class=isExpanded)
-        if (options.type === 'date')
-            input(type="text", id=options.id class="datepicker-here" placeholder=options.value autocomplete="off" readonly)
-        else
-            if (options.type === 'filterDate')
-                input(type="text", id=options.id class="datepicker-here" placeholder=options.value data-multiple-dates-separator=" - " autocomplete="off" readonly)
-            else
-                p.iqdropdown-selection=options.value
-                .iqdropdown-menu
-                    div
-                        if options.items
-                            - var i = 1
-                            each item in options.items
-                                div(class="iqdropdown-menu-option" data-defaultcount=item.defaultCount || "0" data-id='item-'+i)
-                                    p.iqdropdown-item.header_level-3=item.value || item
-                                - i++;
-                        if(options.controlBar === 'true')
-                            .iqdropdown__control-bar
-                                a.header_level-3.iqdropdown__btn-clear Очистить
-                                a.header_level-3.iqdropdown__btn-apply.iqdropdown-menu-close Применить
+    .iqdropdown(class=isExpanded)
+        p.iqdropdown-selection=options.selectionText
+        .iqdropdown-menu
+            div
+                if options.items
+                    - var i = 1
+                    each item in options.items
+                        div(class="iqdropdown-menu-option" data-defaultcount=item.defaultCount || "0" data-id='item-' + i data-textplural=item.textPlural)
+                            p.iqdropdown-item.header_level-3=item.text || item
+                        - i++;
+                if(options.controls === true)
+                    .iqdropdown__control-bar
+                        a.header_level-3.iqdropdown__btn-clear Очистить
+                        a.header_level-3.iqdropdown__btn-apply.iqdropdown-menu-close Применить

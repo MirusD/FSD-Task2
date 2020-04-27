@@ -1,0 +1,8 @@
+.checkbox-buttons {
+  &__title {
+    margin-bottom: 16px;
+  }
+  &__item:not(:last-child){
+    margin-bottom: 10px;
+  }
+}

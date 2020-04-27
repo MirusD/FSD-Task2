@@ -1,3 +1,5 @@
+include ../input/input
+
 //-
     options.items - массив элементов блока radio buttons.
         Принимает массив объектов со след. св-вами:
@@ -11,11 +13,8 @@ mixin radio-buttons(options)
         - options = {}
 
     .radio-buttons
-        if (options.items instanceof Array)
-            - var id = 0;
+        .radio-buttons__items
             each item in options.items
                 .radio-buttons__item
-                    input.radio-buttons__input(name=options.name || 'radio-buttons'  type="radio" id=item.id || 'radio-button-item-' + id checked = item.isChecked || false)
-                    label.radio-buttons__text(for=item.id || 'radio-button-item-' + id)=item.value
-                    - id++
+                    +input({type: 'radio', name: item.name, label: item.label, isChecked: item.isChecked})
 

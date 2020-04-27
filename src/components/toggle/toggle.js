@@ -1,19 +1,18 @@
 import './toggle.scss';
 // import $ from 'jquery';
-//
-// class Toggle {
-//   constructor($component) {
-//     this.$component = $component;
-//     this._attachEventHandlers();
-//   }
-//
-//   _attachEventHandlers() {
-//     this.$component.on('click', () => this.$component.toggleClass('toggle_on'));
-//   }
-// };
-//
-// $(() => {
-//   $('.js-toggle').each((index, node) => {
-//     new Toggle($(node));
-//   });
-// });
+
+class Toggle {
+    constructor (component) {
+        this.component = component;
+        this._attachEventHandler();
+    }
+    _attachEventHandler() {
+        this.component.addEventListener('click', () => {
+            this.component.querySelector('.toggle__element').classList.toggle('toggle_checked');
+        })
+    }
+}
+
+document.querySelectorAll('.js-toggle').forEach((node) => {
+    new Toggle(node);
+});

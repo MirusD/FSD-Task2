@@ -1,0 +1,10 @@
+mixin date(options)
+    if !options
+        - options = {}
+
+    .date
+        input(type="text", id=options.id class="datepicker-here" placeholder=options.value autocomplete="off" readonly)
+        //else
+        //    if (options.type === 'filterDate')
+        //        input(type="text", id=options.id class="datepicker-here" placeholder=options.value data-multiple-dates-separator=" - " autocomplete="off" readonly)
+        //    else

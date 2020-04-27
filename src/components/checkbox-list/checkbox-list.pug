@@ -1,8 +1,8 @@
-include ../checkbox/checkbox
+include ../input/input
 
 //-
     options.title - заголовок блока
-    options.items - массив объектов со свойсвами value и id  Пример: {value: 'Первый чекбокс', id: 'first-checkbox', name: 'first-checkbox'}
+    options.items - массив объектов со свойсвами label и isChecked  Пример: {label: 'Первый чекбокс', isChecked: true, name: 'first-checkbox'}
     options.isExpanded - expanded checkbox list, по умолчанию 'false' (bool)
 
 mixin checkbox-list(options)
@@ -17,8 +17,6 @@ mixin checkbox-list(options)
         .checkbox-list__btn(aria-expanded=options.isExpanded)
             h3.header_level-3=options.title
         .checkbox-list__items(class=isExpanded)
-            - var id = 0;
             each item in options.items
                 .checkbox-list__item
-                    +checkbox({value:item.value || item, id:item.id || 'checkbox-item-'+id, name:item.name || ''})
-                - id++;
+                    +input({type: 'checkbox', name: item.name, label: item.label, isChecked: item.isChecked})

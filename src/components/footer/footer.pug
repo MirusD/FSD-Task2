@@ -1,4 +1,4 @@
-include ../text-field/text-field
+include ../input/input
 
 //-
   options.items - массив с элементами меню
@@ -18,24 +18,24 @@ mixin footer(options)
                   .footer__top-item.footer__logo
                       img(alt="logo" src=options.logo)
                       .footer__subtext
-                          p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellemtesque
-                            |  aliquam curabitur cocils
+                          p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque
+                            |  aliquam curabitur cociis
                   if (options.nav)
                       .footer__top-item.footer__navigation
                           h3.header_level-3 Navigation
-                          nav.footer__nav
+                          .footer__nav
                               each item in options.nav
                                   a.footer__nav-item(href = item.href)= item.name
                   if (options.aboutUs)
                       .footer__top-item.footer__about-us
                           h3.header_level-3 About us
-                          nav.footer__nav.footer__about-us
+                          .footer__nav.footer__about-us
                               each item in options.aboutUs
                                   a.footer__nav-item(href = item.href)= item.name
                   if (options.support)
                       .footer__top-item.footer__support
                           h3.header_level-3 Support
-                          nav.footer__nav.footer__support
+                          .footer__nav.footer__support
                               each item in options.support
                                   a.footer__nav-item(href = item.href)= item.name
                   .footer__top-item.footer__subscribe
@@ -60,9 +60,9 @@ mixin footer(options)
               .footer__logo
                   img(alt="logo" src=options.logo)
                   .footer__subtext
-                      p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellemtesque
-                        | aliquam curabitur cocils
-              .social.footer__social
+                      p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque
+                        |  aliquam curabitur cociis
+              .social.footer__social.footer__social_margin-top
                   span.social__icon.social__twitter-icon
                       include ./img/twitter-icon.svg
                   span.social__icon.social__facebook-icon
