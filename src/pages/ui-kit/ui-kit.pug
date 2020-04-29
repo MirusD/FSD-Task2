@@ -78,19 +78,25 @@ block main
                         h3.demo-text-field__title Masked text field
                         +input({type: 'text', placeholder: 'ДД.ММ.ГГГ'})
                     .demo-dropdown.demo-dropdown_date
-                        h3.demo-dropdown-date__title Dropdown date
-                        +date()
-                        +date()
-                        //+dropdown-date({
-                        //    items: [{title: 'Date dropdown'},{title: 'Date dropdown'}]
-                        //})
+                        div
+                            h3.demo-dropdown-date__title Dropdown date
+                            +date({
+                                name: 'dropdownDate',
+                                placeholder: 'ДД.ММ.ГГГГ'
+                            })
+                        div
+                            h3.demo-dropdown-date__title Dropdown date
+                            +date({
+                                name: 'dropdownDate',
+                                placeholder: 'ДД.ММ.ГГГГ'
+                            })
                     .demo-dropdown.demo-dropdown_filter-date
                         h3.demo-dropdown__title Filter date dropdown
-                        //+dropdown({
-                        //    value: '19 авг - 23 авг',
-                        //    size: 'middle',
-                        //    type: 'filterDate'
-                        //})
+                        +date({
+                            name: 'demo-date',
+                            dateFormat: 'd M',
+                            placeholder: 'ДД.ММ.ГГГГ'
+                        })
                     .demo-text-field.demo-text-field_subscription
                         h3.demo-text-field__title Subscription text field
                         +input({type: 'email', name: 'subscribe', placeholder: 'Email', enableArrowBtn: true})
