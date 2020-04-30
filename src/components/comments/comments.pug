@@ -2,8 +2,9 @@ include ../like-button/like-button
 
 //-
     options.name - имя человека оставившего коммент.
-    options.avatar - аватар
+    options.avatar - аватар.
     options.comment - коммент.
+    options.likes - количество лайков.
 
 mixin comments(options)
     if !options
@@ -13,9 +14,7 @@ mixin comments(options)
         .comments__first-block
             img.comments__avatar(alt="avatar" src=options.avatar||require('./img/avatar/no-avatar.jpg') width=48 height=48)
             .comments__like
-                +like-button({
-                    likes: '12'
-                })
+                +like-button({likes: options.likes})
         .comments__second-block
             .comments__name!=options.name||'Incognito'
             span.comments__days 5 дней назад

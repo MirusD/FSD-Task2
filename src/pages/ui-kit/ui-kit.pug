@@ -77,14 +77,14 @@ block main
                     .demo-text-field.demo-text-field_masked
                         h3.demo-text-field__title Masked text field
                         +input({type: 'text', placeholder: 'ДД.ММ.ГГГ'})
-                    .demo-dropdown.demo-dropdown_date
-                        div
+                    .demo-dropdown-date
+                        div.demo-dropdown-date__from
                             h3.demo-dropdown-date__title Dropdown date
                             +date({
                                 name: 'dropdownDate',
                                 placeholder: 'ДД.ММ.ГГГГ'
                             })
-                        div
+                        div.demo-dropdown-date__to
                             h3.demo-dropdown-date__title Dropdown date
                             +date({
                                 name: 'dropdownDate',
@@ -122,8 +122,8 @@ block main
                     .demo-like-buttons
                         h3.demo-like-buttons__title Like button
                         .demo-like-buttons__items
-                            +like-button({likes: '2', id: 'like-button1'})
-                            +like-button({likes: "12", id: 'like-button2'})
+                            +like-button({likes: 2})
+                            +like-button({likes: 12})
                     .demo-rate-button
                         h3.demo-rate-button__title Rate button
                         .demo-rate-button__first
@@ -293,13 +293,15 @@ block main
                             comment: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.\n' +
                                 'И стены, действительно, шумопдавляющие. Выкрикивал комплименты повару - никто\n' +
                                 'не жаловался из соседей.',
-                            avatar: require('./img/avatar/avatar.jpg')
+                            avatar: require('./img/avatar/avatar.jpg'),
+                            likes: 1
                         })
                         +comments({
                             name: 'Дамир Салихов',
                             comment: 'Хуета полная, бегают тараканы, пахнет говном, и стены хуета та та, выкрикивал что повар мудак \n' +
                                 'соседи со мной согласились)))',
-                            avatar: require('./img/avatar/avatar.jpg')
+                            avatar: require('./img/avatar/avatar.jpg'),
+                            likes: 68
                         })
     | Cards
     +layout__section('demo-cards')

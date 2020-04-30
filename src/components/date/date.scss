@@ -4,6 +4,9 @@
   display: block;
   overflow: hidden;
   position: relative;
+  user-select: none;
+  outline: none;
+  cursor: pointer;
   width: 100%;
   height: 3.142857142857143rem; // 44/14
   padding: 1rem 1.25rem 1rem 1.25rem;
@@ -11,59 +14,47 @@
   letter-spacing: -0.2px;
   border-radius: 4px;
   border: 1px solid rgba(31, 32, 65, 0.25);
-  &:hover, &:focus {
-    outline: none;
-    border: 1px solid rgba(31, 32, 65, 0.5);
+  background: {
+    image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z' fill='%231F2041' fill-opacity='0.75'/%3e%3c/svg%3e ");
+    position: top 50% right 1.0714285714285714285714285714286rem;
+    repeat: no-repeat;
   }
 
   &::placeholder {
     color: rgba(31, 32, 65, 0.5);
   }
-
-  &_padding-right-for-button {
-    padding-right: 2.857142857142857rem;
-  }
 }
 
 .datepicker {
-  width: 290px;
+  width: 20.714285714285714285714285714286rem; //290/14
   box-sizing: content-box;
-  padding-left: 15px;
-  padding-right: 13px;
-  &-here {
-    //cursor: pointer;
-    //border: none;
-    //width: 100%;
-    //height: 100%;
-    //outline: none;
-    //padding: 1rem 1.25rem 1rem 1.25rem;
-    //padding: 9px 0 9px 15px;
-  }
+  padding-left: 1.0714285714285714285714285714286rem; //15/14
+  padding-right: 0.92857142857142857142857142857143rem; //13/14
   &--pointer {
     display: none;
   }
   &--nav {
-    height: 62px;
+    height: 4.4285714285714285714285714285714rem; //62/14
     border-bottom: none;
     &-action path {
       fill: $color-sixth;
       stroke: none;
     }
     &-action svg {
-      width: 17px;
+      width: 1.2142857142857142857142857142857rem; //17/14
     }
   }
   &--nav-title, i {
     font-family: Quicksand, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 19px;
-    line-height: 24px;
+    font-size: 1.3571428571428571428571428571429rem; //19/14
+    line-height: 1.7142857142857142857142857142857rem; //24/14
     color: #1F2041;
   }
   &--days-names {
-    margin-top: 15px;
-    margin-bottom: 7px;
+    margin-top: 1.0714285714285714285714285714286rem; //15/14
+    margin-bottom: 0.5rem; //7/14
   }
   &--day-name {
     color: $color-sixth;
@@ -74,15 +65,15 @@
 
   }
   &--cell-day {
-    width: 39.88px !important;
-    height: 40px !important;
+    width: 2.8357142857142857142857142857143rem; //39.7/14
+    height: 2.8571428571428571428571428571429rem; //40/14
   }
   &--day-name {
-    width: 39.88px !important;
+    width: 2.8485714285714285714285714285714rem; //39.88/14
   }
   &--cell.datepicker--cell-day {
-    font-size: 12px;
-    line-height: 15px;
+    font-size: 0.85714285714285714285714285714286rem; //12/14
+    line-height: 1.0714285714285714285714285714286rem; //15/14
     color: $color-third;
     &.-other-month- {
       color: $color-fourth;
@@ -96,14 +87,14 @@
         z-index: -1;
         left: 0;
         top: 0;
-        width: 40px;
-        height: 40px;
+        width: 2.8571428571428571428571428571429rem; //40/14
+        height: 2.8571428571428571428571428571429rem; //40/14
         background: linear-gradient(180deg, rgba(188,156,255,0.25) 0%, rgba(139,164,249,0.25) 100%);
       }
     }
     &.-current-,&.-selected-,&.-focus- {
       color: white;
-      border-radius: 22px;
+      border-radius: 1.5714285714285714285714285714286rem; //22/14
       font-weight: bold;
       position: relative;
       border: none;
@@ -120,20 +111,20 @@
       z-index: -1;
       left: 0;
       top: 0;
-      width: 40px;
-      height: 40px;
+      width: 2.8571428571428571428571428571429rem; //40/14
+      height: 2.8571428571428571428571428571429rem; //40/14
       background: linear-gradient(180deg, rgba(188,156,255,0.25) 0%, rgba(139,164,249,0.25) 100%);
     }
     &.-range-from- {
       position: relative;
       &:before {
-        border-radius: 22px 0 0 22px;
+        border-radius: 1.5714285714285714285714285714286rem 0 0 1.5714285714285714285714285714286rem; //22/14, 0, 0, 22/14
       }
     }
     &.-range-to- {
       position: relative;
       &:before {
-        border-radius: 0 22px 22px 0;
+        border-radius: 0 1.5714285714285714285714285714286rem 1.5714285714285714285714285714286rem 0; //0, 22/14, 22/14, 0
       }
     }
   }
@@ -147,8 +138,8 @@
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 12px;
-    line-height: 44px;
+    font-size: 0.85714285714285714285714285714286rem; //12/14
+    line-height: 3.1428571428571428571428571428571rem; //44/14
     text-transform: uppercase;
     text-decoration: none;
     height: auto;

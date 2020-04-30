@@ -239,10 +239,18 @@
     &_filter-date {
       margin-top: 41px;
     }
-    &_date {
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-between;
+  }
+
+  // === DROPDOWN-DATE ===
+  &-dropdown-date {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    &__title {
+      margin-bottom: 5px;
+    }
+    &__from {
+      margin-right: 20px;
     }
   }
 

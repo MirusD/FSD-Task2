@@ -1,12 +1,14 @@
 //-
     options.likes - количество лайков
-    options.id - идентификатор для каждого like buttons
 
 mixin like-button(options)
     if !options
         - options = {}
 
     .like-button
-        input.like-button__input(type="checkbox" name="like-button" id=options.id ||  "like-button")
-        label.like-button__number-likes(for=options.id || "like-button")=options.likes || 10
-            .like-button__icon
+        .like-button__container
+            span.like-button__icon
+            span.like-button__number-likes=options.likes
+        //input.like-button__input(type="checkbox" name="like-button" id=options.id ||  "like-button")
+        //label.like-button__number-likes(for=options.id || "like-button")=options.likes || 10
+        //    .like-button__icon
