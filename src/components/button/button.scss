@@ -1,7 +1,6 @@
 @import '../../theme/variables';
 
 .btn {
-  //$min-width: 99px;
   outline: none;
   display: inline-block;
   cursor: pointer;
@@ -14,10 +13,14 @@
     width: 100%;
   }
   &__text {
-    //min-width: $min-width;
     display: inline-block;
-    padding: 14px 20px 15px 20px;
-    border-radius: 22px;
+    padding: {
+      top: 1rem; //14/14
+      right: 1.3571428571428571428571428571429rem; //19/14
+      bottom: 1.0714285714285714285714285714286rem; //15/14
+      left: 1.3571428571428571428571428571429rem; //19/14
+    }
+    border-radius: 1.5714285714285714285714285714286rem; //22/14
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     color: white;
     position: relative;
@@ -26,9 +29,14 @@
       opacity: 0.5;
     }
     &_outline {
-      margin: 2px;
+      margin: 0.14285714285714285714285714285714rem; //2/14
       position: relative;
-      padding: 12px 17px 12px 17px;
+      padding: {
+        top: 0.85714285714285714285714285714286rem; //12/14
+        right: 1.2142857142857142857142857142857rem; //17/14
+        bottom: 0.92857142857142857142857142857143rem; //13/14
+        left: 1.2142857142857142857142857142857rem; //17/14
+      }
       box-sizing: border-box;
       color: $color-sixth;
       background: white;
@@ -37,8 +45,8 @@
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
         z-index: -1;
-        margin: -2px; /* !importanté */
-        border-radius: 25px; /* !importanté */
+        margin: -0.14285714285714285714285714285714rem; //-2/14
+        border-radius: 1.7857142857142857142857142857143rem; //25/14
         background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
       }
       &:hover {
@@ -65,8 +73,8 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: 44px;
-        height: 44px;
+        width: 3.1428571428571428571428571428571rem; //44/14
+        height: 3.1428571428571428571428571428571rem; //44/14
         background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9 0.984375L17.0156 9L9 17.0156L7.59375 15.6094L13.1719 9.98438H0.984375V8.01562H13.1719L7.59375 2.39062L9 0.984375Z' fill='white'/%3e%3c/svg%3e ");
         background-repeat: no-repeat;
         background-position: center center;

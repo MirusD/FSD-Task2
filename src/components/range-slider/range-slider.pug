@@ -1,13 +1,25 @@
 //-
+    options.name - имя слайдера. (string)
+    options.min - минимальное значение диапазона. по умолчанию: 0 (number)
+    options.max - максимальное значение диапазона. по умолчанию: 100 (number)
+    options.from - начальное значение первого ползунка. по умолчанию: 10 (number)
+    options.to - начальное значение второго ползунка. по умолчанию: 50 (number)
+    options.step - шаг. по умолчанию: 1 (number)
 
 
 mixin range-slider(options)
     if !options
         - options = {}
 
-    .range-slider
-        .range-slider__container
-            .range-slider__nolinear
-                .range-slider__from
-                .range-slider__to
-            .range-slider__linear
+    .range-slider.js-range-slider
+        .range-slider__value-field
+        input.range-slider__input(
+            type="text"
+            name=options.name || "may-range"
+            value=""
+            data-min=options.min
+            data-max=options.max
+            data-from=options.from
+            data-to=options.to
+            data-step=options.step
+        )

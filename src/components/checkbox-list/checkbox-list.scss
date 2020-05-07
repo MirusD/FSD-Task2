@@ -2,21 +2,20 @@
 
 .checkbox-list {
   user-select: none;
-  width: 266px;
   &__btn {
     cursor: pointer;
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 1.2142857142857142857142857142857rem; //17/14
     &:before {
       content: '';
       position: absolute;
-      right: 19px;
-      top: 2px;
-      transform-origin: 6px 6px ;
+      right: 1.3571428571428571428571428571429rem; //19/14
+      top: 0.14285714285714285714285714285714rem; //2/14
+      transform-origin: 0.42857142857142857142857142857143rem 0.42857142857142857142857142857143rem ; //6/14, 6/14
       transform: rotate(225deg);
-      width: 7px;
-      height: 7px;
-      border: 2px solid $color-second;
+      width: 0.5rem; //7/14
+      height: 0.5rem; //7/14
+      border: 0.14285714285714285714285714285714rem solid $color-second; //2/14
       border-left: none;
       border-top: none;
     }
@@ -36,6 +35,6 @@
     }
   }
   &__item {
-    margin-bottom: 6px;
+    margin-bottom: 0.71428571428571428571428571428571rem; //10/14
   }
 }

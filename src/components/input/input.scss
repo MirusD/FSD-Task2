@@ -17,7 +17,12 @@
     width: 100%;
     position: relative;
     height: 3.142857142857143rem; // 44/14
-    padding: 1rem 1.25rem 1rem 1.25rem;
+    padding: {
+      top: 1rem; //14/14
+      right: 1.25rem; //17.5/14
+      bottom: 1rem; //14/14
+      left: 1.0714285714285714285714285714286rem; //15/14
+    }
     box-sizing: border-box;
     letter-spacing: -0.2px;
     border-radius: 4px;

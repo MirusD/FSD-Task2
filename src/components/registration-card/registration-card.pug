@@ -8,43 +8,42 @@ mixin registration-card(options)
         - options = {}
 
     .registration-card.cards
-        h1.header_level-1 Регистрация аккаунта
+        h1 Регистрация аккаунта
         .registration-card__name
-            +text-field({
+            +input({
+                type: 'text',
                 placeholder: 'Имя'
             })
         .registration-card__surname
-            +text-field({
+            +input({
+                type: 'text',
                 placeholder: 'Фамилия'
             })
         .registration-card__gender
-            +radio-buttons({
-                name: 'gender',
-                items: [{value: 'Мужчина', id: 'male', isChecked: true},{value:'Женщина', id: 'female'}]
-            })
+            .registration-card__gender-mans
+                +input({type: 'radio', name: 'gender', label: 'Мужчина', isChecked: true})
+            .registration-card__gender-womans
+            +input({type: 'radio', name: 'gender', label: 'Женщина'})
         .registration-card__date-of-birth
             h3.header_level-3.registration-card__text-field-title Дата рождения
-            +text-field({
-                placeholder: 'ДД.ММ.ГГГГ',
-                type: 'masked'
+            +input({
+                type: 'text',
+                placeholder: 'ДД.ММ.ГГГГ'
             })
         .registration-card__login-information
             h3.header_level-3.registration-card__text-field-title Данные для входа в сервис
             .registration-card__email
-                +text-field({
+                +input({
                     type: 'email',
                     placeholder: 'Email'
                 })
             .registration-card__password
-                +text-field({
-                    placeholder: 'Пароль',
-                    type: 'password'
+                +input({
+                    type: 'password',
+                    placeholder: 'Пароль'
                 })
         .registration-card__special-offers
-            +toggle({
-                value: 'Получать спецпредложения',
-                id: 'special-offers'
-            })
+            +input({type: 'toggle', label: 'Получать спецпредложения'})
         .registration-card__payment-btn
             +button({
                 text: 'Перейти к оплате',

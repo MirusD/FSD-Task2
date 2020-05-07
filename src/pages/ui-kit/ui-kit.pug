@@ -17,9 +17,9 @@ include ../../components/button/button
 include ../../components/pagination/pagination
 include ../../components/bullet-list/bullet-list
 include ../../components/details/details
-include ../../components/comments/comments
+include ../../components/feedback/feedback
 include ../../components/registration-card/registration-card
-include ../../components/entrance-card/entrance-card
+include ../../components/signin-card/signin-card
 include ../../components/search-card/search-card
 include ../../components/reservation-card/reservation-card
 include ../../components/room-card/room-card
@@ -63,14 +63,14 @@ block main
                     .demo-text-field.demo-text-field_hovered-and-focused
                         h3.demo-text-field__title Text field
                         +input({type: 'text', value: 'This is pretty awesome'})
-                    .demo-dropdown.demo-dropdown_default_big.demo-dropdown_default
+                    .demo-dropdown.demo-dropdown_default
                         h3.demo-dropdown__title Dropdown
                         +dropdown({
                             selectionText: 'Сколько гостей',
                             items: [
-                                {text: 'Взрослые', textPlural: 'Гость, Гостя, Гостей'},
-                                {text: 'Дети', textPlural: 'Гость, Гостя, Гостей'},
-                                {text: 'Младенцы', textPlural: 'Младенец, Младенца, Младенцев'}
+                                {text: 'Взрослые', textPlural: 'гость, гостя, гостей'},
+                                {text: 'Дети', textPlural: 'гость, гостя, гостей'},
+                                {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
                             ],
                             controls: true
                         })
@@ -79,23 +79,26 @@ block main
                         +input({type: 'text', placeholder: 'ДД.ММ.ГГГ'})
                     .demo-dropdown-date
                         div.demo-dropdown-date__from
-                            h3.demo-dropdown-date__title Dropdown date
+                            h3.demo-dropdown-date__title Date dropdown
                             +date({
-                                name: 'dropdownDate',
-                                placeholder: 'ДД.ММ.ГГГГ'
+                                name: 'dateGroup',
+                                placeholder: 'ДД.ММ.ГГГГ',
+                                from: '2020-08-18',
+                                to: '2020-08-23'
                             })
                         div.demo-dropdown-date__to
-                            h3.demo-dropdown-date__title Dropdown date
+                            h3.demo-dropdown-date__title Date dropdown
                             +date({
-                                name: 'dropdownDate',
+                                name: 'dateGroup',
                                 placeholder: 'ДД.ММ.ГГГГ'
                             })
-                    .demo-dropdown.demo-dropdown_filter-date
+                    .demo-dropdown.demo-dropdown-filter-date
                         h3.demo-dropdown__title Filter date dropdown
                         +date({
-                            name: 'demo-date',
                             dateFormat: 'd M',
-                            placeholder: 'ДД.ММ.ГГГГ'
+                            placeholder: 'ДД.ММ.ГГГГ',
+                            from: '2020-08-19',
+                            to: '2020-08-23'
                         })
                     .demo-text-field.demo-text-field_subscription
                         h3.demo-text-field__title Subscription text field
@@ -112,29 +115,37 @@ block main
                     .demo-radio-buttons
                         h3.demo-radio-buttons__title Radio buttons
                         .demo-radio-buttons__items
-                            +input({type: 'radio', name: 'gender', label: 'Мужчина', isChecked: true})
-                            +input({type: 'radio', name: 'gender', label: 'Женщина'})
+                            +input({type: 'radio', name: 'demo-gender', label: 'Мужчина', isChecked: true})
+                            +input({type: 'radio', name: 'demo-gender', label: 'Женщина'})
                     .demo-toggle
                         h3.demo-toggle__title Toggle
                         .demo-toggle__items
-                            +input({type: 'toggle', label: 'Получить спецпредложение'})
                             +input({type: 'toggle', label: 'Получить спецпредложение', isChecked: true})
+                            .demo-toggle__second
+                                +input({type: 'toggle', label: 'Получить спецпредложение'})
                     .demo-like-buttons
                         h3.demo-like-buttons__title Like button
                         .demo-like-buttons__items
-                            +like-button({likes: 2})
-                            +like-button({likes: 12})
+                            .demo-like-buttons__first
+                                +like-button({likes: 2})
+                            +like-button({likes: 11})
                     .demo-rate-button
                         h3.demo-rate-button__title Rate button
-                        .demo-rate-button__first
-                            +rate-buttons({name: 'rate-first', stars: '4'})
-                        .demo-rate-button__second
-                            +rate-buttons({name: 'rate-second', stars: '5'})
+                        //.demo-rate-button__first
+                        //    +rate-buttons({stars: 4})
+                        //.demo-rate-button__second
+                        //    +rate-buttons({stars: 5})
 
                 .row1-col3
                     .demo-range-slider
                         h3.demo-range-slider__title Range slider
-                        +range-slider()
+                        +range-slider({
+                            min: 700,
+                            max: 15500,
+                            from: 5000,
+                            to: 10000,
+                            step: 100
+                        })
                     .demo-buttons
                         h3.demo-buttons__title Buttons
                         .demo-buttons__btn-default
@@ -177,24 +188,24 @@ block main
                         h3.demo-pagination__title Pagination
                         +pagination()
                 .row2-col1
-                    .demo-dropdown.demo-dropdown_default(style="max-width: 266px")
+                    .demo-dropdown.demo-dropdown_default.demo-dropdown_max-width
                         h3.demo-dropdown__title dropdown
                         +dropdown({
                             selectionText: 'Сколько комнат',
                             items: [
-                                {text: 'Спальни', defaultCount: 2, textPlural: 'Спальня, Спальни, Спален'},
-                                {text: 'Кровати', defaultCount: 2, textPlural: 'Кровать, Кровати, Кроватей'},
-                                {text: 'Ванные комнаты', textPlural: 'Ванная комната, Ванные комнаты, Ванных комнат'}
+                                {text: 'Спальни', defaultCount: 2, textPlural: 'cпальня, cпальни, cпален'},
+                                {text: 'Кровати', defaultCount: 2, textPlural: 'кровать, кровати, кроватей'},
+                                {text: 'Ванные комнаты', textPlural: 'ванная комната, ванные комнаты, ванных комнат'}
                             ]
                         })
-                    .demo-dropdown.demo-dropdown_expanded(style="max-width: 266px")
+                    .demo-dropdown.demo-dropdown_expanded.demo-dropdown_max-width
                         h3.demo-dropdown__title dropdown
                         +dropdown({
                             selectionText: 'Сколько комнат',
                             items: [
-                                {text: 'Спальни', defaultCount: 2, textPlural: 'Спальня, Спальни, Спален'},
-                                {text: 'Кровати', defaultCount: 2, textPlural: 'Кровать, Кровати, Кроватей'},
-                                {text: 'Ванные комнаты', textPlural: 'Ванная комната, Ванные комнаты, Ванных комнат'}
+                                {text: 'Спальни', defaultCount: 2, textPlural: 'спальня, спальни, спален'},
+                                {text: 'Кровати', defaultCount: 2, textPlural: 'кровать, кровати, кроватей'},
+                                {text: 'Ванные комнаты', textPlural: 'ванная комната, ванные комнаты, ванных комнат'}
                             ],
                             isExpanded: true
                         })
@@ -203,9 +214,9 @@ block main
                     +dropdown({
                         selectionText: 'Сколько гостей',
                         items: [
-                            {text: 'Взрослые', textPlural: 'Гость, Гостя, Гостей'},
-                            {text: 'Дети', textPlural: 'Гость, Гостя, Гостей'},
-                            {text: 'Младенцы', textPlural: 'Младенец, Младенца, Младенцев'}
+                            {text: 'Взрослые', textPlural: 'гость, гостя, гостей'},
+                            {text: 'Дети', textPlural: 'гость, гостя, гостей'},
+                            {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
                         ],
                         isExpanded: true,
                         controls: true
@@ -215,9 +226,9 @@ block main
                     +dropdown({
                         selectionText: 'Сколько гостей',
                         items: [
-                            {text: 'Взрослые', defaultCount: 2, textPlural: 'Гость, Гостя, Гостей'},
-                            {text: 'Дети', defaultCount: 1, textPlural: 'Гость, Гостя, Гостей'},
-                            {text: 'Младенцы', defaultCount: 1, textPlural: 'Младенец, Младенца, Младенцев'}
+                            {text: 'Взрослые', defaultCount: 2, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Дети', defaultCount: 1, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
                         ],
                         isExpanded: true,
                         controls: true
@@ -240,9 +251,9 @@ block main
                         +checkbox-list({
                             title: 'Expandable checkbox list',
                             items: [
-                                {label: 'Завтрак', isChecked: true},
-                                {label: 'Письменный стол'},
-                                {label: 'Стул для кормления'},
+                                {label: 'Завтрак'},
+                                {label: 'Письменный стол', isChecked: true},
+                                {label: 'Стул для кормления', isChecked: true},
                                 {label: 'Кроватка', isChecked: true},
                                 {label: 'Телевизор'},
                                 {label: 'Шампунь'}
@@ -256,7 +267,7 @@ block main
                             +input({
                                 type: 'checkbox',
                                 label: 'Широкий коридор',
-                                description: 'Ширина коридора в номере <br> не менее 91 см.'
+                                description: 'Ширина коридоров в номере <br> не менее 91 см.'
                             })
                         .demo-rich-checkbox-buttons__second
                             +input({
@@ -288,140 +299,127 @@ block main
                     })
                 .row4-col2
                     .demo-comments
-                        +comments({
+                        +feedback({
                             name: 'Мурад Сарафанов',
-                            comment: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.\n' +
-                                'И стены, действительно, шумопдавляющие. Выкрикивал комплименты повару - никто\n' +
+                            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.\n' +
+                                'И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару - никто\n' +
                                 'не жаловался из соседей.',
                             avatar: require('./img/avatar/avatar.jpg'),
-                            likes: 1
-                        })
-                        +comments({
-                            name: 'Дамир Салихов',
-                            comment: 'Хуета полная, бегают тараканы, пахнет говном, и стены хуета та та, выкрикивал что повар мудак \n' +
-                                'соседи со мной согласились)))',
-                            avatar: require('./img/avatar/avatar.jpg'),
-                            likes: 68
+                            likes: 11
                         })
     | Cards
     +layout__section('demo-cards')
         .container
-            +dropdown({
-                selectionText: 'Сколько гостей',
-                items: [
-                    {text: 'Взрослые', textPlural: 'Гость, Гостя, Гостей'},
-                    {text: 'Дети', textPlural: 'Гость, Гостя, Гостей'},
-                    {text: 'Младенцы', textPlural: 'Младенец, Младенца, Младенцев'}
+            .demo-cards__container
+                .demo-cards__col
+                    +search-card()
+                    +registration-card()
+                .demo-cards__col
+                    +reservation-card({
+                        number: '888',
+                        category: 'Люкс',
+                        priceDay: '9 900',
+                        startDate: '20.03.2020',
+                        endDate: '24.03.2020',
+                        guests: [
+                            {text: 'Взрослые', defaultCount: 2, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Дети', defaultCount: 1, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
+                        ],
+                        services: [
+                            {description: 'Сбор за услуги: скидка 2 179&#8381', price: '0', mark: true},
+                            {description: 'Сбор за дополнительные услуги', price: '300', mark: true}
+                        ]
+                    })
+                    +signin-card()
+                .demo-cards__col
+                    input(data-inline="true" style="display: none").demo-cards__datepicker-here.date
+                    +room-card({
+                        number: '888',
+                        slider: {
+                            images: [
+                                {img: require('./img/rooms/1/room_1.jpg')},
+                                {img: require('./img/rooms/1/room_2.jpg')},
+                                {img: require('./img/rooms/1/room_3.jpg')},
+                                {img: require('./img/rooms/1/room_4.jpg')}
+                            ]
+                        },
+                        category: 'Люкс',
+                        priceDay: '9 900',
+                        rate: '5',
+                        reviews: '145'
+                    })
+                    +room-card({
+                        number: '840',
+                        slider: {
+                            images: [
+                                {img: require('./img/rooms/1/room_1.jpg')},
+                                {img: require('./img/rooms/1/room_2.jpg')},
+                                {img: require('./img/rooms/1/room_3.jpg')},
+                                {img: require('./img/rooms/1/room_4.jpg')}
+                            ],
+                            arrows: false
+                        },
+                        category: '',
+                        priceDay: '9 900',
+                        rate: '4',
+                        reviews: '65'
+                    })
+    | Header & Footer
+    +layout__section('demo-header-footer')
+        .demo-header-footer__header-first
+            +header({
+                logo: require('./img/logo/logo.svg'),
+                menuItems: [
+                    {name: 'Home'},
+                    {name: 'About Us'},
+                    {name: 'Services', submenu: [
+                            {name: 'Room reservation'},
+                            {name: 'Services2'},
+                            {name: 'Services3'}
+                            ]
+                    },
+                    {name: 'Careers'},
+                    {name: 'News', submenu: [
+                            {name: 'News first'},
+                            {name: 'News second'},
+                            {name: 'News third'}
+
+                        ]},
+                    {name: 'Documentation'}
+                    ],
+                authorization: false
+            })
+        .demo-header-footer__header-second
+            +header({
+                logo: require('./img/logo/logo.svg'),
+                menuItems: [
+                    {name: 'Home'},
+                    {name: 'About Us'},
+                    {
+                        name: 'Services', submenu: [
+                            {name: 'Room reservation'},
+                            {name: 'Services2'},
+                            {name: 'Services3'}
+                        ]
+                    },
+                    {name: 'Careers'},
+                    {name: 'News'},
+                    {name: 'Documentation'}
                 ],
-                isExpanded: true,
-                controls: true
+                authorization: true
             })
-            +comments({
-                name: 'Закракаратан Мурзакатаршиев',
-                comment: 'Вот так вот',
-                avatar: require('./img/avatar/avatar.jpg')
+        .demo-header-footer__footer-first
+            +footer({
+                logo: require('./img/logo/logo.svg'),
+                nav: [{name: 'About Us'}, {name: 'News'}, {name: 'Support'}, {name: 'Products'}],
+                aboutUs: [{name: 'Who we are'}, {name: 'Our team'}, {name: 'Carrers'}, {name: 'Investors'}],
+                support: [{name: 'Documentation'}, {name: 'Community'}, {name: 'Get in Touch'}]
             })
-    //        .demo-cards__container
-    //            .demo-cards__col
-    //                +search-card()
-    //                +registration-card()
-    //            .demo-cards__col
-    //                +reservation-card({
-    //                    number: '888',
-    //                    category: 'Люкс',
-    //                    priceDay: '9 900',
-    //                    startDate: '20.03.2020',
-    //                    endDate: '24.03.2020',
-    //                    guests: [{value: 'Взрослые', defaultCount: '2'}, {value: 'Дети', defaultCount: '1'}, 'Младенцы'],
-    //                    services: [
-    //                        {description: 'Сбор за услуги: скидка 2 179&#8381', price: '0', mark: true},
-    //                        {description: 'Сбор за дополнительные услуги', price: '300', mark: true}
-    //                    ]
-    //                })
-    //                +signin-card()
-    //            .demo-cards__col
-    //                .demo-cards__datepicker-here.datepicker-here
-    //                +room-card({
-    //                    number: '888',
-    //                    slider: {
-    //                        images: [
-    //                            {img: require('./img/rooms/1/room_1.jpg')},
-    //                            {img: require('./img/rooms/1/room_2.jpg')},
-    //                            {img: require('./img/rooms/1/room_3.jpg')},
-    //                            {img: require('./img/rooms/1/room_4.jpg')}
-    //                        ]
-    //                    },
-    //                    category: 'Люкс',
-    //                    priceDay: '9 900',
-    //                    rate: '5',
-    //                    reviews: '145'
-    //                })
-    //                +room-card({
-    //                    number: '840',
-    //                    slider: {
-    //                        images: [
-    //                            {img: require('./img/rooms/1/room_1.jpg')},
-    //                            {img: require('./img/rooms/1/room_2.jpg')},
-    //                            {img: require('./img/rooms/1/room_3.jpg')},
-    //                            {img: require('./img/rooms/1/room_4.jpg')}
-    //                        ],
-    //                        arrows: false
-    //                    },
-    //                    category: '',
-    //                    priceDay: '9 900',
-    //                    rate: '4',
-    //                    reviews: '65'
-    //                })
-    //| Header & Footer
-    //+layout__section('demo-header-footer')
-    //    .demo-header-footer__header-first
-    //        +header({
-    //            logo: require('./img/logo/logo.svg'),
-    //            menuItems: [
-    //                {name: 'Home'},
-    //                {name: 'About Us'},
-    //                {name: 'Services', submenu: [
-    //                        {name: 'Room reservation'},
-    //                        {name: 'Services2'},
-    //                        {name: 'Services3'}
-    //                        ]
-    //                },
-    //                {name: 'Careers'},
-    //                {name: 'News'},
-    //                {name: 'Documentation'}
-    //                ],
-    //            authorization: false
-    //        })
-    //    .demo-header-footer__header-second
-    //        +header({
-    //            logo: require('./img/logo/logo.svg'),
-    //            menuItems: [
-    //                {name: 'Home'},
-    //                {name: 'About Us'},
-    //                {
-    //                    name: 'Services', submenu: [
-    //                        {name: 'Room reservation'},
-    //                        {name: 'Services2'},
-    //                        {name: 'Services3'}
-    //                    ]
-    //                },
-    //                {name: 'Careers'},
-    //                {name: 'News'},
-    //                {name: 'Documentation'}
-    //            ],
-    //            authorization: true
-    //        })
-    //    .demo-header-footer__footer-first
-    //        +footer({
-    //            logo: require('./img/logo/logo.svg'),
-    //            nav: [{name: 'About Us'}, {name: 'News'}, {name: 'Support'}, {name: 'Products'}],
-    //            aboutUs: [{name: 'Who we are'}, {name: 'Our team'}, {name: 'Carrers'}, {name: 'Investors'}],
-    //            support: [{name: 'Documentation'}, {name: 'Community'}, {name: 'Get in Touch'}]
-    //        })
-    //    .demo-header-footer__footer-second
-    //        +footer({
-    //            logo: require('./img/logo/logo.svg')
-    //        })
+        .demo-header-footer__footer-second
+            +footer({
+                logo: require('./img/logo/logo.svg')
+            })
 
 
 

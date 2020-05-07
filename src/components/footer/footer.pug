@@ -41,9 +41,10 @@ mixin footer(options)
                   .footer__top-item.footer__subscribe
                       h3.header_level-3 Subscribe to our newsletter
                       p.footer__subscribe-text Receive our latest news and promotion in your inbox
-                      +text-field({
+                      +input({
+                          type: 'email',
                           placeholder: 'You email address',
-                          type: 'subscription'
+                          enableArrowBtn: true
                       })
           .footer_border-top
               .footer__copyright

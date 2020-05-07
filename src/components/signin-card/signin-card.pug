@@ -6,14 +6,14 @@ mixin signin-card(options)
         - options = {}
 
     form.signin-card
-        h1.header_level-1 Войти
+        h1 Войти
         .signin-card__email
-            +text-field({
+            +input({
                 type: 'email',
                 placeholder: 'Email'
             })
         .signin-card__password
-            +text-field({
+            +input({
                 type: 'password',
                 placeholder: 'Пароль'
             })

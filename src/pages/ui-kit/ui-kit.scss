@@ -15,11 +15,9 @@
 
 .form-elements {
   &__container {
-    //margin: 0 auto;
-    //max-width: 1160px;
     display: grid;
     grid-template-columns: 1fr minmax(10px, 125px) 1fr minmax(10px, 71px) 1fr;
-    grid-template-rows: auto 100px auto 55px auto 33px auto;
+    grid-template-rows: auto 100px auto 172px auto 92px auto;
     grid-template-areas:
       'row1-col1 . row1-col2 . row1-col3'
       '. . . . .'
@@ -76,7 +74,7 @@
     content: $text;
     position: absolute;
     right: 0;
-    top: -10px;
+    top: -5px;
     font-size: 12px;
     text-transform: uppercase;
     color: $color-third;
@@ -89,15 +87,15 @@
   background-color: white;
   overflow: hidden;
   &__logo {
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 65px;
+    padding: {
+      top: 30px;
+      left: 30px;
+      right: 30px;
+      bottom: 58px;
+    }
   }
   &-colors-and-type {
     &__container {
-      //margin: 0 auto;
-      //max-width: 1140px;
       display: flex;
       justify-content: space-between;
     }
@@ -205,6 +203,7 @@
     }
     &_hovered-and-focused {
       margin-top: 21px;
+      margin-bottom: 20px;
       @include info('hover / focus');
     }
     &_masked {
@@ -223,22 +222,20 @@
       margin-bottom: 5px;
     }
     &_default {
-      &_big {
-        margin-top: 20px;
-      }
-    }
-    &_default {
       @include info('default');
     }
     &_expanded {
       margin-top: 20px;
-    }
-    &_expanded {
       @include info('expanded');
     }
-    &_filter-date {
-      margin-top: 41px;
+    &_max-width {
+      max-width: 266px;
     }
+  }
+  // === DROPDOWN-FILTER-DATE ===
+  &-dropdown-filter-date {
+    max-width: 266px;
+    margin-top: 41px;
   }
 
   // === DROPDOWN-DATE ===
@@ -249,6 +246,9 @@
     &__title {
       margin-bottom: 5px;
     }
+    &__from, &__to {
+      //flex: 1 0 auto;
+    }
     &__from {
       margin-right: 20px;
     }
@@ -256,29 +256,27 @@
 
   // === CHECKBOX-LIST ===
   &-checkbox-list {
+    max-width: 266px;
     &_first {
-      margin-bottom: 49px;
+      margin-bottom: 50px;
     }
   }
 
   // === CHECKBOX-BUTTONS ===
   &-checkbox-buttons {
     &__title {
-      margin-bottom: 16px;
-    }
-    &__items {
-      margin-top: 7px;
+      margin-bottom: 17px;
     }
   }
 
   // === RADIO-BUTTONS ===
   &-radio-buttons {
-    margin-top: 39px;
+    margin-top: 40px;
     &__title {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     &__items {
-      max-width: 210px;
+      max-width: 220px;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -291,8 +289,8 @@
     &__title {
       margin-bottom: 14px;
     }
-    &__items {
-      //margin-bottom: 14px;
+    &__second {
+      margin-top: 10px;
     }
   }
 
@@ -300,21 +298,25 @@
   &-like-buttons {
     margin-top: 42px;
     &__title {
-      margin-bottom: 11px;
+      margin-bottom: 14px;
     }
     &__items {
       display: flex;
-      & div:first-child {
-        margin-right: 6px;
-      }
+      align-items: center;
+    }
+    &__first {
+      margin-right: 10px;
     }
   }
 
   // === RATE-BUTTON ===
   &-rate-button {
     &__title {
-      margin-top: 41px;
-      margin-bottom: 15px;
+      margin-top: 40px;
+      margin-bottom: 14px;
+    }
+    &__items {
+      display: flex;
     }
     &__first, &__second {
       display: inline-block;
@@ -326,23 +328,25 @@
 
   // === RANGE-SLIDER ===
   &-range-slider {
+    max-width: 266px;
     &__title {
-      margin-bottom: 23px;
+      margin-bottom: 16px;
     }
   }
 
   // === BUTTONS ===
   &-buttons {
-    margin-top: 44px;
+    margin-top: 38px;
     &__title {
+      margin-bottom: 15px;
     }
     &__btn-default {
-      margin-top: 16px;
-      margin-left: 2px;
+      //margin-top: 16px;
+      //margin-left: 2px;
     }
     &__btn-outline {
       margin-top: 30px;
-      margin-left: 2px;
+      //margin-left: 2px;
     }
     &__btn-link {
       margin-top: 27px;
@@ -355,7 +359,7 @@
       display: inline-block;
     }
     &__second {
-      margin-left: 16px;
+      margin-left: 20px;
     }
   }
 
@@ -370,10 +374,10 @@
   // === RICH-CHECKBOX-BUTTONS ===
   &-rich-checkbox-buttons {
     &__title {
-      margin-bottom: 13px;
+      margin-bottom: 16px;
     }
-    &__second {
-      margin-top: 2px;
+    &__first {
+      margin-bottom: 9px;
     }
   }
   // === BULLET LIST ===
@@ -384,7 +388,7 @@
   }
   // === DETAILS ===
   &-details_first {
-    margin-bottom: 20px;
+    margin-bottom: 19px;
   }
   // === COMMENTS ===
   &-comments {

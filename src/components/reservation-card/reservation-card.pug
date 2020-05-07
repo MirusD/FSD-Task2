@@ -73,19 +73,24 @@ mixin reservation-card (options)
                     | &#8381
                 span.room-info_font-size-12 в сутки
         .reservation-card__date-range
-            +dropdown-date({
-                items: [
-                    {title: 'Прибытие', placeholder: options.startDate},
-                    {title: 'Выезд', placeholder: options.endDate}
-                    ]
-            })
+            .reservation-card__date-from
+                h3.search-card__date-title Прибытие
+                +date({
+                    name: 'reservationDate2',
+                    placeholder: 'ДД.ММ.ГГГ'
+                })
+            .reservation-card__date-to
+                h3.search-card__date-title Выезд
+                +date({
+                    name: 'reservationDate2',
+                    placeholder: 'ДД.ММ.ГГГ'
+                })
         .reservation-card__number-of-guests
-            h3.header_level-3.booking-card__dropdown-title Гости
+            h3.reservation-card__dropdown-title Гости
             +dropdown({
-                value: 'Сколько гостей',
+                selectionText: 'Сколько гостей',
                 items: options.guests,
-                size: 'big',
-                controlBar: 'true'
+                controls: true
             })
         .reservation-card__services
             p.services__item

@@ -1,48 +1,46 @@
-const noUiSlider = require('nouislider');
-import '../../../node_modules/nouislider/distribute/nouislider.min.css'
+import 'ion-rangeslider'
+import '../../../node_modules/ion-rangeslider/css/ion.rangeSlider.min.css'
 import './range-slider.scss'
 
 class RangeSlider {
     constructor (component) {
         this.component = component;
+        this.rangeSliderInput = this.component.querySelector('.range-slider__input');
+        this.rangeSliderRangeField = this.component.querySelector('.range-slider__value-field');
         this.init();
-    }
+    };
     init () {
-        noUiSlider.create(this.component, {
-            start: [5000, 10000],
-            step: 100,
-            behaviour: 'drag',
-            connect: true,
-            range: {
-                'min': 0,
-                'max': 14900
-        }
-});
+        $(this.rangeSliderInput).ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 100,
+            from: 10,
+            to: 50,
+            grid: false,
+            hide_min_max: true,
+            hide_from_to: true,
+            onStart: () => {
+                this.printValue();
+            },
+            onChange: ()=> {
+                this.printValue();
+            }
+        });
+    };
+    printValue () {
+        let formatter = new Intl.NumberFormat('ru', {
+            style: "currency",
+            currency: "RUB",
+            minimumFractionDigits: 0
+        });
+        let $rangeSlider = $(this.rangeSliderInput);
+        let fromValue = formatter.format($rangeSlider.data("from")).replace(/\s(?=\p{Sc})/gu, '');
+        let toValue = formatter.format($rangeSlider.data("to")).replace(/\s(?=\p{Sc})/gu, '');
 
-    }
+        this.rangeSliderRangeField.innerHTML = `${fromValue} - ${toValue}`;
+    };
 }
 
-$('.range-slider__linear').each((index, node) => {
+$('.js-range-slider').each((index, node) => {
    new RangeSlider(node);
 });
-
-// var rangeSlider = document.querySelector('.range-slider__linear');
-// var nodes = [
-//     document.querySelector('.range-slider__from'),
-//     document.querySelector('.range-slider__to')
-// ];
-//
-// noUiSlider.create(rangeSlider, {
-//     start: [5000, 10000],
-//     step: 100,
-//     behaviour: 'drag',
-//     connect: true,
-//     range: {
-//         'min': 0,
-//         'max': 14900
-//     }
-// });
-//
-// rangeSlider.noUiSlider.on('update', function (values, handle) {
-//     nodes[handle].innerHTML = Math.trunc(values[handle]) + '₽';
-// });

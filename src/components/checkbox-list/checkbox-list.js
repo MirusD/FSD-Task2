@@ -1,20 +1,24 @@
 import './checkbox-list.scss'
 
-// function checkboxListInit () {
-//     const checkboxList = document.querySelectorAll('.checkbox-list');
-//     checkboxList.forEach((item) => {
-//         const checkboxListBtn = item.querySelector('.checkbox-list__btn');
-//         const checkboxListItems = item.querySelector('.checkbox-list__items');
-//
-//         checkboxListBtn.addEventListener('click', () => {
-//            checkboxListItems.classList.toggle('show');
-//            console.log(checkboxListBtn.getAttribute('aria-expanded'));
-//            if (checkboxListBtn.getAttribute('aria-expanded') === 'false')
-//                checkboxListBtn.setAttribute('aria-expanded', 'true');
-//            else
-//                checkboxListBtn.setAttribute('aria-expanded', 'false');
-//         });
-//     });
-// }
-//
-// checkboxListInit();
+class CheckboxList {
+    constructor(component) {
+        this.component = component;
+        this.checkboxListBtn = this.component.querySelector('.checkbox-list__btn');
+        this.checkboxListItems = this.component.querySelector('.checkbox-list__items');
+        this.init();
+    };
+    init() {
+        this.checkboxListBtn.addEventListener('click', () => {
+           this.checkboxListItems.classList.toggle('show');
+           // console.log(checkboxListBtn.getAttribute('aria-expanded'));
+           if (this.checkboxListBtn.getAttribute('aria-expanded') === 'false')
+               this.checkboxListBtn.setAttribute('aria-expanded', 'true');
+           else
+               this.checkboxListBtn.setAttribute('aria-expanded', 'false');
+        });
+    };
+}
+
+document.querySelectorAll('.checkbox-list').forEach((node) => {
+    new CheckboxList(node);
+});

@@ -15,7 +15,7 @@ mixin checkbox-list(options)
 
     .checkbox-list(class=isExpanded)
         .checkbox-list__btn(aria-expanded=options.isExpanded)
-            h3.header_level-3=options.title
+            h3=options.title
         .checkbox-list__items(class=isExpanded)
             each item in options.items
                 .checkbox-list__item

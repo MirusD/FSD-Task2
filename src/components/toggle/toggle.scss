@@ -6,19 +6,19 @@
   &__element {
     user-select: none;
     position: relative;
-    width: 2.714285714285714rem; //38/14
-    height: 1.285714285714286rem; //18/14
+    width: 2.8571428571428571428571428571429rem; //40/14
+    height: 1.4285714285714285714285714285714rem; //20/14
     border: 1px solid $color-fourth;
     border-radius: 0.7142857142857143rem; //10/14
     &:before {
       content: "";
       position: absolute;
       top: 50%;
-      left: 5%;
+      left: 6%;
       width: 0.8571428571428571rem; //12/14
       height: 0.8571428571428571rem; //14/14
       background: linear-gradient(180deg, $color-fourth 0%, $color-fourth 100%);
-      border-radius: 0.7142857142857143rem; //10/14
+      border-radius: 10px; //10/14
       transition: all 0.3s ease;
       transform: translateY(-50%);
     }

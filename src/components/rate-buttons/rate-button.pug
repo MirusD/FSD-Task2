@@ -9,15 +9,13 @@ mixin rate-buttons(options)
     form.rate-button
         fieldset
             span.rate-button__star-group
-                input(type="radio" id=options.name + "rating-5" || "rating-5" name=options.name || "rating" value="5" checked=options.stars === '5' ? true : false)
-                label(for=options.name + "rating-5" || "rating-5") 5
-                input(type="radio" id=options.name + "rating-4" || "rating-4" name=options.name || "rating" value="4" checked=options.stars === '4' ? true : false)
-                label(for=options.name + "rating-4" || "rating-4") 4
-                input(type="radio" id=options.name + "rating-3" || "rating-3" name=options.name || "rating" value="3" checked=options.stars === '3' ? true : false)
-                label(for=options.name + "rating-3" || "rating-3") 3
-                input(type="radio" id=options.name + "rating-2" || "rating-2" name=options.name || "rating" value="2" checked=options.stars === '2' ? true : false)
-                label(for=options.name + "rating-2" || "rating-2") 2
-                input(type="radio" id=options.name + "rating-1" || "rating-1" name=options.name || "rating" value="1" checked=options.stars === '1' ? true : false)
-                label(for=options.name + "rating-1" || "rating-1") 1
-                //input(type="radio" id="rating-0" name="rating" value="0" class="rate-button__star-cb-clear")
-                //label(for="rating-0") 0
+                input(type="radio" id=options.name + "rating-5" || "rating-5" name=options.name || "rating" value="5" checked=options.stars === 5 ? true : false)
+                label.rate-button__item(for=options.name + "rating-5" || "rating-5") 5
+                input(type="radio" id=options.name + "rating-4" || "rating-4" name=options.name || "rating" value="4" checked=options.stars === 4 ? true : false)
+                label.rate-button__item(for=options.name + "rating-4" || "rating-4") 4
+                input(type="radio" id=options.name + "rating-3" || "rating-3" name=options.name || "rating" value="3" checked=options.stars === 3 ? true : false)
+                label.rate-button__item(for=options.name + "rating-3" || "rating-3") 3
+                input(type="radio" id=options.name + "rating-2" || "rating-2" name=options.name || "rating" value="2" checked=options.stars === 2 ? true : false)
+                label.rate-button__item(for=options.name + "rating-2" || "rating-2") 2
+                input(type="radio" id=options.name + "rating-1" || "rating-1" name=options.name || "rating" value="1" checked=options.stars === 1 ? true : false)
+                label.rate-button__item(for=options.name + "rating-1" || "rating-1") 1

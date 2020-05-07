@@ -3,8 +3,12 @@
 .reservation-card {
   flex-basis: 100%;
   &__date-range {
+    display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+  &__date-from {
+    margin-right: 20px;
   }
   &__dropdown-title {
     margin-bottom: 5px;

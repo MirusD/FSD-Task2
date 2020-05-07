@@ -1,0 +1,29 @@
+@import '../../theme/variables';
+
+.feedback {
+  display: flex;
+  &__avatar-and-likes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__name-and-feedback-text {
+    margin-left: 0.64285714285714285714285714285714rem; //9/14
+  }
+  &__avatar {
+    width: 3.4285714285714285714285714285714rem; //48/14
+    height: 3.4285714285714285714285714285714rem; //48/14
+    overflow: hidden;
+    border: 0.14285714285714285714285714285714rem solid white; //2/14
+    border-radius: 2.2857142857142857142857142857143rem; //32/14
+    box-shadow: 0 0.71428571428571428571428571428571rem 1.4285714285714285714285714285714rem rgba(31, 32, 65, 0.1); //0, 10/14, 20/14
+    margin-bottom: 0.64285714285714285714285714285714rem; //9/14
+  }
+  &__name {
+    color: $color-second;
+    font-weight: bold;
+  }
+  &__feedback-text {
+    margin-top: 0.71428571428571428571428571428571rem; //10/14
+  }
+}

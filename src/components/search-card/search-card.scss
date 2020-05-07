@@ -2,8 +2,16 @@
 
 .search-card {
   &__date-range {
+    display: flex;
+    justify-content: space-between;
     margin-top: 21px;
     margin-bottom: 20px;
+  }
+  &__date-title {
+    margin-bottom: 5px;
+  }
+  &__date-from, &__date-to {
+    max-width: 150px;
   }
   &__dropdown-title {
     margin-bottom: 5px;

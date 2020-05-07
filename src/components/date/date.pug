@@ -1,6 +1,8 @@
 //-
     options.name - имя поля (можно задать двум компонентам одинаковые имена тогда первая дата будет в первом элемент вторая во втором)
     options.placeholder - выводит подсказывающий текст
+    options.from - начальная дата, передается в формате ГГГГ-ММ-ДД
+    options.to - конечная дата, передается в формате ГГГГ-ММ-ДД
     options.dateFormat - Желаемый формат даты, кобминация из d, m, yyyy, D, M, и т.д. По умолчанию берется из локализации,
         если передать значение сюда, то оно будет иметь больший приоритет.
 
@@ -24,11 +26,14 @@ mixin date(options)
 
     - var dateFormat = options.dateFormat || 'dd.mm.yyyy';
 
-    input.date(
-        type="text",
-        name= options.name
-        placeholder=options.placeholder
-        data-autocomplete="off"
-        data-date-format=dateFormat
-        readonly
-    )
+    .dropdown-date.js-dropdown-date(data-name=options.name)
+        input.dropdown-date__datepicker(
+            type="text",
+            name= options.name
+            data-date-format=dateFormat
+            data-date-from=options.from
+            data-date-to=options.to
+            placeholder=options.placeholder
+            data-autocomplete="off"
+            readonly
+        )
