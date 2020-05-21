@@ -28,12 +28,15 @@ mixin date(options)
 
     .dropdown-date.js-dropdown-date(data-name=options.name)
         input.dropdown-date__datepicker(
-            type="text",
-            name= options.name
-            data-date-format=dateFormat
-            data-date-from=options.from
-            data-date-to=options.to
-            placeholder=options.placeholder
+            data-date-format = dateFormat
+            data-inline = options.inline
+        )
+        input.dropdown-date__alt-field(
+            type: "text"
+            name = options.name
+            placeholder = options.placeholder
+            data-start-date-from = options.from
+            data-start-date-to = options.to
             data-autocomplete="off"
             readonly
         )

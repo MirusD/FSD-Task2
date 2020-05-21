@@ -7,8 +7,9 @@ class DateDropdown {
     constructor(component) {
         this.component = component;
         this.elDropdownDateDatepicker = this.component.querySelector('.dropdown-date__datepicker');
-        this.startDateFrom = this.elDropdownDateDatepicker.getAttribute('data-date-from');
-        this.startDateTo = this.elDropdownDateDatepicker.getAttribute('data-date-to');
+        this.elAltField = this.component.querySelector('.dropdown-date__alt-field');
+        this.startDateFrom = this.elAltField.getAttribute('data-start-date-from');
+        this.startDateTo = this.elAltField.getAttribute('data-start-date-to');
         this.datepickerInst = $(this.elDropdownDateDatepicker).datepicker().data('datepicker');
         this.init();
     };
@@ -37,6 +38,9 @@ class DateDropdown {
             prevHtml: '<svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
                 '<path d="M16.1755 8.01562V9.98438H3.98801L9.56613 15.6094L8.15988 17.0156L0.144258 9L8.15988 0.984375L9.56613 2.39062L3.98801 8.01562H16.1755Z" fill="#BC9CFF"/>\n' +
                 '</svg>\n',
+            onSelect: () => {
+                this.printDate();
+            }
         });
 
         this.addEventListenerForElDropdownDateDatepicker();
@@ -68,7 +72,12 @@ class DateDropdown {
             let startDate = [new Date(Date.parse(this.startDateFrom)), new Date(Date.parse(this.startDateTo))];
             this.datepickerInst.selectDate(startDate);
         }
-    }
+        this.printDate();
+    };
+
+    printDate() {
+      this.elAltField.value = this.datepickerInst.el.value;
+    };
 }
 
 
@@ -78,69 +87,56 @@ class DateDropdownGroup extends DateDropdown {
         this.componentsGroup = componentsGroup;
         this.dateFrom = $(this.componentsGroup[0].querySelector('.dropdown-date__datepicker')).datepicker().data('datepicker');
         this.dateTo = $(this.componentsGroup[1].querySelector('.dropdown-date__datepicker')).datepicker().data('datepicker');
-        this.altField = document.createElement('input');
-        this.addAltField();
-        this.hideDropdownDateDatepicker();
         this.datepickerUpdate();
     };
     datepickerUpdate() {
+        let dateFromElDropdownDateAltField = this.componentsGroup[0].querySelector('.dropdown-date__alt-field');
+        let dateToElDropdownDateAltField = this. componentsGroup[1].querySelector('.dropdown-date__alt-field');
+
+        dateFromElDropdownDateAltField.value = this.dateFrom.el.value.slice(0, 10);
+        dateToElDropdownDateAltField.value = this.dateFrom.el.value.slice(13, 23);
+
         this.datepickerInst.update({
             onShow: (inst) => {
                 inst.hide();
                 this.dateFrom.show();
-            },
-            onSelect: () => {
-                // console.log(this.altField);
-                this.altField.value = this.datepickerInst._prevOnSelectValue;
             }
         });
 
         this.dateFrom.update({
             onShow: () => {},
-            onSelect: (formattedDate, date) => {
-                // this.dateTo.selectDate(date);
-                // this.altField.value = this.dateFrom._prevOnSelectValue.slice(0, 10);
-                // this.dropdownDateSelected.innerHTML = this.dateFrom._prevOnSelectValue.slice(0, 10);
-                // this.dateFrom.el.value = this.dateFrom._prevOnSelectValue.slice(0, 10);
-                // this.dateTo.el.value = this.dateFrom._prevOnSelectValue.slice(13, 23);
+            onSelect: () => {
+                dateFromElDropdownDateAltField.value = this.dateFrom.el.value.slice(0, 10);
+                dateToElDropdownDateAltField.value = this.dateFrom.el.value.slice(13, 23);
             }
         });
     };
+
     printDate() {
-
-    }
-
-    addAltField() {
-        this.altField.classList.add('dropdown-date__alt-field');
-
-        this.component.appendChild(this.altField);
-    };
-
-    hideDropdownDateDatepicker() {
-        this.elDropdownDateDatepicker.classList.add('hide');
     }
 }
 
 function getSameNameAttributes (index, node, arr) {
-    let sna =[];
-    for(let i = 0; i < arr.length; i++){
-        if (arr[i].getAttribute('data-name') === node.getAttribute('data-name')) {
-            sna.push(arr[i]);
+    if (node.getAttribute('data-name')) {
+        let sna =[];
+        for(let i = 0; i < arr.length; i++){
+            if (arr[i].getAttribute('data-name') === node.getAttribute('data-name')) {
+                sna.push(arr[i]);
+            }
         }
+        if (sna.length > 1)
+            return sna;
     }
-
-    if (sna.length !== 1)
-        return sna;
-    else
-        return false;
+    return false;
 }
 
 
 let elements = $('.js-dropdown-date');
 elements.each((index, node) => {
-    if (!getSameNameAttributes(index, node, elements))
+    if (!getSameNameAttributes(index, node, elements)) {
         new DateDropdown(node);
-    else
+    }
+    else {
         new DateDropdownGroup(node, getSameNameAttributes(index, node, elements));
-
+    }
 });

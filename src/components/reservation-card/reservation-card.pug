@@ -1,6 +1,6 @@
 include ../dropdown/dropdown
 include ../dropdown-date/dropdown-date
-include ../button/button
+include ../../components/button/button
 
 //-
     - options.number - номер комнаты.
@@ -69,21 +69,24 @@ mixin reservation-card (options)
                 span.header_level-1=options.number
                 span.header_level-3.room-info__category=options.category
             span.room-info__price
-                span.room-info__price-day(data-price=options.priceDay)=options.priceDay
-                    | &#8381
+                span.room-info__price-day(data-price-day=options.priceDay)
                 span.room-info_font-size-12 в сутки
         .reservation-card__date-range
             .reservation-card__date-from
                 h3.search-card__date-title Прибытие
                 +date({
                     name: 'reservationDate2',
-                    placeholder: 'ДД.ММ.ГГГ'
+                    placeholder: 'ДД.ММ.ГГГ',
+                    from: options.dateFrom,
+                    to: options.dateTo
                 })
             .reservation-card__date-to
                 h3.search-card__date-title Выезд
                 +date({
                     name: 'reservationDate2',
-                    placeholder: 'ДД.ММ.ГГГ'
+                    placeholder: 'ДД.ММ.ГГГ',
+                    from: options.dateFrom,
+                    to: options.dateTo
                 })
         .reservation-card__number-of-guests
             h3.reservation-card__dropdown-title Гости
@@ -96,15 +99,14 @@ mixin reservation-card (options)
             p.services__item
                 span.services__description=options.priceDay
                     |  x 0 суток
-                span.services__price 0&#8381
+                span.services__price 0
             each service in options.services
                 p.services__item
-                    span.services__description(class=service.mark === true ? 'services__mark': '')!=service.description
-                    span.services__price=service.price
-                        | &#8381
+                    span.services__description(class=service.mark === true ? "services__mark": "")!=service.text
+                    span.services__price(data-discount=service.discount)=service.price
         .reservation-card__total
             span.header_level-2 Итого
-            span.booking-card__dotted-line
+            span.reservation-card__dotted-line
             span.header_level-2.price__total
         .reservation-card__btn-book
             +button({

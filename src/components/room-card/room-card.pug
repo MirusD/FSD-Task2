@@ -25,8 +25,8 @@ mixin room-card (options)
                     span.room-card_weight_bold=options.priceDay
                     | в сутки
             .room-card__rate
-                //+rate-buttons({
-                //    stars: options.rate
-                //})
+                +rate-buttons({
+                    stars: options.rate
+                })
                 span=options.reviews
                     |  Отзывов

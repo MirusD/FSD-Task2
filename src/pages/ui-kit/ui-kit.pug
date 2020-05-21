@@ -131,10 +131,10 @@ block main
                             +like-button({likes: 11})
                     .demo-rate-button
                         h3.demo-rate-button__title Rate button
-                        //.demo-rate-button__first
-                        //    +rate-buttons({stars: 4})
-                        //.demo-rate-button__second
-                        //    +rate-buttons({stars: 5})
+                        .demo-rate-button__first
+                            +rate-buttons({stars: 4})
+                        .demo-rate-button__second
+                            +rate-buttons({stars: 5})
 
                 .row1-col3
                     .demo-range-slider
@@ -316,23 +316,32 @@ block main
                     +registration-card()
                 .demo-cards__col
                     +reservation-card({
-                        number: '888',
+                        number: 888,
                         category: 'Люкс',
-                        priceDay: '9 900',
-                        startDate: '20.03.2020',
-                        endDate: '24.03.2020',
+                        priceDay: 9990,
+                        dateFrom: '2020-08-19',
+                        dateTo: '2020-08-23',
                         guests: [
                             {text: 'Взрослые', defaultCount: 2, textPlural: 'гость, гостя, гостей'},
                             {text: 'Дети', defaultCount: 1, textPlural: 'гость, гостя, гостей'},
                             {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
                         ],
                         services: [
-                            {description: 'Сбор за услуги: скидка 2 179&#8381', price: '0', mark: true},
-                            {description: 'Сбор за дополнительные услуги', price: '300', mark: true}
+                            {text: 'Сбор за услуги: скидка 2 179&#8381', price: 0, mark: true, discount: 2179},
+                            {text: 'Сбор за дополнительные услуги', price: 300, mark: true}
                         ]
                     })
                     +signin-card()
                 .demo-cards__col
+                    .js-dropdown-date
+                        input.dropdown-date__datepicker(
+                            data-inline="true"
+                        )
+                        input.dropdown-date__alt-field(
+                            style="display: none"
+                            data-start-date-from = "2019-08-19"
+                            data-start-date-to = "2019-08-23"
+                        )
                     input(data-inline="true" style="display: none").demo-cards__datepicker-here.date
                     +room-card({
                         number: '888',
