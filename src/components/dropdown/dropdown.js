@@ -88,6 +88,6 @@ class Dropdown {
     }
 }
 
-$('.iqdropdown').each((index, node) => {
+$('.js-iqdropdown').each((index, node) => {
     new Dropdown($(node));
 });

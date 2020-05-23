@@ -1,6 +1,6 @@
 // import './dropdown-date.scss'
 // import 'air-datepicker'
-import {updatePrice} from "../reservation-card/reservation-card";
+// import {updatePrice} from "../reservation-card/reservation-card";
 
 // let dropdownDate = $('.dropdown-date');
 // for(let i = 0; i < dropdownDate.length; i++) {

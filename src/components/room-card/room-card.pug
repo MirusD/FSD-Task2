@@ -22,7 +22,7 @@ mixin room-card (options)
                     span.header_level-2=options.number
                     span.header_level-3.room-card__category-of-room=options.category
                 .room-card__price-day
-                    span.room-card_weight_bold=options.priceDay
+                    span.room-card_weight_bold(data-price-day=options.priceDay)
                     | в сутки
             .room-card__rate
                 +rate-buttons({

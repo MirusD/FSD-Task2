@@ -4,7 +4,6 @@ include ../../components/toggle-buttons/toggle-buttons
 include ../../components/input/input
 include ../../components/dropdown/dropdown
 include ../../components/date/date
-include ../../components/dropdown-date/dropdown-date
 include ../../components/checkbox/checkbox
 include ../../components/checkbox-buttons/checkbox-buttons
 include ../../components/checkbox-list/checkbox-list
@@ -30,7 +29,7 @@ block title
     | UI-KIT
 block main
     | Colors and type
-    +layout__section('demo-colors-and-type')
+    +layout__uikit-section('demo-colors-and-type')
         .container
             .demo-colors-and-type__container
                 .demo-colors
@@ -53,7 +52,7 @@ block main
                             p.demo-type__item(style='max-width: 301px; margin-top: -2px;') This is the body text which is used for most of the design, like paragraphs, lists, etc.
 
     | Form elements
-    +layout__section('demo-form-elements')
+    +layout__uikit-section('demo-form-elements')
         .container
             .form-elements__container
                 .row1-col1
@@ -128,7 +127,7 @@ block main
                         .demo-like-buttons__items
                             .demo-like-buttons__first
                                 +like-button({likes: 2})
-                            +like-button({likes: 11})
+                            +like-button({likes: 12, clicked: true})
                     .demo-rate-button
                         h3.demo-rate-button__title Rate button
                         .demo-rate-button__first
@@ -288,27 +287,28 @@ block main
                 .row4-col1
                     .demo-details.demo-details_first
                         +details({
-                            header: 'Комфорт',
-                            description: 'Шумопоглощающие стены',
+                            title: 'Комфорт',
+                            text: 'Шумопоглощающие стены',
                             icon: require('./img/insert_emoticon.svg')
                         })
                     +details({
-                        header: 'Удобство',
-                        description: 'Окно в каждой из спален',
+                        title: 'Удобство',
+                        text: 'Окно в каждой из спален',
                         icon: require('./img/location_city.svg')
                     })
                 .row4-col2
                     .demo-comments
                         +feedback({
+                            date: '2020-05-17T15:05:50.417+05:00',
                             name: 'Мурад Сарафанов',
                             text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.\n' +
                                 'И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару - никто\n' +
                                 'не жаловался из соседей.',
-                            avatar: require('./img/avatar/avatar.jpg'),
-                            likes: 11
+                            avatar: require('./img/avatar/user1.jpg'),
+                            likes: {likes: 12, clicked: true}
                         })
     | Cards
-    +layout__section('demo-cards')
+    +layout__uikit-section('demo-cards')
         .container
             .demo-cards__container
                 .demo-cards__col
@@ -344,7 +344,7 @@ block main
                         )
                     input(data-inline="true" style="display: none").demo-cards__datepicker-here.date
                     +room-card({
-                        number: '888',
+                        number: 888,
                         slider: {
                             images: [
                                 {img: require('./img/rooms/1/room_1.jpg')},
@@ -354,12 +354,12 @@ block main
                             ]
                         },
                         category: 'Люкс',
-                        priceDay: '9 900',
-                        rate: '5',
-                        reviews: '145'
+                        priceDay: 9990,
+                        rate: 5,
+                        reviews: 145
                     })
                     +room-card({
-                        number: '840',
+                        number: 840,
                         slider: {
                             images: [
                                 {img: require('./img/rooms/1/room_1.jpg')},
@@ -370,12 +370,12 @@ block main
                             arrows: false
                         },
                         category: '',
-                        priceDay: '9 900',
-                        rate: '4',
-                        reviews: '65'
+                        priceDay: 9990,
+                        rate: 4,
+                        reviews: 65
                     })
     | Header & Footer
-    +layout__section('demo-header-footer')
+    +layout__uikit-section('demo-header-footer')
         .demo-header-footer__header-first
             +header({
                 logo: require('./img/logo/logo.svg'),
@@ -389,12 +389,7 @@ block main
                             ]
                     },
                     {name: 'Careers'},
-                    {name: 'News', submenu: [
-                            {name: 'News first'},
-                            {name: 'News second'},
-                            {name: 'News third'}
-
-                        ]},
+                    {name: 'News'},
                     {name: 'Documentation'}
                     ],
                 authorization: false

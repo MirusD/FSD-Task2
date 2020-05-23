@@ -1,4 +1,4 @@
-include ../input/input
+include ../checkbox-buttons/checkbox-buttons
 
 //-
     options.title - заголовок блока
@@ -13,7 +13,7 @@ mixin checkbox-list(options)
 
     - var isExpanded = options.isExpanded === 'true' ? 'show' : '';
 
-    .checkbox-list(class=isExpanded)
+    .checkbox-list.js-checkbox-list(class=isExpanded)
         .checkbox-list__btn(aria-expanded=options.isExpanded)
             h3=options.title
         .checkbox-list__items(class=isExpanded)

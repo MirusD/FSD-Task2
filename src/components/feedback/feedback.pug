@@ -4,19 +4,21 @@ include ../like-button/like-button
     options.name - имя человека оставившего отзыв.
     options.avatar - аватар.
     options.text - текст отзыва.
-    options.likes - количество лайков.
+    options.likes - {likes: number, clicked: bool}
+        likes - количество лайков.
+        clicked - определяет в каком состоянии будет кнопка при инициализации если (bool)
 
 mixin feedback(options)
     if !options
         - options = {}
 
-    .feedback
+    .feedback.js-feedback
         .feedback__avatar-and-likes
             img.feedback__avatar(alt="avatar" src=options.avatar||require('./img/avatar/no-avatar.jpg') width=48 height=48)
             .feedback__likes
-                +like-button({likes: options.likes})
+                +like-button({likes: options.likes.likes, clicked: options.likes.clicked})
         .feedback__name-and-feedback-text
-            .feedback__name!=options.name||'Incognito'
-            span.feedback__countdown-days 5 дней назад
+            .feedback__name!=options.name||'Anonymous'
+            span.feedback__countdown-days(data-create-date=options.date)
             .feedback__feedback-text
                 p!=options.text

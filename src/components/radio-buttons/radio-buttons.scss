@@ -1,37 +1,15 @@
 @import "../../theme/variables";
 
 .radio-buttons {
+  display: flex;
   user-select: none;
+  outline: none;
+  &:focus {outline: 0}
   &__items {
     display: flex;
     align-items: center;
-    //margin-top: 14px;
   }
   &__item {
-    //position: relative;
-    //padding-left: 30px;
     padding-right: 15px;
   }
-  //&__input {
-  //  display: none;
-  //}
-  //&__text:before {
-  //  content: '';
-  //  position: absolute;
-  //  left: 0;
-  //  width: 20px;
-  //  height: 20px;
-  //  border: 1px solid $color-sixth;
-  //  border-radius: 10px;
-  //}
-  //&__input:checked + &__text:after {
-  //  content: '';
-  //  position: absolute;
-  //  top: 5px;
-  //  left: 5px;
-  //  width: 12px;
-  //  height: 12px;
-  //  background-color: $color-sixth;
-  //  border-radius: 10px;
-  //}
 }

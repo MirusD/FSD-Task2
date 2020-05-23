@@ -2,10 +2,6 @@ mixin layout(options)
   if !options
     - options = {}
 
-  // -
-  //   var layoutClass = ''
-  //   layoutClass = options.background-color ? 'layout_background-color_' :
-
   .layout()
     block
 mixin layout__header()
@@ -16,7 +12,7 @@ mixin layout__main()
   main
     block
 
-mixin layout__section(name)
+mixin layout__uikit-section(name)
   section.demo(class=name)
     header.demo__logo
       img(alt="logo-uikit" src=require('./img/logo/logo-uikit.svg'))

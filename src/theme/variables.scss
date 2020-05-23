@@ -16,8 +16,13 @@ $color-seventh: #6FCF97;
 
 $linear-gradient-first: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 $linear-gradient-second: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+$linear-gradient-third: linear-gradient(180deg, rgba(188,156,255,0.25) 0%, rgba(139,164,249,0.25) 100%);
 
 $color-disabled: #1F2041;
+
+$arrow: url("data:image/svg+xml;charset=UTF-8,%3csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9 0.984375L17.0156 9L9 17.0156L7.59375 15.6094L13.1719 9.98438H0.984375V8.01562H13.1719L7.59375 2.39062L9 0.984375Z' fill='white'/%3e%3c/svg%3e ");
+$check: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.46439 4.29245L5.70703 8.53509L4.29282 9.9493L0.0501771 5.70666L1.46439 4.29245Z' fill='url(%23paint0_linear)'/%3e%3cpath d='M8.53546 2.87823L9.94967 4.29245L4.29282 9.9493L2.8786 8.53509L8.53546 2.87823Z' fill='url(%23paint1_linear)'/%3e%3cdefs%3e%3clinearGradient id='paint0_linear' x1='7.82835' y1='2.17112' x2='2.1715' y2='7.82798' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23BC9CFF'/%3e%3cstop offset='1' stop-color='%238BA4F9'/%3e%3c/linearGradient%3e%3clinearGradient id='paint1_linear' x1='7.82835' y1='2.17112' x2='2.1715' y2='7.82798' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23BC9CFF'/%3e%3cstop offset='1' stop-color='%238BA4F9'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
+$ange-down: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z' fill='%231F2041' fill-opacity='0.75'/%3e%3c/svg%3e ");
 
 /****** Settings ******/
 $layout-settings: (
@@ -25,10 +30,6 @@ $layout-settings: (
 );
 
 $header-settings: (
-        content-max-width: $lg
-);
-
-$footer-settings: (
         content-max-width: $lg
 );
 

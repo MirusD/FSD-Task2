@@ -5,6 +5,7 @@
   align-items: center;
   cursor: pointer;
   user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &__element {
     position: relative;
     width: 1.428571428571429rem; //20/14

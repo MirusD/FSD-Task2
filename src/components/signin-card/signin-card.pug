@@ -9,11 +9,13 @@ mixin signin-card(options)
         h1 Войти
         .signin-card__email
             +input({
+                name: 'email',
                 type: 'email',
                 placeholder: 'Email'
             })
         .signin-card__password
             +input({
+                name: 'password',
                 type: 'password',
                 placeholder: 'Пароль'
             })

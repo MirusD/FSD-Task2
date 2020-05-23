@@ -7,23 +7,25 @@ mixin registration-card(options)
     if !options
         - options = {}
 
-    .registration-card.cards
+    form.registration-card.cards
         h1 Регистрация аккаунта
         .registration-card__name
             +input({
+                name: 'firstname',
                 type: 'text',
                 placeholder: 'Имя'
             })
         .registration-card__surname
             +input({
+                name: 'lastname',
                 type: 'text',
                 placeholder: 'Фамилия'
             })
         .registration-card__gender
             .registration-card__gender-mans
-                +input({type: 'radio', name: 'gender', label: 'Мужчина', isChecked: true})
+                +input({type: 'radio', name: 'sex', value: 'male', label: 'Мужчина', isChecked: true})
             .registration-card__gender-womans
-            +input({type: 'radio', name: 'gender', label: 'Женщина'})
+            +input({type: 'radio', name: 'sex', value: 'female', label: 'Женщина'})
         .registration-card__date-of-birth
             h3.header_level-3.registration-card__text-field-title Дата рождения
             +input({
@@ -34,11 +36,13 @@ mixin registration-card(options)
             h3.header_level-3.registration-card__text-field-title Данные для входа в сервис
             .registration-card__email
                 +input({
+                    name: 'email',
                     type: 'email',
                     placeholder: 'Email'
                 })
             .registration-card__password
                 +input({
+                    name: 'password',
                     type: 'password',
                     placeholder: 'Пароль'
                 })

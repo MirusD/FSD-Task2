@@ -4,9 +4,9 @@ include ../../components/button/button
 
 //-
     - options.number - номер комнаты.
-        Тип: string
-        Значени по умолчанию: '000'
-        Пример: number: '777'
+        Тип: number
+        Значени по умолчанию: 000
+        Пример: number: 777
 
     - options.category - категория номера.
         Тип: string
@@ -14,9 +14,9 @@ include ../../components/button/button
         Пример: category: 'Люкс'
 
     - options.priceDay - цена аренды номера за сутки
-        Тип: string
-        Значение по умолчанию: '0'
-        Пример: priceDay: '5 000'
+        Тип: number
+        Значение по умолчанию: 0
+        Пример: priceDay: 5000
 
     - options.startDate - Дата прибытия. (Необязательное поле)
         Тип: string
@@ -32,23 +32,26 @@ include ../../components/button/button
 
     - options.services - Перечень оказываемых услуг.
         Тип: array
-        Формат: [{description: 'string', price: 'string', mark: bool},{...},[...]]
-        Значение по умолчанию; [{description: 'Первая услуга', price: '100'},{description: 'Вторая услуга', price: '500', mark: true}]
+        Формат: [{description: 'string', price: number, mark: bool, discount: number},{...},[...]]
+        Значение по умолчанию; [{description: 'Первая услуга', price: '100'},{description: 'Вторая услуга', price: '500', mark: true, discount: 500}]
         опции:
                 description - описание услуги
                     Тип: string
                     Значение по умолчанию: ''
 
                 price - цена за услугу
-                    Тип: string
+                    Тип: number
                     Значение по умолчанию: ''
 
                 mark - отметки
                     Тип: bool
                     Значение по умолчанию: false
+                discount - скидка
+                    Тип: number
+                    Значение по умолчанию: 0
         Пример: services: [
                              {description: 'Уборка номера', price: '0'},
-                             {description: 'Сбор за дополнительные услуги', price: '300', mark: true},
+                             {description: 'Сбор за дополнительные услуги', price: '300', mark: true, discount: 100},
                           ]
 
 mixin reservation-card (options)
@@ -57,12 +60,12 @@ mixin reservation-card (options)
 
     - options.number = options.number || '000'
     - options.category = options.category || 'Demo'
-    - options.priceDay = options.priceDay || '0'
+    - options.priceDay = options.priceDay || 0
     - options.startDate = options.startDate || ''
     - options.endDate = options.endDate || ''
     - options.services = options.services || [{description: 'Первая услуга', price: '100'},{description: 'Вторая услуга', price: '500', mark: true}]
 
-    .reservation-card.cards
+    form.reservation-card.cards
         .reservation-card__room-info.room-info
             span.room-info__room-number
                 span.header_level-2.room-info__symbol №

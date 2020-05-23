@@ -4,7 +4,8 @@
   position: relative;
   user-select: none;
   overflow: hidden;
-
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &__text-box {
     display: flex;
     align-items: center;

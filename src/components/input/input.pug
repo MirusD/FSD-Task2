@@ -44,6 +44,7 @@ mixin input(options)
                     tabindex = options.tabindex
                     required = options.required
                     checked = options.isChecked
+                    value = options.value
                 )
                 if options.type === 'checkbox'
                     +checkbox({label: options.label, isChecked: options.isChecked, description: options.description})

@@ -6,24 +6,24 @@ import './room-card.scss'
 class RoomCard {
     constructor (component) {
         this.component = component;
+        this.elRoomCardSlider = this.component.querySelector('.room-card__slider');
+        this.elPriceDay = this.component.querySelector('.room-card_weight_bold');
+        this.formatter = new Intl.NumberFormat('ru', {
+            style: "currency",
+            currency: "RUB",
+            minimumFractionDigits: 0
+        });
         this.init();
     }
     init () {
-      this.component.slick({
+        $(this.elRoomCardSlider).slick({
           dots: true
-      })
+      });
+        this.elPriceDay.innerHTML = this.formatter.format(this.elPriceDay.getAttribute('data-price-day')).replace(/\s(?=\p{Sc})/gu, '');
     };
 }
 
-$('.room-card__slider').each((index, node) => {
-    new RoomCard($(node));
+let elements = document.querySelectorAll('.room-card');
+elements.forEach((node) => {
+    new RoomCard(node);
 });
-
-// $('.room-card__slider').slick({
-//     dots: true
-// });
-
-// $('.room-card__slider.arrows-off').slick({
-//     dots: true,
-//     arrows: true
-// });

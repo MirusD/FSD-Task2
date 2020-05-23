@@ -10,7 +10,6 @@ class CheckboxList {
     init() {
         this.checkboxListBtn.addEventListener('click', () => {
            this.checkboxListItems.classList.toggle('show');
-           // console.log(checkboxListBtn.getAttribute('aria-expanded'));
            if (this.checkboxListBtn.getAttribute('aria-expanded') === 'false')
                this.checkboxListBtn.setAttribute('aria-expanded', 'true');
            else
@@ -19,6 +18,6 @@ class CheckboxList {
     };
 }
 
-document.querySelectorAll('.checkbox-list').forEach((node) => {
+document.querySelectorAll('.js-checkbox-list').forEach((node) => {
     new CheckboxList(node);
 });

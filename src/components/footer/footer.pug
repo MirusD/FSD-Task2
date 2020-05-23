@@ -47,14 +47,14 @@ mixin footer(options)
                           enableArrowBtn: true
                       })
           .footer_border-top
-              .footer__copyright
-                  | Copyright &copy; 2018 Toxin Ui Kit All rights reserved
+              .footer__copyright.footer__container
+                  span.footer__text Copyright &copy; 2018 Toxin Ui Kit All rights reserved
                   .social.footer__social
-                      span.social__icon.social__twitter-icon
+                      a(href="link-for-twitter").social__icon.social__twitter-icon
                           include ./img/twitter-icon.svg
-                      span.social__icon.social__facebook-icon
+                      a(href="link-for-facebook").social__icon.social__facebook-icon
                           include ./img/facebook-icon.svg
-                      span.social__icon.social__inst-icon
+                      a(href="link-for-instagram").social__icon.social__inst-icon
                           include ./img/inst-icon.svg
       else
           .footer__container.footer_center
@@ -64,9 +64,9 @@ mixin footer(options)
                       p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque
                         |  aliquam curabitur cociis
               .social.footer__social.footer__social_margin-top
-                  span.social__icon.social__twitter-icon
+                  a(href="link-for-twitter").social__icon.social__twitter-icon
                       include ./img/twitter-icon.svg
-                  span.social__icon.social__facebook-icon
+                  a(href="link-for-facebook").social__icon.social__facebook-icon
                       include ./img/facebook-icon.svg
-                  span.social__icon.social__inst-icon
+                  a(href="link-for-instagram").social__icon.social__inst-icon
                       include ./img/inst-icon.svg

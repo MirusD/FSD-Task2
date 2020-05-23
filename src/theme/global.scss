@@ -14,10 +14,10 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 12px;
 
-  @include media-breakpoint-up($xxs) {
-    font-size: 12px;
+  @include media-breakpoint-up(360px) {
+    font-size: 14px;
   }
 
   @include media-breakpoint-up($xs) {

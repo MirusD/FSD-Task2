@@ -31,7 +31,7 @@ mixin dropdown(options)
 
     - var isExpanded = options.isExpanded === true ? 'menu-open' : ''
 
-    .iqdropdown(class=isExpanded)
+    .iqdropdown.js-iqdropdown(class=isExpanded)
         p.iqdropdown-selection=options.selectionText
         .iqdropdown-menu
             div

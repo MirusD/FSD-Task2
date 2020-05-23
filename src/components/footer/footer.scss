@@ -1,20 +1,12 @@
 @import "../../theme/variables";
 
-$footer-override: ();
-@if variable-exists(footer-settings) {
-  $footer-override: $footer-settings;
-}
-
-// ****** Settings ******
-$footer-settings: map-merge((
-        content-max-width: 900px,
-), $footer-override);
-
-
 .footer {
   box-shadow: 0 10px 20px rgba(31, 32, 65, 0.2);
   &__container {
-    max-width: map-get($footer-settings, content-max-width);
+    max-width: $lg;
+    box-sizing: content-box;
+    padding-left: 10px;
+    padding-right: 10px;
     margin: 0 auto;
   }
   &__top {
@@ -24,14 +16,20 @@ $footer-settings: map-merge((
   }
   &__top-item {
     flex-basis: 33.33%;
-    color: rgba(31, 32, 65, 0.5);
-    &:first-child {
-      flex: 1 0 22%;
-      margin-right: 45px;
-    }
+    color: $color-third;
     &:not(:nth-child(1)) {
+      &:not(:last-child) {
+        flex: 1 0 17.2%;
+      }
       margin-top: 4px;
     }
+  }
+  &__logo {
+    flex: 1 0 22%;
+    margin-right: 45px;
+  }
+  &__navigation {
+    flex: 1 0 17.2%;
   }
 
   &__nav {
@@ -41,10 +39,15 @@ $footer-settings: map-merge((
   }
 
   &__nav-item {
+    white-space: nowrap;
+    cursor: pointer;
     &:not(:first-child) {
       margin-top: 14px;
     }
-    white-space: nowrap;
+    &:hover {
+      color: $color-second;
+      text-shadow: 0 0 .65px $color-second, 0 0 .65px $color-second;
+    }
   }
 
   &__subscribe {
@@ -56,14 +59,11 @@ $footer-settings: map-merge((
 
   &__copyright {
     display: flex;
-    max-width: map-get($footer-settings, content-max-width);
-    box-sizing: padding-box;
     justify-content: space-between;
     align-items: center;
     white-space: nowrap;
     padding-top: 21px;
     padding-bottom: 20px;
-    margin: 0 auto;
   }
   &__subtext {
     margin-top: 11px;
@@ -84,13 +84,43 @@ $footer-settings: map-merge((
     padding-top: 100px;
     padding-bottom: 103px;
   }
+  @include media-breakpoint-down(950px) {
+    &__container {
+      max-width: 550px;
+    }
+    &__top {
+      justify-content: center;
+      padding-bottom: 7px;
+    }
+    &__logo {
+      width: 100%;
+      text-align: center;
+      flex: none;
+      margin: 0;
+    }
+    &__top-item:not(:first-child) {
+      display: none;
+    }
+    &_border-top {
+      display: flex;
+      justify-content: center;
+      border-top: none;
+      padding-bottom: 90px;
+    }
+    &__text {
+      display: none;
+    }
+  }
 }
 
 .social {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &__icon {
+    cursor: pointer;
     &:not(:first-child) {
       margin-left: 23px;
     }
     display: inline-block;
   }
 }
+

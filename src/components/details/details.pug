@@ -1,7 +1,7 @@
 //-
     options.icon - иконка блока details
-    options.header - заголовок
-    options.description - описание
+    options.title - заголовок
+    options.text - описание
 
 mixin details(options)
     if !options
@@ -12,5 +12,5 @@ mixin details(options)
             .details__icon
                 img(alt="details" src=options.icon)
             .details__text
-                p.details__header!=options.header
-                p.details__description!=options.description
+                p.details__header!=options.title
+                p.details__description!=options.text

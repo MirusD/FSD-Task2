@@ -16,6 +16,9 @@ $header-settings-default: map-merge((
   &__container {
     display: flex;
     max-width: map-get($header-settings-default, content-max-width);
+    box-sizing: content-box;
+    padding-left: 10px;
+    padding-right: 10px;
     margin: 0 auto;
     align-items: center;
   }
