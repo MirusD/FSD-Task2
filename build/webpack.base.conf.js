@@ -87,7 +87,7 @@ module.exports = new configurator.default().merge({
     },
     resolve: {
         alias: {
-            '~': "src",
+            '~': "src"
         }
     },
     plugins: [
