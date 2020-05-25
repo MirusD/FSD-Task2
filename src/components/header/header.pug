@@ -4,6 +4,7 @@ include ../button/button
 //-
   options.menuItems - массив елементов меню
   options.logoTheme - тема логотипа, возможны след. значения 'logo1', 'logo2'
+  options.userName - имя авторизованного пользователя.
 
 mixin header(options)
   if !options
@@ -16,18 +17,4 @@ mixin header(options)
           img(alt="logo" src=options.logo)
       if options.menuItems
         .header__menu
-          +menu({items: options.menuItems})
-      if options.authorization
-        .header__authorization.header__user-name Cosmin Negoita
-      else
-        .header__authorization
-          .header__btn-login
-            +button({
-              type: 'outline',
-              text: 'Login'
-            })
-          .header__btn-register
-            +button({
-              type: 'no-outline',
-              text: 'Register'
-            })
+          +menu({items: options.menuItems, userName: options.userName})

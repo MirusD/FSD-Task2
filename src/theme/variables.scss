@@ -29,15 +29,6 @@ $layout-settings: (
         content-max-width: $xl
 );
 
-$header-settings: (
-        content-max-width: $lg
-);
-
-$signin-card-settings: (
-        //width: 100px
-        //border-radius: 20px
-);
-
 /***** Mixins *****/
 @mixin media-breakpoint-up($width) {
   @media (min-width: $width + 1) {

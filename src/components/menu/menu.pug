@@ -2,6 +2,7 @@
   options.items - массив с элементами меню
   options.items[0].name - имя элемента меню
   options.items[0].href - ссылка элемента меню
+  options.userName - авторизованный пользователь.
 
 mixin menu(options)
   if !options
@@ -20,12 +21,29 @@ mixin menu(options)
       ul.menu__list.js-menu__list
         for item in options.items
           if (!item.submenu)
-            li.menu__item
+            li.menu__item(class = item.active === true ? 'menu__item_active':'')
               a.menu__link(href = item.href)= item.name
           else
-            li.menu__item.menu__item_with-submenus
+            li.menu__item.menu__item_with-submenus(class = item.active === true ? 'menu__item_active':'')
               a.menu__link.menu__link_with-submenus(href = item.href)= item.name
               ul.menu__submenu
                 each submenu in item.submenu
-                  li.menu__submenu-item
+                  li.menu__submenu-item(class = item.active === true ? 'menu__item_active':'')
                     a.menu__submenu-link(href = submenu.href)= submenu.name
+        if options.userName
+          .menu__user-name=options.userName
+        else
+          li.menu__item.menu__item-login
+            a.menu__link(href="link for singin") login
+          li.menu__item.menu__item-register
+            a.menu__link(href="link for register") Register
+          li.menu__btn-login
+            +button({
+              type: 'outline',
+              text: 'Login'
+            })
+          li.menu__btn-register
+            +button({
+              type: 'no-outline',
+              text: 'Register'
+            })

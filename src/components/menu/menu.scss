@@ -10,7 +10,6 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   @include media-breakpoint-down(950px) {
     flex-direction: column;
-    //align-items: center;
   }
 
   &__button {
@@ -18,7 +17,7 @@
     align-items: center;
     margin-top: 15px;
     margin-bottom: 10px;
-    justify-content: center;
+    justify-content: flex-end;
 
     .button {
       cursor: pointer;
@@ -60,13 +59,15 @@
 
     @include media-breakpoint-up(950px) {
       display: flex;
-      margin-right: 28px;
+      align-items: center;
     }
 
     @include media-breakpoint-down(950px) {
       &_expanded {
         display: flex;
         flex-direction: column;
+        margin-left: -15px;
+        margin-right: -15px;
       }
     }
   }
@@ -78,7 +79,6 @@
     text-decoration: none;
     list-style: none;
     position: relative;
-
     &:not(:first-child) {
       margin-left: 0;
       @include media-breakpoint-up(950px) {
@@ -86,7 +86,6 @@
         margin-left: 29px;
       }
     }
-
     &:hover {
       color: rgba(31, 32, 65, 0.75);
       text-shadow: 0 0 .65px rgba(31, 32, 65, 0.75), 0 0 .65px rgba(31, 32, 65, 0.75);
@@ -94,7 +93,35 @@
         display: block;
       }
     }
+    &_active {
+      color: rgba(31, 32, 65, 0.75);
+      font-weight: bold;
+    }
+    &-login, &-register {
+      display: none;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    &-login {
+      @include media-breakpoint-down(950px) {
+        display: inline-block;
+        border-top: 1px solid rgba(31, 32, 65, 0.1);
+      }
+    }
+    &-register {
+      @include media-breakpoint-down(950px) {
+        display: inline-block;
+      }
+    }
   }
+
+  &__link {
+    font-weight: inherit;
+    &:link {color: $color-second; text-decoration: none;}
+    &:visited {color: $color-second; text-decoration: none;}
+    &:active {color: $color-second; text-decoration: none;}
+  }
+
   &__item_with-submenus &__link_with-submenus {
     padding-right: 14px;
     position: relative;
@@ -140,14 +167,59 @@
       }
       list-style: none;
       text-shadow: none;
-      &:hover {
-        text-shadow: 0 0 .65px rgba(31, 32, 65, 0.75), 0 0 .65px rgba(31, 32, 65, 0.75);
-        background-color: rgba(31, 32, 65, 0.1);
-      }
       @include media-breakpoint-down(950px) {
         border-top: 1px solid white;
         background-color: $color-fifth;
       }
+      &:hover {
+        text-shadow: 0 0 .65px rgba(31, 32, 65, 0.75), 0 0 .65px rgba(31, 32, 65, 0.75);
+        background-color: rgba(31, 32, 65, 0.1);
+      }
+    }
+  }
+
+  &__btn {
+    &-login, &-register {
+      list-style: none;
+      margin-left: 20px;
+      & .btn__text {
+        padding: {
+          top: 9px;
+          right: 19px;
+          bottom: 10px;
+          left: 19px;
+        }
+      }
+      @include media-breakpoint-down(950px) {
+        display: none;
+      }
+    }
+    &-login {
+      margin-left: 30px;
+      & .btn__text_outline {
+        padding: {
+          top: 7px;
+          right: 18px;
+          bottom: 8px;
+          left: 18px;
+        }
+      }
+    }
+  }
+  &__user-name {
+    line-height: 31px;
+    margin-left: 32px;
+    border-left: 1px solid rgba(31, 32, 65, 0.1);
+    padding-left: 30px;
+    @include media-breakpoint-down(950px) {
+      display: inline-block;
+      border: none;
+      border-top: 1px solid rgba(31, 32, 65, 0.1);
+      text-align: center;
+      margin-left: 0;
+      padding-left: 0;
+      line-height: 80px;
+      font-weight: bold;
     }
   }
 }

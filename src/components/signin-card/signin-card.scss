@@ -1,31 +1,6 @@
 @import "../../theme/variables";
 
-$signin-card-override: ();
-@if variable-exists(signin-card-settings) {
-  $signin-card-override: $signin-card-settings;
-}
-
-// ****** Settings default ******
-$signin-card-settings: map-merge((
-        max-width: 380px,
-        min-width: 270px,
-        padding: 39px 29px 30px 29px,
-        border: 1px solid rgba(0, 0, 0, 0.12),
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.2),
-        border-radius: 4px,
-), $signin-card-override);
-
 .signin-card {
-  flex: 1 0 auto;
-  max-width: map-get($signin-card-settings, max-width);
-  min-width: map-get($signin-card-settings, min-width);
-  //width: map_get($signin-card-settings, width);
-  padding: map-get($signin-card-settings, padding);
-  border: map-get($signin-card-settings, border);
-  border-radius: map_get($signin-card-settings, border-radius);
-  box-shadow: map-get($signin-card-settings, box-shadow);
-  box-sizing: border-box;
-  align-self: flex-start;
   &__email {
     margin-top: 20px;
   }

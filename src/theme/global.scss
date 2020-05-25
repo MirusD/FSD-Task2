@@ -58,18 +58,18 @@ h3, .header_level-3 {
 }
 
 .cards {
-  width: 380px;
+  width: 27.142857142857142857142857142857rem; //380/14
   padding: 39px 29px 30px 29px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px $color-fourth;
   border-radius: 4px;
   align-self: flex-start;
 }
 
 @include media-breakpoint-down(400px) {
   .cards {
-    width: 320px;
+    width: 22.857142857142857142857142857143rem; //320/14
     padding-left: 0;
     padding-right: 0;
     border-left: 0;

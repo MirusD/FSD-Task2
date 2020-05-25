@@ -1,21 +1,10 @@
 @import "../../theme/variables";
 
-$header-override: ();
-@if variable-exists(header-settings) {
-  $header-override: $header-settings;
-}
-
-// ****** Settings ******
-$header-settings-default: map-merge((
-        content-max-width: 900px,
-), $header-override);
-
-
 .header {
   box-shadow: 0 10px 20px rgba(31, 32, 65, 0.2);
   &__container {
     display: flex;
-    max-width: map-get($header-settings-default, content-max-width);
+    max-width: $lg;
     box-sizing: content-box;
     padding-left: 10px;
     padding-right: 10px;
@@ -23,9 +12,10 @@ $header-settings-default: map-merge((
     align-items: center;
     @include media-breakpoint-down(950px) {
       align-items: initial;
-      flex-direction: column;
       padding-top: 70px;
       padding-bottom: 20px;
+      padding-right: 30px;
+      padding-left: 30px;
     }
   }
 
@@ -37,47 +27,18 @@ $header-settings-default: map-merge((
     font-family: sans-serif;
     font-size: 2.5rem;
     font-weight: bold;
+    align-items: flex-start;
     justify-content: center;
+    @include media-breakpoint-down(950px) {
+      align-items: flex-start;
+      margin-top: 10px;
+    }
   }
 
   &__menu {
     flex: 1 0 auto;
     @include media-breakpoint-down(950px) {
-      flex: 1 0 100%;
+      margin-left: -107px;
     }
-  }
-
-  &__user-name {
-    line-height: 31px;
-    margin-left: 4px;
-    border-left: 1px solid rgba(31, 32, 65, 0.1);
-    padding-left: 30px;
-  }
-
-  &__authorization {
-    display: flex;
-    & .btn__text {
-      padding: {
-        top: 9px;
-        right: 19px;
-        bottom: 10px;
-        left: 19px;
-      }
-    }
-    & .btn__text_outline {
-      padding: {
-        top: 7px;
-        right: 18px;
-        bottom: 8px;
-        left: 18px;
-      }
-    }
-    @include media-breakpoint-down(950px) {
-      display: none;
-    }
-  }
-
-  &__btn-login {
-    margin-right: 20px;
   }
 }

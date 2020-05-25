@@ -8,90 +8,6 @@
   margin: 0 auto;
 }
 
-.form-elements {
-  &__container {
-    display: grid;
-    grid-template-columns: 320px minmax(9px, 127px) 320px minmax(10px, 71px) 320px;
-    grid-template-rows: auto 100px auto 172px auto 92px auto;
-    grid-template-areas:
-      'block1 . block2 . block3'
-      '. . . . .'
-      'block4 . block5 . block6'
-      '. . . . .'
-      'block7 . block8 . block9'
-      '. . . . .'
-      'block10 . block11 block11 block11';
-    justify-items: stretch;
-
-    @include media-breakpoint-down(1060px) {
-      grid-template-columns: 320px minmax(0, 10%) 320px;
-      grid-template-rows: auto auto 220px;
-      justify-content: center;
-      grid-row-gap: 70px;
-      grid-template-areas:
-              'block1 . block2'
-              'block3 . block4'
-              'block5 . block6'
-              'block7 . block8'
-              'block9 . block10'
-              'block11 block11 block11';
-    }
-    @include media-breakpoint-down(765px) {
-      grid-template-columns: 22.857142857142857142857142857143rem;
-      grid-template-rows: auto auto auto 230px 200px 200px;
-      justify-content: center;
-      grid-row-gap: 50px;
-      grid-template-areas:
-              'block1'
-              'block2'
-              'block3'
-              'block4'
-              'block5'
-              'block6'
-              'block7'
-              'block8'
-              'block9'
-              'block10'
-              'block11';
-    }
-  }
-}
-
-.row1-col1 {
-  grid-area: block1;
-}
-.row1-col2 {
-  grid-area: block2;
-}
-.row1-col3 {
-  grid-area: block3;
-}
-.row2-col1 {
-  grid-area: block4;
-}
-.row2-col2 {
-  grid-area: block5;
-}
-.row2-col3 {
-  grid-area: block6;
-}
-.row3-col1 {
-  grid-area: block7;
-}
-.row3-col2 {
-  grid-area: block8;
-}
-.row3-col3 {
-  grid-area: block9;
-}
-.row4-col1 {
-  grid-area: block10;
-}
-.row4-col2 {
-  grid-area: block11;
-}
-
-
 @mixin info($text) {
   position: relative;
   &:after {
@@ -122,6 +38,9 @@
       justify-content: center;
     }
   }
+  //===============================
+  //=== SECTION COLORS AND TYPE ===
+  //===============================
   &-colors-and-type {
     &__container {
       max-width: 1140px;
@@ -224,6 +143,93 @@
       color: $color-fourth;
     }
   }
+
+  //=============================
+  //=== SECTION FORM ELEMENTS ===
+  //=============================
+  .form-elements {
+    &__container {
+      display: grid;
+      grid-template-columns: 320px minmax(9px, 127px) 320px minmax(10px, 71px) 320px;
+      grid-template-rows: auto 100px auto 172px auto 92px auto;
+      grid-template-areas:
+              'block1 . block2 . block3'
+              '. . . . .'
+              'block4 . block5 . block6'
+              '. . . . .'
+              'block7 . block8 . block9'
+              '. . . . .'
+              'block10 . block11 block11 block11';
+      justify-items: stretch;
+
+      @include media-breakpoint-down(1060px) {
+        grid-template-columns: 320px minmax(0, 10%) 320px;
+        grid-template-rows: auto auto 220px;
+        justify-content: center;
+        grid-row-gap: 70px;
+        grid-template-areas:
+                'block1 . block2'
+                'block3 . block4'
+                'block5 . block6'
+                'block7 . block8'
+                'block9 . block10'
+                'block11 block11 block11';
+      }
+      @include media-breakpoint-down(765px) {
+        grid-template-columns: 22.857142857142857142857142857143rem;
+        grid-template-rows: auto auto auto 230px 200px 200px;
+        justify-content: center;
+        grid-row-gap: 50px;
+        grid-template-areas:
+                'block1'
+                'block2'
+                'block3'
+                'block4'
+                'block5'
+                'block6'
+                'block7'
+                'block8'
+                'block9'
+                'block10'
+                'block11';
+      }
+    }
+  }
+
+  .block1 {
+    grid-area: block1;
+  }
+  .block2 {
+    grid-area: block2;
+  }
+  .block3 {
+    grid-area: block3;
+  }
+  .block4 {
+    grid-area: block4;
+  }
+  .block5 {
+    grid-area: block5;
+  }
+  .block6 {
+    grid-area: block6;
+  }
+  .block7 {
+    grid-area: block7;
+  }
+  .block8 {
+    grid-area: block8;
+  }
+  .block9 {
+    grid-area: block9;
+  }
+  .block10 {
+    grid-area: block10;
+  }
+  .block11 {
+    grid-area: block11;
+  }
+
   //=== TEXT-FIELD ===
   &-text-field {
     &__title {
@@ -263,6 +269,7 @@
       max-width: 266px;
     }
   }
+
   // === DROPDOWN-FILTER-DATE ===
   &-dropdown-filter-date {
     max-width: 266px;
@@ -276,9 +283,6 @@
     justify-content: space-between;
     &__title {
       margin-bottom: 5px;
-    }
-    &__from, &__to {
-      //flex: 1 0 auto;
     }
     &__from {
       margin-right: 20px;
@@ -371,13 +375,8 @@
     &__title {
       margin-bottom: 15px;
     }
-    &__btn-default {
-      //margin-top: 16px;
-      //margin-left: 2px;
-    }
     &__btn-outline {
       margin-top: 30px;
-      //margin-left: 2px;
     }
     &__btn-link {
       margin-top: 27px;
@@ -411,22 +410,29 @@
       margin-bottom: 9px;
     }
   }
+
   // === BULLET LIST ===
   &-bullet-list {
     &__title {
       margin-bottom: 13px;
     }
   }
+
   // === DETAILS ===
   &-details_first {
     margin-bottom: 19px;
   }
+
   // === COMMENTS ===
   &-comments {
     max-width: 700px;
     margin-top: 10px;
     margin-left: 1px;
   }
+
+  //=====================
+  //=== SECTION CARDS ===
+  //=====================
   &-cards {
     &__container {
       display: flex;
@@ -457,6 +463,10 @@
       }
     }
   }
+
+  //===================================
+  //=== SECTION HEADERS AND FOOTERS ===
+  //===================================
   &-header-footer {
     &__header-first {
       margin-top: 7px;
@@ -473,17 +483,4 @@
     }
   }
 }
-
-//@include media-breakpoint-between(0px, 767px) {
-//  .container {
-//    margin: 0;
-//  }
-//  section {
-//    margin-left: 0;
-//    margin-right: 0;
-//  }
-//  .demo-logo {
-//    //margin-left: 10px;
-//  }
-//}
 

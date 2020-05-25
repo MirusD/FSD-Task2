@@ -55,7 +55,7 @@ block main
     +layout__uikit-section('demo-form-elements')
         .container
             .form-elements__container
-                .row1-col1
+                .block1
                     .demo-text-field.demo-text-field_default
                         h3.demo-text-field__title Text field
                         +input({type: 'email', placeholder: 'Email'})
@@ -102,7 +102,7 @@ block main
                     .demo-text-field.demo-text-field_subscription
                         h3.demo-text-field__title Subscription text field
                         +input({type: 'email', name: 'subscribe', placeholder: 'Email', enableArrowBtn: true})
-                .row1-col2
+                .block2
                     .demo-checkbox-buttons
                         h3.demo-checkbox-buttons__title Checkbox buttons
                         +checkbox-buttons({
@@ -135,7 +135,7 @@ block main
                         .demo-rate-button__second
                             +rate-buttons({stars: 5})
 
-                .row1-col3
+                .block3
                     .demo-range-slider
                         h3.demo-range-slider__title Range slider
                         +range-slider({
@@ -186,7 +186,7 @@ block main
                     .demo-pagination
                         h3.demo-pagination__title Pagination
                         +pagination()
-                .row2-col1
+                .block4
                     .demo-dropdown.demo-dropdown_default.demo-dropdown_max-width
                         h3.demo-dropdown__title dropdown
                         +dropdown({
@@ -208,7 +208,7 @@ block main
                             ],
                             isExpanded: true
                         })
-                .row2-col2
+                .block5
                     h3.demo-dropdown__title dropdown
                     +dropdown({
                         selectionText: 'Сколько гостей',
@@ -220,7 +220,7 @@ block main
                         isExpanded: true,
                         controls: true
                     })
-                .row2-col3
+                .block6
                     h3.demo-dropdown__title dropdown
                     +dropdown({
                         selectionText: 'Сколько гостей',
@@ -232,7 +232,7 @@ block main
                         isExpanded: true,
                         controls: true
                     })
-                .row3-col1
+                .block7
                     .demo-checkbox-list.demo-checkbox-list_first
                         +checkbox-list({
                             title: 'Expandable checkbox list',
@@ -259,7 +259,7 @@ block main
                             ],
                             isExpanded: 'true'
                         })
-                .row3-col2
+                .block8
                     .demo-rich-checkbox-buttons
                         h3.demo-rich-checkbox-buttons__title Rich checkbox buttons
                         .demo-rich-checkbox-buttons__first
@@ -274,7 +274,7 @@ block main
                                 label: 'Помощник для инвалидов',
                                 description: 'На 1 этаже вас встретит специалист <br> и проводит до номера.'
                             })
-                .row3-col3
+                .block9
                     .demo-bullet-list
                         h3.demo-bullet-list__title Bullet list
                         +bullet-list({
@@ -284,7 +284,7 @@ block main
                                 'Время прибытия - после 13:00 <br> а выезд до 12:00'
                             ]
                         })
-                .row4-col1
+                .block10
                     .demo-details.demo-details_first
                         +details({
                             title: 'Комфорт',
@@ -296,7 +296,7 @@ block main
                         text: 'Окно в каждой из спален',
                         icon: require('./img/location_city.svg')
                     })
-                .row4-col2
+                .block11
                     .demo-comments
                         +feedback({
                             date: '2020-05-17T15:05:50.417+05:00',
@@ -380,8 +380,8 @@ block main
             +header({
                 logo: require('./img/logo/logo.svg'),
                 menuItems: [
-                    {name: 'Home'},
-                    {name: 'About Us'},
+                    {name: 'Home', href: 'link-for-page-home',active: true},
+                    {name: 'About Us', href: 'link-for-page-about-us'},
                     {name: 'Services', submenu: [
                             {name: 'Room reservation'},
                             {name: 'Services2'},
@@ -391,14 +391,13 @@ block main
                     {name: 'Careers'},
                     {name: 'News'},
                     {name: 'Documentation'}
-                    ],
-                authorization: false
+                    ]
             })
         .demo-header-footer__header-second
             +header({
                 logo: require('./img/logo/logo.svg'),
                 menuItems: [
-                    {name: 'Home'},
+                    {name: 'Home', active: true},
                     {name: 'About Us'},
                     {
                         name: 'Services', submenu: [
@@ -411,7 +410,7 @@ block main
                     {name: 'News'},
                     {name: 'Documentation'}
                 ],
-                authorization: true
+                userName: 'Cosmin Negoita'
             })
         .demo-header-footer__footer-first
             +footer({
