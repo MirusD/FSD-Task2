@@ -1,6 +1,7 @@
 @import "../../theme/variables";
 
 .header {
+  flex: 1 0 auto;
   background-color: white;
   &__container {
     display: flex;
