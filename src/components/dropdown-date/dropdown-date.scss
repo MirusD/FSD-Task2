@@ -1,0 +1,14 @@
+.dropdown-date {
+  max-width: 320px;
+  display: flex;
+  justify-content: space-between;
+  &__title {
+    margin-bottom: 5px;
+  }
+  &__item {
+    display: inline-block;
+    &:first-child {
+      margin-right: 5px;
+    }
+  }
+}

@@ -1,0 +1,191 @@
+@import "../../theme/variables.scss";
+
+.dropdown-date {
+  flex: 1 0 auto;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  padding-right: 2.2857142857142857142857142857143rem; //32/14
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+  height: 3.142857142857143rem; // 44/14
+  box-sizing: border-box;
+  letter-spacing: -0.01428571428571428571428571428571rem; //-0.2/14;
+  border-radius: 4px;
+  border: 1px solid $color-fourth;
+  background: $ange-down no-repeat top 50% right 1.0714285714285714285714285714286rem;
+  line-height: 1rem; //14/14
+
+  &__alt-field {
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    padding: {
+      top: 1rem; //14/14
+      bottom: 1rem; //14/14
+      left: 1.0714285714285714285714285714286rem; //15/14
+    }
+  }
+
+  &__datepicker{
+    border: none;
+    outline: none;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &::placeholder {
+    color: $color-third;
+  }
+}
+
+.datepicker {
+  width: 20.714285714285714285714285714286rem; //290/14
+  box-sizing: content-box;
+  box-shadow: 0 10px 20px $color-fifth;
+  padding-left: 1.0714285714285714285714285714286rem; //15/14
+  padding-right: 0.92857142857142857142857142857143rem; //13/14
+  .datepicker-inline & {
+    box-shadow: 0 10px 20px $color-fifth;
+  }
+  &--pointer {
+    display: none;
+  }
+  &--nav {
+    height: 4.4285714285714285714285714285714rem; //62/14
+    border-bottom: none;
+    padding: 0.14285714285714285714285714285714rem; //2/14
+    &-action path {
+      fill: $color-sixth;
+      stroke: none;
+    }
+    &-action svg {
+      width: 1.2142857142857142857142857142857rem; //17/14
+    }
+  }
+  &--nav-title, i {
+    font-family: Quicksand, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.3571428571428571428571428571429rem; //19/14
+    line-height: 1.7142857142857142857142857142857rem; //24/14
+    letter-spacing: 0.01428571428571428571428571428571rem; //0.4/14
+    color: $color-first;
+  }
+  &--days-names {
+    margin-top: 1.0714285714285714285714285714286rem; //15/14
+    margin-bottom: 0.5rem; //7/14
+  }
+  &--day-name {
+    color: $color-sixth;
+    font-weight: bold;
+    text-transform: none;
+  }
+  &--content {
+    padding: 0.35714285714285714285714285714286rem; //5/14
+  }
+  &--cell-day {
+    width: 2.8357142857142857142857142857143rem; //39.7/14
+    height: 2.8571428571428571428571428571429rem; //40/14
+  }
+  &--day-name {
+    width: 2.8485714285714285714285714285714rem; //39.88/14
+  }
+  &--cell.datepicker--cell-day {
+    font-size: 0.85714285714285714285714285714286rem; //12/14
+    line-height: 1.0714285714285714285714285714286rem; //15/14
+    color: $color-third;
+    &.-other-month- {
+      color: $color-fourth;
+    }
+    &.-in-range- {
+      background: $linear-gradient-third;
+      position: relative;
+      &.-current-:after,&.-focus-:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        width: 2.8571428571428571428571428571429rem; //40/14
+        height: 2.8571428571428571428571428571429rem; //40/14
+        background: $linear-gradient-third;
+      }
+    }
+    &.-current-,&.-selected-,&.-focus- {
+      color: white;
+      border-radius: 1.5714285714285714285714285714286rem; //22/14
+      font-weight: bold;
+      position: relative;
+      border: none;
+    }
+    &.-current- {
+      background: $linear-gradient-second;
+    }
+    &.-selected-,&.-focus-{
+      background: $linear-gradient-first;
+    }
+    &.-range-from-:before,&.-range-to-:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      top: 0;
+      width: 2.8571428571428571428571428571429rem; //40/14
+      height: 2.8571428571428571428571428571429rem; //40/14
+      background: $linear-gradient-third;
+    }
+    &.-range-from- {
+      position: relative;
+      &:before {
+        border-radius: 1.5714285714285714285714285714286rem 0 0 1.5714285714285714285714285714286rem; //22/14, 0, 0, 22/14
+      }
+    }
+    &.-range-to- {
+      position: relative;
+      &:before {
+        border-radius: 0 1.5714285714285714285714285714286rem 1.5714285714285714285714285714286rem 0; //0, 22/14, 22/14, 0
+      }
+    }
+  }
+  &--buttons {
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.14285714285714285714285714285714rem; //2/14
+    padding-bottom: 0.21428571428571428571428571428571rem; //3/14
+  }
+  &--button {
+    display: inline-block;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 0.85714285714285714285714285714286rem; //12/14
+    line-height: 3.1428571428571428571428571428571rem; //44/14
+    text-transform: uppercase;
+    text-decoration: none;
+    height: auto;
+    flex: none;
+    &[data-action="clear"] {
+      color: $color-third;
+      &:hover {
+        background: none;
+      }
+    }
+    &[data-action="apply"] {
+      color: $color-sixth;
+
+      &:hover {
+        background: none;
+      }
+    }
+  }
+}

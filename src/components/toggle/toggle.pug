@@ -1,0 +1,12 @@
+//-
+    options.label - ярлык.
+    options.isChecked
+
+
+mixin toggle(options)
+  if !options
+    - options = {}
+
+  .toggle.js-toggle
+      .toggle__element(class=options.isChecked === true ? 'toggle_checked':'')
+      span.toggle__label!=options.label || 'Toggle label'

@@ -1,0 +1,39 @@
+include ../dropdown/dropdown
+include ../date/date
+include ../button/button
+
+mixin search-card(options)
+    if !options
+        - options = {}
+
+    form.search-card.cards
+        h1.search-card__title Найдём номера под <br> ваши пожелания
+        .search-card__date-range
+            .search-card__date-from
+                h3.search-card__date-title Прибытие
+                +date({
+                    name: 'reservationDate',
+                    placeholder: 'ДД.ММ.ГГГ'
+                })
+            .search-card__date-to
+                h3.search-card__date-title Выезд
+                +date({
+                    name: 'reservationDate',
+                    placeholder: 'ДД.ММ.ГГГ'
+                })
+        .search-card__number-of-guests
+            h3.search-card__dropdown-title Гости
+            +dropdown({
+                selectionText: 'Сколько гостей',
+                items: [
+                    {text: 'Взрослые', textPlural: 'гость, гостя, гостей'},
+                    {text: 'Дети', textPlural: 'гость, гостя, гостей'},
+                    {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
+                ],
+                controls: true
+            })
+        .search-card__btn-search
+            +button({
+                text: 'Подобрать номер',
+                type: 'arrow-btn'
+            })

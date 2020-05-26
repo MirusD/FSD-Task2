@@ -1,0 +1,20 @@
+include ../input/input
+
+//-
+    options.items - массив элементов блока radio buttons.
+        Принимает массив объектов со след. св-вами:
+        - value - текст
+        - id - идентификатор
+        - isChecked - bool
+
+
+mixin radio-buttons(options)
+    if !options
+        - options = {}
+
+    .radio-buttons
+        .radio-buttons__items
+            each item in options.items
+                .radio-buttons__item
+                    +input({type: 'radio', name: item.name, label: item.label, isChecked: item.isChecked})
+

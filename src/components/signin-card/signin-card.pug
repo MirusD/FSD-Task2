@@ -1,0 +1,32 @@
+include ../input/input
+include ../button/button
+
+mixin signin-card(options)
+    if !options
+        - options = {}
+
+    form.signin-card.cards
+        h1 Войти
+        .signin-card__email
+            +input({
+                name: 'email',
+                type: 'email',
+                placeholder: 'Email'
+            })
+        .signin-card__password
+            +input({
+                name: 'password',
+                type: 'password',
+                placeholder: 'Пароль'
+            })
+        .signin-card__log-in-btn
+            +button({
+                type: 'arrow-btn',
+                text: 'Войти'
+            })
+        .signin-card__signup-an-account
+            span.entrance-card___text_color_black Нет аккаунта на Toxin?
+            +button({
+                type: 'outline',
+                text: 'Создать'
+            })

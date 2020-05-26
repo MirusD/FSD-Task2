@@ -1,0 +1,42 @@
+//-
+    options.name - имя поля (можно задать двум компонентам одинаковые имена тогда первая дата будет в первом элемент вторая во втором)
+    options.placeholder - выводит подсказывающий текст
+    options.from - начальная дата, передается в формате ГГГГ-ММ-ДД
+    options.to - конечная дата, передается в формате ГГГГ-ММ-ДД
+    options.dateFormat - Желаемый формат даты, кобминация из d, m, yyyy, D, M, и т.д. По умолчанию берется из локализации,
+        если передать значение сюда, то оно будет иметь больший приоритет.
+
+        @- время в миллесекундах
+        d- дата
+        dd- дата с лидирующем нулем
+        D- сокращенное наименование дня
+        DD- полное наименование дня
+        m- номер мясяца
+        mm- номер месяца с лидирующем нулем
+        M- сокращенное наименовение месяца
+        MM- полное наименовение месяца
+        yy- сокращенный номер года
+        yyyy- полный номер года
+        yyyy1- первый год декады, в которую входит текущий год
+        yyyy2- последний год декады, в которую входит текущий год
+
+mixin date(options)
+    if !options
+        - options = {}
+
+    - var dateFormat = options.dateFormat || 'dd.mm.yyyy';
+
+    .dropdown-date.js-dropdown-date(data-name=options.name)
+        input.dropdown-date__datepicker(
+            data-date-format = dateFormat
+            data-inline = options.inline
+        )
+        input.dropdown-date__alt-field(
+            type: "text"
+            name = options.name
+            placeholder = options.placeholder
+            data-start-date-from = options.from
+            data-start-date-to = options.to
+            data-autocomplete="off"
+            readonly
+        )

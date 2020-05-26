@@ -1,0 +1,56 @@
+include ../checkbox/checkbox
+include ../radio/radio
+include ../toggle/toggle
+include ../date/date
+
+//-
+    options.type - тип, возможные значени: 'text','email','password','checkbox','radio',toggle
+    options.label - ярлык
+    options.value - значение элемента
+    options.placeholder - выводит подсказывающий текст
+    options.name - имя поля
+    options.tabindex - определяет порядок перехода между элементами с помощью клавиши Tab
+    options.required - устанавливает обязательное ли поле для заполнения
+    options.pattern - устанавливает шаблон для ввода
+    options.isChecked - предварительно активированный переключательили флажок (bool)
+    options.enableArrowBtn - включает кнопку со стрелкой (bool)
+
+mixin input(options)
+    if !options
+        - options = {}
+
+    .input(class = options.type ? "input_type_" + options.type:"")
+        if (options.type === 'text' || options.type === 'email' || options.type === 'password')
+            .input__text-box
+                input.input__text-field(
+                    class = options.arrowBtn === true ? 'input__text-field_padding-right-for-button':''
+                    type = options.type
+                    name = options.name
+                    placeholder = options.placeholder
+                    value = options.value
+                    pattern = options.pattern
+                    tabindex = options.tabindex
+                    required = options.required
+                )
+                if options.enableArrowBtn
+                    button.input__btn_arrow
+
+        if (options.type === 'checkbox' || options.type === 'radio' || options.type === 'toggle' || options.type === 'date')
+            label.input__label
+                input.input__element(
+                    class = options.type === 'radio' ? 'js-input__radio':''
+                    type = options.type === 'toggle' ? 'checkbox':options.type
+                    name = options.name
+                    tabindex = options.tabindex
+                    required = options.required
+                    checked = options.isChecked
+                    value = options.value
+                )
+                if options.type === 'checkbox'
+                    +checkbox({label: options.label, isChecked: options.isChecked, description: options.description})
+                if options.type === 'radio'
+                    +radio({label: options.label, name: options.name, isChecked: options.isChecked})
+                if options.type === 'toggle'
+                    +toggle({label: options.label, isChecked: options.isChecked})
+                if options.type === 'date'
+                    +date()

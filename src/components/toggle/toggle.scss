@@ -1,0 +1,40 @@
+@import '../../theme/variables';
+
+.toggle {
+  display: flex;
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &__element {
+    user-select: none;
+    position: relative;
+    width: 2.8571428571428571428571428571429rem; //40/14
+    height: 1.4285714285714285714285714285714rem; //20/14
+    border: 1px solid $color-fourth;
+    border-radius: 0.7142857142857143rem; //10/14
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 8%;
+      width: 0.8571428571428571rem; //12/14
+      height: 0.8571428571428571rem; //14/14
+      background: linear-gradient(180deg, $color-fourth 0%, $color-fourth 100%);
+      border-radius: 10px; //10/14
+      transition: all 0.3s ease;
+      transform: translateY(-50%);
+    }
+  }
+  &__label {
+    margin-left: 0.7142857142857143rem; // 10/14
+  }
+
+  &_checked {
+    border-color: $color-sixth;
+    &:before {
+      left: 60%;
+      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      border-color: $color-sixth;
+      transition: all 0.3s ease;
+    }
+  }
+}

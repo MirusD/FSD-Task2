@@ -1,0 +1,127 @@
+@import "../../theme/variables";
+
+.footer {
+  flex: 1 0 auto;
+  background-color: white;
+  &__container {
+    max-width: $lg;
+    box-sizing: content-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 auto;
+  }
+  &__top {
+    display: flex;
+    padding-top: 100px;
+    padding-bottom: 97px;
+  }
+  &__top-item {
+    flex-basis: 33.33%;
+    color: $color-third;
+    &:not(:nth-child(1)) {
+      &:not(:last-child) {
+        flex: 1 0 17.2%;
+      }
+      margin-top: 4px;
+    }
+  }
+  &__logo {
+    flex: 1 0 22%;
+  }
+  &__navigation {
+    flex: 1 0 17.2%;
+    margin-left: 45px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 18px;
+  }
+
+  &__nav-item {
+    white-space: nowrap;
+    cursor: pointer;
+    &:not(:first-child) {
+      margin-top: 14px;
+    }
+    &:hover {
+      color: $color-second;
+      text-shadow: 0 0 .65px $color-second, 0 0 .65px $color-second;
+    }
+  }
+
+  &__subscribe {
+    &-text {
+      margin-top: 21px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    padding-top: 21px;
+    padding-bottom: 20px;
+  }
+  &__subtext {
+    margin-top: 11px;
+  }
+
+  &__social {
+    &_margin-top {
+      margin-top: 29px;
+    }
+  }
+
+  &_border-top {
+    border-top: 1px solid rgba(31, 32, 65, 0.1);
+  }
+  &_center {
+    max-width: 550px;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 103px;
+  }
+  @include media-breakpoint-down(950px) {
+    &__container {
+      max-width: 550px;
+    }
+    &__top {
+      justify-content: center;
+      padding-bottom: 7px;
+    }
+    &__logo {
+      width: 100%;
+      text-align: center;
+      flex: none;
+      margin: 0;
+    }
+    &__top-item:not(:first-child) {
+      display: none;
+    }
+    &_border-top {
+      display: flex;
+      justify-content: center;
+      border-top: none;
+      padding-bottom: 90px;
+    }
+    &__text {
+      display: none;
+    }
+  }
+}
+
+.social {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &__icon {
+    cursor: pointer;
+    &:not(:first-child) {
+      margin-left: 23px;
+    }
+    display: inline-block;
+  }
+}
+

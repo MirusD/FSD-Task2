@@ -1,0 +1,157 @@
+@import '../../theme/variables.scss';
+
+.iqdropdown {
+  min-width: 14.285714285714285714285714285714rem; //200/14
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  border: 0.07142857142857142857142857142857rem solid $color-fourth; //1/14
+  border-radius: 0.14285714285714285714285714285714rem; //2/14
+  height: 3.1428571428571428571428571428571rem; //44/14
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:before {
+    content: '';
+    position: absolute;
+    right: 1.3571428571428571428571428571429rem; //19/14
+    top: 44%;
+    transform: rotate(45deg) translateY(-50%);
+    width: 0.5rem; //7/14
+    height: 0.5rem; //7/14
+    border: 0.14285714285714285714285714285714rem solid $color-second; //2/14
+    border-left: none;
+    border-top: none;
+        }
+  &-selection {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: {
+      top: 0.64285714285714285714285714285714rem; //9/14
+      right: 6rem; //84/14
+      bottom: 0.64285714285714285714285714285714rem; //9/14
+      left: 1.0714285714285714285714285714286rem; //15/14
+    }
+    text-overflow: ellipsis;
+  }
+  &.menu-open {
+    border: 0.07142857142857142857142857142857rem solid $color-third; //1/14
+  }
+  &-menu {
+    display: none;
+    position: absolute;
+    left: -0.07142857142857142857142857142857rem; //-1/14
+    right: -0.07142857142857142857142857142857rem; //-1/14
+    top: 3rem; //42/14
+    z-index: 10;
+    padding: {
+      top: 0.28571428571428571428571428571429rem; //4/14
+      right: 0.5rem; //7/14
+      bottom: 0.21428571428571428571428571428571rem; //3/14
+      left: 1.0714285714285714285714285714286rem; //15/14
+    }
+    border: 0.07142857142857142857142857142857rem solid $color-third; //1/14
+    border: {
+      top-left-radius: 0;
+      top-right-radius: 0;
+      bottom-right-radius: 0.28571428571428571428571428571429rem; //4/14
+      bottom-left-radius: 0.28571428571428571428571428571429rem; //4/14
+    }
+    background-color: white;
+  }
+  &.menu-open > .iqdropdown-menu {
+    display: block;
+  }
+  &-menu-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem; //7/14
+  }
+  &-item-controls {
+    min-width: 6.4285714285714285714285714285714rem; //90/14
+    width: 6.4285714285714285714285714285714rem; //90/14
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__control-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5714285714285714285714285714286rem; //22/14
+    margin-bottom: 0.64285714285714285714285714285714rem; //9/14
+  }
+  &__btn-clear {
+    cursor: pointer;
+    color: $color-third;
+    border: none;
+  }
+  &__btn-apply {
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+    color: $color-sixth;
+    border: none;
+  }
+}
+
+.button-increment {
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  width: 2.1428571428571428571428571428571rem; //30/14
+  height: 2.1428571428571428571428571428571rem; //30/14
+  border: 0.07142857142857142857142857142857rem solid $color-fourth; //1/14
+  background-color: white;
+  border-radius: 1.5714285714285714285714285714286rem; //22/14
+  &:before {
+    content: '+';
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $color-third;
+  }
+}
+
+.button-decrement {
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  width: 2.1428571428571428571428571428571rem; //30/14
+  height: 2.1428571428571428571428571428571rem; //30/14
+  border: 0.07142857142857142857142857142857rem solid $color-fourth; //1/14
+  border-radius: 1.5714285714285714285714285714286rem; //22/14
+  background-color: white;
+  &:before {
+    content: '-';
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $color-third;
+  }
+  &_disable {
+    opacity: 0.5;
+  }
+}
+
+.counter {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.85714285714285714285714285714286rem; //12/14
+  line-height: 1.0714285714285714285714285714286rem; //15/14
+  color: $color-first;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+

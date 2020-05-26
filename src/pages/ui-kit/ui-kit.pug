@@ -1,0 +1,434 @@
+extends ../base/base-uikit
+include ../../components/toggle/toggle
+include ../../components/toggle-buttons/toggle-buttons
+include ../../components/input/input
+include ../../components/dropdown/dropdown
+include ../../components/date/date
+include ../../components/checkbox/checkbox
+include ../../components/checkbox-buttons/checkbox-buttons
+include ../../components/checkbox-list/checkbox-list
+include ../../components/radio-buttons/radio-buttons
+include ../../components/toggle/toggle
+include ../../components/like-button/like-button
+include ../../components/rate-buttons/rate-button
+include ../../components/range-slider/range-slider
+include ../../components/button/button
+include ../../components/pagination/pagination
+include ../../components/bullet-list/bullet-list
+include ../../components/details/details
+include ../../components/feedback/feedback
+include ../../components/registration-card/registration-card
+include ../../components/signin-card/signin-card
+include ../../components/search-card/search-card
+include ../../components/reservation-card/reservation-card
+include ../../components/room-card/room-card
+include ../../components/header/header
+include ../../components/footer/footer
+
+block title
+    | UI-KIT
+block main
+    | Colors and type
+    +layout__uikit-section('demo-colors-and-type')
+        .demo-container
+            .demo-colors-and-type__container
+                .demo-colors
+                    - var title = ['Dark Shade 100%','Dark Shade 75%','Dark Shade 50%','Dark Shade 25%','Dark Shade 5%','Purple','Green'];
+                    - var text = ['#1F2041','#1F2041','#1F2041','#1F2041','#1F2041','#BC9CFF','#6FCF97'];
+                    - var modBgColor = ['first','second','third','fourth','fifth','sixth','seventh'];
+
+                    - for (var i=0; i<7; i++)
+                        .demo-colors__item(class='demo-colors__item_bg-color_' + modBgColor[i])
+                            h2.header_level-2=title[i]
+                            p.header_level-2.demo-colors__text=text[i]
+                .demo-type
+                    - var content = ['This one is the sub-section or widget title','Next one is the item title inside widgets','This is a label or CTA text'];
+                    - var tag = ['h1','h2','h3'];
+                    - var transform = ['','','uppercase'];
+                        .demo-type__title
+                            - for (var i=0; i<3; i++)
+                                - var level = tag[i] === 'h1' ? 'header-level-1' : tag[i] === 'h2' ? 'header-level-2' : tag[i] === 'h3' ? 'header-level-3' : ''
+                                #{tag[i]}(class="demo-type__item" class=level)=content[i]
+                            p.demo-type__item(style='max-width: 301px; margin-top: -2px;') This is the body text which is used for most of the design, like paragraphs, lists, etc.
+
+    | Form elements
+    +layout__uikit-section('demo-form-elements')
+        .demo-container
+            .form-elements__container
+                .block1
+                    .demo-text-field.demo-text-field_default
+                        h3.demo-text-field__title Text field
+                        +input({type: 'email', placeholder: 'Email'})
+                    .demo-text-field.demo-text-field_hovered-and-focused
+                        h3.demo-text-field__title Text field
+                        +input({type: 'text', value: 'This is pretty awesome'})
+                    .demo-dropdown.demo-dropdown_default
+                        h3.demo-dropdown__title Dropdown
+                        +dropdown({
+                            selectionText: 'Сколько гостей',
+                            items: [
+                                {text: 'Взрослые', textPlural: 'гость, гостя, гостей'},
+                                {text: 'Дети', textPlural: 'гость, гостя, гостей'},
+                                {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
+                            ],
+                            controls: true
+                        })
+                    .demo-text-field.demo-text-field_masked
+                        h3.demo-text-field__title Masked text field
+                        +input({type: 'text', placeholder: 'ДД.ММ.ГГГ'})
+                    .demo-dropdown-date
+                        div.demo-dropdown-date__from
+                            h3.demo-dropdown-date__title Date dropdown
+                            +date({
+                                name: 'dateGroup',
+                                placeholder: 'ДД.ММ.ГГГГ',
+                                from: '2020-08-18',
+                                to: '2020-08-23'
+                            })
+                        div.demo-dropdown-date__to
+                            h3.demo-dropdown-date__title Date dropdown
+                            +date({
+                                name: 'dateGroup',
+                                placeholder: 'ДД.ММ.ГГГГ'
+                            })
+                    .demo-dropdown.demo-dropdown-filter-date
+                        h3.demo-dropdown__title Filter date dropdown
+                        +date({
+                            dateFormat: 'd M',
+                            placeholder: 'ДД.ММ.ГГГГ',
+                            from: '2020-08-19',
+                            to: '2020-08-23'
+                        })
+                    .demo-text-field.demo-text-field_subscription
+                        h3.demo-text-field__title Subscription text field
+                        +input({type: 'email', name: 'subscribe', placeholder: 'Email', enableArrowBtn: true})
+                .block2
+                    .demo-checkbox-buttons
+                        h3.demo-checkbox-buttons__title Checkbox buttons
+                        +checkbox-buttons({
+                            items: [
+                                {label: 'Можно курить', name: 'smoke'},
+                                {label: 'Можно с питомцами', name: 'animals', isChecked: true},
+                                {label: 'Можно пригласить гостей<br>(до 10 человек)', name: 'guests', isChecked: true}]
+                        })
+                    .demo-radio-buttons
+                        h3.demo-radio-buttons__title Radio buttons
+                        .demo-radio-buttons__items
+                            +input({type: 'radio', name: 'demo-gender', label: 'Мужчина', isChecked: true})
+                            +input({type: 'radio', name: 'demo-gender', label: 'Женщина'})
+                    .demo-toggle
+                        h3.demo-toggle__title Toggle
+                        .demo-toggle__items
+                            +input({type: 'toggle', label: 'Получить спецпредложение', isChecked: true})
+                            .demo-toggle__second
+                                +input({type: 'toggle', label: 'Получить спецпредложение'})
+                    .demo-like-buttons
+                        h3.demo-like-buttons__title Like button
+                        .demo-like-buttons__items
+                            .demo-like-buttons__first
+                                +like-button({likes: 2})
+                            +like-button({likes: 12, clicked: true})
+                    .demo-rate-button
+                        h3.demo-rate-button__title Rate button
+                        .demo-rate-button__first
+                            +rate-buttons({stars: 4})
+                        .demo-rate-button__second
+                            +rate-buttons({stars: 5})
+
+                .block3
+                    .demo-range-slider
+                        h3.demo-range-slider__title Range slider
+                        +range-slider({
+                            min: 700,
+                            max: 15500,
+                            from: 5000,
+                            to: 10000,
+                            step: 100
+                        })
+                    .demo-buttons
+                        h3.demo-buttons__title Buttons
+                        .demo-buttons__btn-default
+                            .demo-buttons__first
+                                +button({
+                                    text: 'click me'
+                                })
+                            .demo-buttons__second
+                                +button({
+                                    text: 'click me'
+                                })
+                        .demo-buttons__btn-outline
+                            .demo-buttons__first
+                                +button({
+                                    text: 'click me',
+                                    type: 'outline'
+                                })
+                            .demo-buttons__second
+                                +button({
+                                    text: 'click me',
+                                    type: 'outline'
+                                })
+                        .demo-buttons__btn-link
+                            .demo-buttons__first
+                                +button({
+                                    text: 'click me',
+                                    type: 'link'
+                                })
+                            .demo-buttons__second
+                                +button({
+                                    text: 'click me',
+                                    type: 'link'
+                                })
+                        .demo-buttons__btn-arrow
+                            +button({
+                                text: 'Перейти к оплате',
+                                type: 'arrow-btn'
+                            })
+                    .demo-pagination
+                        h3.demo-pagination__title Pagination
+                        +pagination()
+                .block4
+                    .demo-dropdown.demo-dropdown_default.demo-dropdown_max-width
+                        h3.demo-dropdown__title dropdown
+                        +dropdown({
+                            selectionText: 'Сколько комнат',
+                            items: [
+                                {text: 'Спальни', defaultCount: 2, textPlural: 'cпальня, cпальни, cпален'},
+                                {text: 'Кровати', defaultCount: 2, textPlural: 'кровать, кровати, кроватей'},
+                                {text: 'Ванные комнаты', textPlural: 'ванная комната, ванные комнаты, ванных комнат'}
+                            ]
+                        })
+                    .demo-dropdown.demo-dropdown_expanded.demo-dropdown_max-width
+                        h3.demo-dropdown__title dropdown
+                        +dropdown({
+                            selectionText: 'Сколько комнат',
+                            items: [
+                                {text: 'Спальни', defaultCount: 2, textPlural: 'спальня, спальни, спален'},
+                                {text: 'Кровати', defaultCount: 2, textPlural: 'кровать, кровати, кроватей'},
+                                {text: 'Ванные комнаты', textPlural: 'ванная комната, ванные комнаты, ванных комнат'}
+                            ],
+                            isExpanded: true
+                        })
+                .block5
+                    h3.demo-dropdown__title dropdown
+                    +dropdown({
+                        selectionText: 'Сколько гостей',
+                        items: [
+                            {text: 'Взрослые', textPlural: 'гость, гостя, гостей'},
+                            {text: 'Дети', textPlural: 'гость, гостя, гостей'},
+                            {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
+                        ],
+                        isExpanded: true,
+                        controls: true
+                    })
+                .block6
+                    h3.demo-dropdown__title dropdown
+                    +dropdown({
+                        selectionText: 'Сколько гостей',
+                        items: [
+                            {text: 'Взрослые', defaultCount: 2, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Дети', defaultCount: 1, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
+                        ],
+                        isExpanded: true,
+                        controls: true
+                    })
+                .block7
+                    .demo-checkbox-list.demo-checkbox-list_first
+                        +checkbox-list({
+                            title: 'Expandable checkbox list',
+                            items: [
+                                {label: 'Завтрак', isChecked: true},
+                                {label: 'Письменный стол'},
+                                {label: 'Стул для кормления'},
+                                {label: 'Кроватка', isChecked: true},
+                                {label: 'Телевизор'},
+                                {label: 'Шампунь'}
+                            ],
+                            isExpanded: 'false'
+                        })
+                    .demo-checkbox-list
+                        +checkbox-list({
+                            title: 'Expandable checkbox list',
+                            items: [
+                                {label: 'Завтрак'},
+                                {label: 'Письменный стол', isChecked: true},
+                                {label: 'Стул для кормления', isChecked: true},
+                                {label: 'Кроватка', isChecked: true},
+                                {label: 'Телевизор'},
+                                {label: 'Шампунь'}
+                            ],
+                            isExpanded: 'true'
+                        })
+                .block8
+                    .demo-rich-checkbox-buttons
+                        h3.demo-rich-checkbox-buttons__title Rich checkbox buttons
+                        .demo-rich-checkbox-buttons__first
+                            +input({
+                                type: 'checkbox',
+                                label: 'Широкий коридор',
+                                description: 'Ширина коридоров в номере <br> не менее 91 см.'
+                            })
+                        .demo-rich-checkbox-buttons__second
+                            +input({
+                                type: 'checkbox',
+                                label: 'Помощник для инвалидов',
+                                description: 'На 1 этаже вас встретит специалист <br> и проводит до номера.'
+                            })
+                .block9
+                    .demo-bullet-list
+                        h3.demo-bullet-list__title Bullet list
+                        +bullet-list({
+                            value: [
+                                'Нельзя с питомцами',
+                                'Без вечеринок и мероприятий',
+                                'Время прибытия - после 13:00 <br> а выезд до 12:00'
+                            ]
+                        })
+                .block10
+                    .demo-details.demo-details_first
+                        +details({
+                            title: 'Комфорт',
+                            text: 'Шумопоглощающие стены',
+                            icon: require('./img/insert_emoticon.svg')
+                        })
+                    +details({
+                        title: 'Удобство',
+                        text: 'Окно в каждой из спален',
+                        icon: require('./img/location_city.svg')
+                    })
+                .block11
+                    .demo-comments
+                        +feedback({
+                            date: '2020-05-17T15:05:50.417+05:00',
+                            name: 'Мурад Сарафанов',
+                            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.\n' +
+                                'И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару - никто\n' +
+                                'не жаловался из соседей.',
+                            avatar: require('./img/avatar/user1.jpg'),
+                            likes: {likes: 12, clicked: true}
+                        })
+    | Cards
+    +layout__uikit-section('demo-cards')
+        .demo-container
+            .demo-cards__container
+                .demo-cards__col
+                    +search-card()
+                    +registration-card()
+                .demo-cards__col
+                    +reservation-card({
+                        number: 888,
+                        category: 'Люкс',
+                        priceDay: 9990,
+                        dateFrom: '2020-08-19',
+                        dateTo: '2020-08-23',
+                        guests: [
+                            {text: 'Взрослые', defaultCount: 2, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Дети', defaultCount: 1, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
+                        ],
+                        services: [
+                            {text: 'Сбор за услуги: скидка 2 179&#8381', price: 0, mark: true, discount: 2179},
+                            {text: 'Сбор за дополнительные услуги', price: 300, mark: true}
+                        ]
+                    })
+                    +signin-card()
+                .demo-cards__col
+                    .js-dropdown-date
+                        input.dropdown-date__datepicker(
+                            data-inline="true"
+                        )
+                        input.dropdown-date__alt-field(
+                            style="display: none"
+                            data-start-date-from = "2019-08-19"
+                            data-start-date-to = "2019-08-23"
+                        )
+                    input(data-inline="true" style="display: none").demo-cards__datepicker-here.date
+                    +room-card({
+                        number: 888,
+                        slider: {
+                            images: [
+                                {img: require('./img/rooms/1/room_1.jpg')},
+                                {img: require('./img/rooms/1/room_2.jpg')},
+                                {img: require('./img/rooms/1/room_3.jpg')},
+                                {img: require('./img/rooms/1/room_4.jpg')}
+                            ]
+                        },
+                        category: 'Люкс',
+                        priceDay: 9990,
+                        rate: 5,
+                        reviews: 145
+                    })
+                    +room-card({
+                        number: 840,
+                        slider: {
+                            images: [
+                                {img: require('./img/rooms/1/room_1.jpg')},
+                                {img: require('./img/rooms/1/room_2.jpg')},
+                                {img: require('./img/rooms/1/room_3.jpg')},
+                                {img: require('./img/rooms/1/room_4.jpg')}
+                            ],
+                            arrows: false
+                        },
+                        category: '',
+                        priceDay: 9990,
+                        rate: 4,
+                        reviews: 65
+                    })
+    | Header & Footer
+    +layout__uikit-section('demo-header-footer')
+        .demo-header-footer__header-first.demo-header-footer_box-shadow
+            +header({
+                logo: require('./img/logo/logo.svg'),
+                menuItems: [
+                    {name: 'Home', href: 'link-for-page-home',active: true},
+                    {name: 'About Us', href: 'link-for-page-about-us'},
+                    {name: 'Services', submenu: [
+                            {name: 'Room reservation'},
+                            {name: 'Services2'},
+                            {name: 'Services3'}
+                            ]
+                    },
+                    {name: 'Careers'},
+                    {name: 'News'},
+                    {name: 'Documentation'}
+                    ],
+                buttons: [
+                    {type: 'outline', text: 'login'},
+                    {type: 'no-outline', text: 'Register'}
+                ]
+            })
+        .demo-header-footer__header-second.demo-header-footer_box-shadow
+            +header({
+                logo: require('./img/logo/logo.svg'),
+                menuItems: [
+                    {name: 'Home', active: true},
+                    {name: 'About Us'},
+                    {
+                        name: 'Services', submenu: [
+                            {name: 'Room reservation'},
+                            {name: 'Services2'},
+                            {name: 'Services3'}
+                        ]
+                    },
+                    {name: 'Careers'},
+                    {name: 'News'},
+                    {name: 'Documentation'}
+                ],
+                userName: 'Cosmin Negoita'
+            })
+        .demo-header-footer__footer-first.demo-header-footer_box-shadow
+            +footer({
+                logo: require('./img/logo/logo.svg'),
+                nav: [{name: 'About Us'}, {name: 'News'}, {name: 'Support'}, {name: 'Products'}],
+                aboutUs: [{name: 'Who we are'}, {name: 'Our team'}, {name: 'Carrers'}, {name: 'Investors'}],
+                support: [{name: 'Documentation'}, {name: 'Community'}, {name: 'Get in Touch'}]
+            })
+        .demo-header-footer__footer-second.demo-header-footer_box-shadow
+            +footer({
+                logo: require('./img/logo/logo.svg')
+            })
+
+
+
+
+

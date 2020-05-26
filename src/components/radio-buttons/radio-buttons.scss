@@ -1,0 +1,15 @@
+@import "../../theme/variables";
+
+.radio-buttons {
+  display: flex;
+  user-select: none;
+  outline: none;
+  &:focus {outline: 0}
+  &__items {
+    display: flex;
+    align-items: center;
+  }
+  &__item {
+    padding-right: 15px;
+  }
+}

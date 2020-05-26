@@ -1,0 +1,20 @@
+@import '../../theme/variables';
+
+.bullet-list {
+  list-style: none;
+  &__item {
+    position: relative;
+    margin-left: 1.5rem; //21/14
+    margin-bottom: 0.71428571428571428571428571428571rem; //10/14
+    &:before {
+      content: "";
+      position: absolute;
+      left: -1.4285714285714285714285714285714rem; //-21/14
+      top: 0.5rem; //7/14
+      width: 0.71428571428571428571428571428571rem; //10/14
+      height: 0.71428571428571428571428571428571rem; //10/14
+      background-color: $color-fourth;
+      border-radius: 1.5714285714285714285714285714286rem; //22/14
+    }
+  }
+}

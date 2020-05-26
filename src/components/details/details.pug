@@ -1,0 +1,16 @@
+//-
+    options.icon - иконка блока details
+    options.title - заголовок
+    options.text - описание
+
+mixin details(options)
+    if !options
+        - options = {}
+
+    .details
+        .details__container
+            .details__icon
+                img(alt="details" src=options.icon)
+            .details__text
+                p.details__header!=options.title
+                p.details__description!=options.text

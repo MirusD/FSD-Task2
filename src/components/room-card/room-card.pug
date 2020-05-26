@@ -1,0 +1,32 @@
+include ../rate-buttons/rate-button
+
+//-
+    options.number - номер комнаты
+    options.category -
+    options.priceDay -
+    options.rate -
+    options.reviews -
+
+mixin room-card (options)
+    if !options
+        - options = {}
+    .room-card
+        .room-card__slider(data-slick=options.slider.arrows === false ? '{"arrows": false}':"")
+            each image in options.slider.images
+                div
+                    img(alt="room-img" src=image.img width="270" height="152")
+        .room-card__info
+            .room-card__price
+                .room-card__room-number
+                    span.header_level-2.room-card__symbol №
+                    span.header_level-2=options.number
+                    span.header_level-3.room-card__category-of-room=options.category
+                .room-card__price-day
+                    span.room-card_weight_bold(data-price-day=options.priceDay)
+                    | в сутки
+            .room-card__rate
+                +rate-buttons({
+                    stars: options.rate
+                })
+                span=options.reviews
+                    |  Отзывов

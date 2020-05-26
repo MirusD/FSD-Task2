@@ -1,0 +1,118 @@
+include ../dropdown/dropdown
+include ../dropdown-date/dropdown-date
+include ../../components/button/button
+
+//-
+    - options.number - номер комнаты.
+        Тип: number
+        Значени по умолчанию: 000
+        Пример: number: 777
+
+    - options.category - категория номера.
+        Тип: string
+        Значение по умолчанию: 'Категория номера'
+        Пример: category: 'Люкс'
+
+    - options.priceDay - цена аренды номера за сутки
+        Тип: number
+        Значение по умолчанию: 0
+        Пример: priceDay: 5000
+
+    - options.startDate - Дата прибытия. (Необязательное поле)
+        Тип: string
+        Формат: ДД.ММ.ГГГГ
+        Значение по умолчанию: ''
+        Пример: startDate: '20.03.2020'
+
+    - options.endDate - Дата убытия.(Необязательное поле)
+        Тип: string
+        Формат: ДД.ММ.ГГГГ
+        Значение по умолчанию: ''
+        Пример: endDate: '20.03.2020'
+
+    - options.services - Перечень оказываемых услуг.
+        Тип: array
+        Формат: [{description: 'string', price: number, mark: bool, discount: number},{...},[...]]
+        Значение по умолчанию; [{description: 'Первая услуга', price: '100'},{description: 'Вторая услуга', price: '500', mark: true, discount: 500}]
+        опции:
+                description - описание услуги
+                    Тип: string
+                    Значение по умолчанию: ''
+
+                price - цена за услугу
+                    Тип: number
+                    Значение по умолчанию: ''
+
+                mark - отметки
+                    Тип: bool
+                    Значение по умолчанию: false
+                discount - скидка
+                    Тип: number
+                    Значение по умолчанию: 0
+        Пример: services: [
+                             {description: 'Уборка номера', price: '0'},
+                             {description: 'Сбор за дополнительные услуги', price: '300', mark: true, discount: 100},
+                          ]
+
+mixin reservation-card (options)
+    if !options
+        - options = {}
+
+    - options.number = options.number || '000'
+    - options.category = options.category || 'Demo'
+    - options.priceDay = options.priceDay || 0
+    - options.startDate = options.startDate || ''
+    - options.endDate = options.endDate || ''
+    - options.services = options.services || [{description: 'Первая услуга', price: '100'},{description: 'Вторая услуга', price: '500', mark: true}]
+
+    form.reservation-card.cards
+        .reservation-card__room-info.room-info
+            span.room-info__room-number
+                span.header_level-2.room-info__symbol №
+                span.header_level-1=options.number
+                span.header_level-3.room-info__category=options.category
+            span.room-info__price
+                span.room-info__price-day(data-price-day=options.priceDay)
+                span.room-info_font-size-12 в сутки
+        .reservation-card__date-range
+            .reservation-card__date-from
+                h3.search-card__date-title Прибытие
+                +date({
+                    name: 'reservationDate2',
+                    placeholder: 'ДД.ММ.ГГГ',
+                    from: options.dateFrom,
+                    to: options.dateTo
+                })
+            .reservation-card__date-to
+                h3.search-card__date-title Выезд
+                +date({
+                    name: 'reservationDate2',
+                    placeholder: 'ДД.ММ.ГГГ',
+                    from: options.dateFrom,
+                    to: options.dateTo
+                })
+        .reservation-card__number-of-guests
+            h3.reservation-card__dropdown-title Гости
+            +dropdown({
+                selectionText: 'Сколько гостей',
+                items: options.guests,
+                controls: true
+            })
+        .reservation-card__services
+            p.services__item
+                span.services__description=options.priceDay
+                    |  x 0 суток
+                span.services__price 0
+            each service in options.services
+                p.services__item
+                    span.services__description(class=service.mark === true ? "services__mark": "")!=service.text
+                    span.services__price(data-discount=service.discount)=service.price
+        .reservation-card__total
+            span.header_level-2 Итого
+            span.reservation-card__dotted-line
+            span.header_level-2.price__total
+        .reservation-card__btn-book
+            +button({
+                text: 'Забронировать',
+                type: 'arrow-btn'
+            })

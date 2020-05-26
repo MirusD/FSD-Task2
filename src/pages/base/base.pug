@@ -1,0 +1,50 @@
+include ./base-data
+
+block variables
+
+include ../../components/layout/layout
+include ../../components/header/header
+include ../../components/footer/footer
+
+doctype html
+html
+    head
+        meta(charset = 'utf-8')
+        meta(name="viewport" content="width=device-width,initial-scale=1")
+        title
+            block title
+    body
+        +layout__header()
+            +header({
+                logo: require('./img/logo/logo.svg'),
+                menuItems: [
+                    {name: 'О нас'},
+                    {
+                        name: 'Услуги', submenu: [
+                            {name: 'Бронирование номеров'}
+                        ]
+                    },
+                    {name: 'Вакансии'},
+                    {name: 'Новости'},
+                    {name: 'Соглашения', submenu: [
+                            {name: 'Соглашения о соглашении'}
+                        ]
+                    }
+                ],
+                buttons: [
+                    {type: 'outline', text: 'Войти'},
+                    {type: 'no-outline', text: 'Зарегистрироваться'}
+                ]
+            })
+            block header
+        +layout__main()
+            block main
+        +layout__footer()
+            +footer({
+                logo: require('./img/logo/logo.svg'),
+                nav: [{name: 'About Us'}, {name: 'News'}, {name: 'Support'}, {name: 'Products'}],
+                aboutUs: [{name: 'Who we are'}, {name: 'Our team'}, {name: 'Carrers'}, {name: 'Investors'}],
+                support: [{name: 'Documentation'}, {name: 'Community'}, {name: 'Get in Touch'}]
+            })
+                block footer
+    block scripts

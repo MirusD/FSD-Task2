@@ -1,0 +1,42 @@
+@import "../../theme/variables";
+
+.checkbox-list {
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &__btn {
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 1.2142857142857142857142857142857rem; //17/14
+    &:before {
+      content: '';
+      position: absolute;
+      right: 1.3571428571428571428571428571429rem; //19/14
+      top: 0.14285714285714285714285714285714rem; //2/14
+      transform-origin: 0.42857142857142857142857142857143rem 0.42857142857142857142857142857143rem ; //6/14, 6/14
+      transform: rotate(225deg);
+      width: 0.5rem; //7/14
+      height: 0.5rem; //7/14
+      border: 0.14285714285714285714285714285714rem solid $color-second; //2/14
+      border-left: none;
+      border-top: none;
+    }
+    &[aria-expanded="true"]:before {
+      transform: rotate(225deg);
+      transition: transform 0.3s ease;
+    }
+    &[aria-expanded="false"]:before {
+      transform: rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+  }
+  &__items {
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
+  &__item {
+    margin-bottom: 0.71428571428571428571428571428571rem; //10/14
+  }
+}

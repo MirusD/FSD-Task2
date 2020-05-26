@@ -1,0 +1,23 @@
+include ../input/input
+
+//-
+    options.item: [
+        {label: 'string', name: 'string', isChecked: bool}
+        ]
+
+mixin checkbox-buttons(options)
+    if !options
+        - options = {}
+
+    .checkbox-buttons
+        .checkbox-buttons__items
+            each item in options.items
+                .checkbox-buttons__item
+                    +input({
+                        type: 'checkbox',
+                        name: item.name,
+                        label: item.label,
+                        isChecked: item.isChecked,
+                        isRich: item.isRich,
+                        description: item.description
+                    })

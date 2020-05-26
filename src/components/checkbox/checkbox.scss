@@ -1,0 +1,53 @@
+@import '../../theme/variables';
+
+.checkbox {
+  display: flex;
+  &__element {
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    height: 1.428571428571429rem; // 20/14
+    width: 1.428571428571429rem; // 20/14
+    border: 0.0714285714285714rem solid $color-fourth; // 1/14
+    border-radius: 0.2857142857142857rem; // 4/14
+  }
+
+  &__label {
+    display: inline-block;
+    margin-left: 0.7142857142857143rem; // 10/14
+    margin-top: 0.07142857142857142857142857142857rem; //1/14
+    line-height: 1.2857142857142857142857142857143rem; //18/14
+
+    &_text {
+      &_bold {
+        font-weight: bold;
+      }
+    }
+
+    &_rich {
+      margin-top: -0.14285714285714285714285714285714rem; //-2/14
+    }
+
+    &_description {
+      margin-top: 0.21428571428571428571428571428571rem; // 3/14
+      margin-left: 0.7142857142857143rem; // 10/14
+      font-size: 0.8571428571428571rem;
+      line-height: 1rem; // 14/14
+    }
+  }
+
+  &_checked {
+    border-color: $color-sixth;
+    &:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: $check no-repeat 50% 30%;
+      background-origin: border-box;
+      background-size: 60%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}

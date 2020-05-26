@@ -1,0 +1,22 @@
+include ../checkbox-buttons/checkbox-buttons
+
+//-
+    options.title - заголовок блока
+    options.items - массив объектов со свойсвами label и isChecked  Пример: {label: 'Первый чекбокс', isChecked: true, name: 'first-checkbox'}
+    options.isExpanded - expanded checkbox list, по умолчанию 'false' (bool)
+
+mixin checkbox-list(options)
+    if !options
+        - options = {}
+    if !options.isExpanded
+        - options.isExpanded = 'false'
+
+    - var isExpanded = options.isExpanded === 'true' ? 'show' : '';
+
+    .checkbox-list.js-checkbox-list(class=isExpanded)
+        .checkbox-list__btn(aria-expanded=options.isExpanded)
+            h3=options.title
+        .checkbox-list__items(class=isExpanded)
+            each item in options.items
+                .checkbox-list__item
+                    +input({type: 'checkbox', name: item.name, label: item.label, isChecked: item.isChecked})

@@ -1,0 +1,87 @@
+@import '../../theme/variables';
+
+@keyframes heard {
+  from {transform: scale(1)}
+  35% {transform: scale(0.7)}
+  60% {transform: scale(1.7)}
+  80% {transform: scale(1.8)}
+  to {transform: scale(1)}
+}
+
+.like-button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  z-index: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-width: 2.7142857142857142857142857142857rem; //38/14
+    height: 1.2857142857142857142857142857143rem; //18/14
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin: 0.07142857142857142857142857142857rem; //1/14
+    background-color: white;
+    border-radius: 1.7857142857142857142857142857143rem; //25/14
+    padding: {
+      left: 0.28571428571428571428571428571429rem; //4/14
+      right: 0.35714285714285714285714285714286rem; //5/14
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(31, 32, 65, 0.25);
+      margin: -0.07142857142857142857142857142857rem; //-1/14
+      border-radius: 1.7857142857142857142857142857143rem; //25/14
+      z-index: -1;
+    }
+  }
+  &__icon {
+    line-height: 1.2857142857142857142857142857143rem; //18/14
+    margin-right: 0.07142857142857142857142857142857rem; //1/14
+    & .heard-icon {
+      width: 0.71428571428571428571428571428571rem; //10/14
+      height: 0.64285714285714285714285714285714rem; //9/14
+    }
+  }
+
+  &__number-likes {
+    flex: 1 0 auto;
+    text-align: center;
+    font-size: 0.71428571428571428571428571428571rem; //10/14
+    line-height: 1.2142857142857142857142857142857rem; //17/14
+    color: $color-fourth;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  &.clicked {
+    & .like-button__container {
+      transition: all 0.2s ease;
+      &:before {
+        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      }
+    }
+    & .like-button__icon {
+      animation: heard 0.5s 1 ease-in-out;
+      & .inner-circuit,.outer-circuit {
+        fill: #BC9CFF;
+        fill-opacity: 1;
+        transition: all 0.2s ease;
+      }
+    }
+    & .like-button__number-likes {
+      color: $color-sixth;
+      transition: all 0.2s ease;
+    }
+  }
+}

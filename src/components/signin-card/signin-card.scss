@@ -1,0 +1,22 @@
+@import "../../theme/variables";
+
+.signin-card {
+  &__email {
+    margin-top: 20px;
+  }
+  &__password {
+    margin-top: 10px;
+  }
+  &__log-in-btn {
+    margin-top: 20px;
+  }
+  &__signup-an-account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+  }
+  &___text_color_black {
+    color: black;
+  }
+}

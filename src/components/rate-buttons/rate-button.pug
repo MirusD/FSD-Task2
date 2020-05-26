@@ -1,0 +1,11 @@
+//-
+    options.stars - сколько звезд
+    options.name - уникальное имя блока rate button
+
+mixin rate-buttons(options)
+    if !options
+        - options = {}
+
+    .rate-button
+        - for(var i=1; i <= 5; i++)
+            span.rate-button__star(class=options.stars >= i ? "rate-button__checked-star":"")
