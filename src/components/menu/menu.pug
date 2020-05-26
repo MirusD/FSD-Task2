@@ -9,6 +9,8 @@ mixin menu(options)
     - options = {}
   if !options.items
     - options.items = []
+  if !options.buttons
+    - options.buttons = []
 
   .menu.js-menu
     .menu__button.js-menu__button
@@ -33,17 +35,14 @@ mixin menu(options)
         if options.userName
           .menu__user-name=options.userName
         else
-          li.menu__item.menu__item-login
-            a.menu__link(href="link for singin") login
-          li.menu__item.menu__item-register
-            a.menu__link(href="link for register") Register
-          li.menu__btn-login
-            +button({
-              type: 'outline',
-              text: 'Login'
-            })
-          li.menu__btn-register
-            +button({
-              type: 'no-outline',
-              text: 'Register'
-            })
+          each button, index in options.buttons
+            li.menu__item.menu__btn_mobile(class=index === 0 ? 'menu__btn_border-top':'')
+              a.menu__link(href=button.href)=button.text
+          ul.menu__buttons
+            each button in options.buttons
+              li.menu__btn
+                +button({
+                  type: button.type,
+                  text: button.text,
+                  href: button.href
+                })

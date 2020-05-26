@@ -97,22 +97,6 @@
       color: rgba(31, 32, 65, 0.75);
       font-weight: bold;
     }
-    &-login, &-register {
-      display: none;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    &-login {
-      @include media-breakpoint-down(950px) {
-        display: inline-block;
-        border-top: 1px solid rgba(31, 32, 65, 0.1);
-      }
-    }
-    &-register {
-      @include media-breakpoint-down(950px) {
-        display: inline-block;
-      }
-    }
   }
 
   &__link {
@@ -178,32 +162,45 @@
     }
   }
 
+  &__buttons {
+    margin-left: 26px;
+    display: flex;
+    align-items: center;
+    @include media-breakpoint-down(950px) {
+      display: none;
+    }
+  }
   &__btn {
-    &-login, &-register {
-      list-style: none;
-      margin-left: 20px;
-      & .btn__text {
-        padding: {
-          top: 9px;
-          right: 19px;
-          bottom: 10px;
-          left: 19px;
-        }
-      }
-      @include media-breakpoint-down(950px) {
-        display: none;
+    list-style: none;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+    & .btn__text {
+      padding: {
+        top: 9px;
+        right: 19px;
+        bottom: 10px;
+        left: 19px;
       }
     }
-    &-login {
-      margin-left: 30px;
-      & .btn__text_outline {
-        padding: {
-          top: 7px;
-          right: 18px;
-          bottom: 8px;
-          left: 18px;
-        }
+    & .btn__text_outline {
+      padding: {
+        top: 7px;
+        right: 18px;
+        bottom: 8px;
+        left: 18px;
       }
+    }
+    &_mobile {
+      display: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      @include media-breakpoint-down(950px) {
+        display: inline-block;
+      }
+    }
+    &_border-top {
+      border-top: 1px solid rgba(31, 32, 65, 0.1);
     }
   }
   &__user-name {

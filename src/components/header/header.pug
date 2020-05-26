@@ -17,4 +17,4 @@ mixin header(options)
           img(alt="logo" src=options.logo)
       if options.menuItems
         .header__menu
-          +menu({items: options.menuItems, userName: options.userName})
+          +menu({items: options.menuItems, userName: options.userName, buttons: options.buttons})
