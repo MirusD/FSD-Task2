@@ -9,4 +9,4 @@ mixin button(options)
     - var type = options.type === 'arrow-btn' ? 'btn_with-arrow' : options.type === 'outline' ? 'btn_outline' : options.type === 'link' ? 'btn_link' : ''
 
     button.btn(class=type)
-        span.btn__text.header_level-3(class='btn__text_' + options.type)=options.text
+        a.btn__text.header_level-3(class='btn__text_' + options.type href=options.href || 'link-from-button')=options.text
