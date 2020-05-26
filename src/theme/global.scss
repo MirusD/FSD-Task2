@@ -65,10 +65,7 @@ h3, .header_level-3 {
   box-shadow: 0 0 25px $color-fourth;
   border-radius: 4px;
   align-self: flex-start;
-}
-
-@include media-breakpoint-down(400px) {
-  .cards {
+  @include media-breakpoint-down(400px) {
     width: 22.857142857142857142857142857143rem; //320/14
     padding-left: 0;
     padding-right: 0;
@@ -76,13 +73,10 @@ h3, .header_level-3 {
     border-right: 0;
     box-shadow: none;
   }
-}
-
-@include media-breakpoint-down(330px) {
-  .cards {
-    width: auto;
-    max-width: 320px;
-    min-width: 270px;
+  @include media-breakpoint-down(330px) {
+    //width: auto;
+    //max-width: 320px;
+    //min-width: 270px;
   }
 }
 
@@ -108,13 +102,4 @@ h3, .header_level-3 {
   &_font-size-12 {
     font-size: 12px;
   }
-}
-
-h1 {
-  //font-size: 2rem;
-}
-
-h2 {
-  //padding: 1rem;
-  //font-size: 1.67rem;
 }

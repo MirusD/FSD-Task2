@@ -1,7 +1,7 @@
 @import "../../theme/variables";
 
 .header {
-  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.2);
+  background-color: white;
   &__container {
     display: flex;
     max-width: $lg;
@@ -12,7 +12,7 @@
     align-items: center;
     @include media-breakpoint-down(950px) {
       align-items: initial;
-      padding-top: 70px;
+      padding-top: 40px;
       padding-bottom: 20px;
       padding-right: 30px;
       padding-left: 30px;

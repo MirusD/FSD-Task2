@@ -16,7 +16,20 @@ html
     body
         +layout()
             +layout__header()
-                +layout__container({basis: 14400})
+                +layout__container({basis: 1440})
+                    +header({
+                        logo: require('./img/logo/logo.svg'),
+                        menuItems: [
+                            {name: 'О нас'},
+                            {name: 'Услуги', submenu: [
+                                {name: 'Бронирование номеров'}
+                                ]
+                            },
+                            {name: 'Вакансии'},
+                            {name: 'Новости'},
+                            {name: 'Соглашения'}
+                        ]
+                    })
                     block header
             +layout__main()
                     block main

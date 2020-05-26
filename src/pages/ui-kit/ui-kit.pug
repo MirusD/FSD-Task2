@@ -376,7 +376,7 @@ block main
                     })
     | Header & Footer
     +layout__uikit-section('demo-header-footer')
-        .demo-header-footer__header-first
+        .demo-header-footer__header-first.demo-header-footer_box-shadow
             +header({
                 logo: require('./img/logo/logo.svg'),
                 menuItems: [
@@ -393,7 +393,7 @@ block main
                     {name: 'Documentation'}
                     ]
             })
-        .demo-header-footer__header-second
+        .demo-header-footer__header-second.demo-header-footer_box-shadow
             +header({
                 logo: require('./img/logo/logo.svg'),
                 menuItems: [
@@ -412,14 +412,14 @@ block main
                 ],
                 userName: 'Cosmin Negoita'
             })
-        .demo-header-footer__footer-first
+        .demo-header-footer__footer-first.demo-header-footer_box-shadow
             +footer({
                 logo: require('./img/logo/logo.svg'),
                 nav: [{name: 'About Us'}, {name: 'News'}, {name: 'Support'}, {name: 'Products'}],
                 aboutUs: [{name: 'Who we are'}, {name: 'Our team'}, {name: 'Carrers'}, {name: 'Investors'}],
                 support: [{name: 'Documentation'}, {name: 'Community'}, {name: 'Get in Touch'}]
             })
-        .demo-header-footer__footer-second
+        .demo-header-footer__footer-second.demo-header-footer_box-shadow
             +footer({
                 logo: require('./img/logo/logo.svg')
             })
