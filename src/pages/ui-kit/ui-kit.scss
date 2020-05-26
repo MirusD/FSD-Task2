@@ -1,13 +1,5 @@
 @import '../../theme/variables.scss';
 
-.container {
-  max-width: $lg;
-  box-sizing: content-box;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto;
-}
-
 @mixin info($text) {
   position: relative;
   &:after {
@@ -26,6 +18,13 @@
   margin-bottom: 50px;
   background-color: white;
   overflow: hidden;
+  &-container {
+    max-width: $lg;
+    box-sizing: content-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
   &__logo {
     padding: {
       top: 30px;

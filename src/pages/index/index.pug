@@ -1,12 +1,17 @@
 extends ../base/base
+include ../../components/search-card/search-card
 
 block title
-    | Example
+    | Toxin
 block header
-    +header({logoThem: 'logo2'})
+    .intro
+        .container
+            .intro__search-card
+                +search-card()
+
+            span.intro__text Лучшие номера для вашей работы, отдыха и просто вдохновения
 block main
-    div(class="colors")
-       h1 Dark Shade 100%
-       p #1F2041
+
+
 
 
