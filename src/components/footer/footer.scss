@@ -1,6 +1,8 @@
 @import "../../theme/variables";
 
 .footer {
+  flex: 1 0 auto;
+  background-color: white;
   &__container {
     max-width: $lg;
     box-sizing: content-box;
