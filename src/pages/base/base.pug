@@ -42,9 +42,14 @@ html
         +layout__footer()
             +footer({
                 logo: require('./img/logo/logo.svg'),
-                nav: [{name: 'About Us'}, {name: 'News'}, {name: 'Support'}, {name: 'Products'}],
-                aboutUs: [{name: 'Who we are'}, {name: 'Our team'}, {name: 'Carrers'}, {name: 'Investors'}],
-                support: [{name: 'Documentation'}, {name: 'Community'}, {name: 'Get in Touch'}]
+                slogan: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации "Отельный взгляд"',
+                blocks: [
+                    {title: 'Навигация', items: [{name: 'О нас'}, {name: 'Новости'}, {name: 'Служба поддержки'}, {name: 'Услуги'}]},
+                    {title: 'О нас', items: [{name: 'О сервисе'}, {name: 'Наша команда'}, {name: 'Вакансии'}, {name: 'Инвесторы'}]},
+                    {title: 'Служба поддержки', items: [{name: 'Соглашения'}, {name: 'Сообщества'}, {name: 'Связь с нами'}]}
+                ],
+                subscribe: {title: 'Подписка', text: 'Получайте специальные предложения и новости сервиса'},
+                copyright: 'Copyright &copy; 2018 Toxin отель. Все права зачищены'
             })
                 block footer
     block scripts
