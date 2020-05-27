@@ -12,35 +12,23 @@ mixin footer(options)
     - options.items = []
 
   .footer
-      if (options.nav || options.aboutUs || options.support)
+      if (options.blocks)
           .footer__container
               .footer__top
                   .footer__top-item.footer__logo
                       img(alt="logo" src=options.logo)
                       .footer__subtext
-                          p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque
-                            |  aliquam curabitur cociis
-                  if (options.nav)
-                      .footer__top-item.footer__navigation
-                          h3.header_level-3 Navigation
-                          .footer__nav
-                              each item in options.nav
-                                  a.footer__nav-item(href = item.href)= item.name
-                  if (options.aboutUs)
-                      .footer__top-item.footer__about-us
-                          h3.header_level-3 About us
-                          .footer__nav.footer__about-us
-                              each item in options.aboutUs
-                                  a.footer__nav-item(href = item.href)= item.name
-                  if (options.support)
-                      .footer__top-item.footer__support
-                          h3.header_level-3 Support
-                          .footer__nav.footer__support
-                              each item in options.support
-                                  a.footer__nav-item(href = item.href)= item.name
+                          p=options.slogan
+                  if (options.blocks)
+                      each block in options.blocks
+                        .footer__top-item
+                            h3=block.title
+                            .footer__nav
+                                each item in block.items
+                                    a.footer__nav-item(href = item.href)= item.name
                   .footer__top-item.footer__subscribe
-                      h3.header_level-3 Subscribe to our newsletter
-                      p.footer__subscribe-text Receive our latest news and promotion in your inbox
+                      h3.header_level-3=options.subscribe.title
+                      p.footer__subscribe-text=options.subscribe.text
                       +input({
                           type: 'email',
                           placeholder: 'You email address',
@@ -48,7 +36,7 @@ mixin footer(options)
                       })
           .footer_border-top
               .footer__copyright.footer__container
-                  span.footer__text Copyright &copy; 2018 Toxin Ui Kit All rights reserved
+                  span.footer__text!=options.copyright
                   .social.footer__social
                       a(href="link-for-twitter").social__icon.social__twitter-icon
                           include ./img/twitter-icon.svg
@@ -61,8 +49,7 @@ mixin footer(options)
               .footer__logo
                   img(alt="logo" src=options.logo)
                   .footer__subtext
-                      p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque
-                        |  aliquam curabitur cociis
+                      p=options.slogan
               .social.footer__social.footer__social_margin-top
                   a(href="link-for-twitter").social__icon.social__twitter-icon
                       include ./img/twitter-icon.svg
