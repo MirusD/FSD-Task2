@@ -6,10 +6,11 @@
   padding-left: 10px;
   padding-right: 10px;
   margin: 0 auto;
+  height: 100%;
+  position: relative;
 }
 
 .intro {
-  position: relative;
   background: url("./img/intro.jpg") no-repeat center center/cover;
   height: 94vh;
   &__search-card {
@@ -18,17 +19,9 @@
   &__text {
     text-align: right;
     position: absolute;
-    right: 14.8%;
-    bottom: 20px;
+    right: -10px;
+    bottom: 5%;
     width: 297px;
     height: 48px;
   }
-  //&:before {
-  //  content: 'Лучшие номера для вашей работы, отдыха и просто вдохновения';
-  //  position: absolute;
-  //  right: 0;
-  //  bottom: 20px;
-  //  width: 297px;
-  //  height: 48px;
-  //}
 }
