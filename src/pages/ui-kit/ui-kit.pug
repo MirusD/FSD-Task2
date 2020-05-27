@@ -419,13 +419,19 @@ block main
         .demo-header-footer__footer-first.demo-header-footer_box-shadow
             +footer({
                 logo: require('./img/logo/logo.svg'),
-                nav: [{name: 'About Us'}, {name: 'News'}, {name: 'Support'}, {name: 'Products'}],
-                aboutUs: [{name: 'Who we are'}, {name: 'Our team'}, {name: 'Carrers'}, {name: 'Investors'}],
-                support: [{name: 'Documentation'}, {name: 'Community'}, {name: 'Get in Touch'}]
+                slogan: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',
+                blocks: [
+                    {title: 'Navigation', items: [{name: 'About Us'},{name: 'News'},{name: 'Support'},{name: 'Products'}]},
+                    {title: 'About us', items: [{name: 'Who we are'},{name: 'Our team'},{name: 'Careers'},{name: 'Investors'}]},
+                    {title: 'Support', items: [{name: 'Documentation'},{name: 'Community'},{name: 'Get in Touch'}]}
+                ],
+                subscribe: {title: 'Subscribe to our newsletter', text: 'Receive our latest news and promotions in you inbox'},
+                copyright: 'Copyright &copy; 2018 Toxin отель. Все права зачищены'
             })
         .demo-header-footer__footer-second.demo-header-footer_box-shadow
             +footer({
-                logo: require('./img/logo/logo.svg')
+                logo: require('./img/logo/logo.svg'),
+                slogan: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.'
             })
 
 
