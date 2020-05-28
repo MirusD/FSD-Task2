@@ -1,12 +1,13 @@
 @import "../../theme/variables";
 
 .range-slider {
+  padding-top: 20px;
   min-width: 15.714285714285714285714285714286rem; //220/14
-  height: 1.4285714285714285714285714285714rem; //20/14
+  //height: 1.4285714285714285714285714285714rem; //20/14
   position: relative;
   &__value-field {
     position: absolute;
-    top: -2.1428571428571428571428571428571rem; //-30/14
+    top: -21px; //-21/14
     right: 0;
     font-size: 0.85714285714285714285714285714286rem; //12/14
     line-height: 1.0714285714285714285714285714286rem; //15/14
