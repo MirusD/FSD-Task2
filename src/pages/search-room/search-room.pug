@@ -6,6 +6,7 @@ include ../../components/checkbox/checkbox
 include ../../components/checkbox-buttons/checkbox-buttons
 include ../../components/checkbox-list/checkbox-list
 include ../../components/room-card/room-card
+include ../../components/pagination/pagination
 
 block title
     | Toxin search room
@@ -33,6 +34,8 @@ block main
                                 rate: 4,
                                 reviews: 65
                             })
+                .search-room__pagination
+                    +pagination()
             aside.filter.search-room__filter
                 .filter__range-date
                     h3.search-room_margin-bottom_5px Даты пребывания в отеле
@@ -62,6 +65,7 @@ block main
                         to: 10000,
                         step: 100
                     })
+                    span.filter__range-slider_subtext Стоимость за сутки пребывания в номере
                 .filter__checkbox-buttons
                     h3.search-room_margin-bottom_5px checkbox buttons
                     +checkbox-buttons({
@@ -72,16 +76,18 @@ block main
                     })
                 .filter__rich-checkbox
                     h3.search-room_margin-bottom_5px Доступность
-                    +input({
-                        type: 'checkbox',
-                        label: 'Широкий коридор',
-                        description: 'Ширина коридоров в номере <br> не менее 91 см.'
-                    })
-                    +input({
-                        type: 'checkbox',
-                        label: 'Помощник для инвалидов',
-                        description: 'На 1 этаже вас встретит специалист <br> и проводит до номера.'
-                    })
+                    .filter__rich-checkbox_first
+                        +input({
+                            type: 'checkbox',
+                            label: 'Широкий коридор',
+                            description: 'Ширина коридоров в номере <br> не менее 91 см.'
+                        })
+                    .filter__rich-checkbox_second
+                        +input({
+                            type: 'checkbox',
+                            label: 'Помощник для инвалидов',
+                            description: 'На 1 этаже вас встретит специалист <br> и проводит до номера.'
+                        })
                 .filter__dropdown-rooms
                     h3.search-room_margin-bottom_5px Удобства номера
                     +dropdown({

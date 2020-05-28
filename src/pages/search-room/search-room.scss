@@ -1,3 +1,5 @@
+@import "../../theme/variables";
+
 .search-room {
   padding-top: 30px;
   background-color: white;
@@ -26,6 +28,10 @@
     margin-right: 5.2%;
     background-color: white;
   }
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
   &_margin-bottom_5px {
     margin-bottom: 5px;
   }
@@ -36,19 +42,36 @@
   &__range-date {
     margin-bottom: 20px;
   }
+
   &__dropdown-guests {
-    margin-bottom: 40px;
+    margin-bottom: 31px;
   }
+
   &__range-slider {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    &_subtext {
+      display: block;
+      margin-top: -2px;
+      font-size: 12px;
+      color: $color-third
+    }
   }
+
   &__checkbox-buttons {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
+
   &__rich-checkbox {
-    margin-bottom: 20px;
+    margin-bottom: 29px;
+    &_first {
+      margin-top: 17px;
+    }
+    &_second {
+      margin-top: 8px;
+    }
   }
+
   &__dropdown-rooms {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
