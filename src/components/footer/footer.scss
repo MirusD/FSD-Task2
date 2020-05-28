@@ -3,6 +3,7 @@
 .footer {
   flex: 1 0 auto;
   background-color: white;
+  border-top: 1px solid $color-fourth;
   &__container {
     max-width: $lg;
     box-sizing: content-box;
