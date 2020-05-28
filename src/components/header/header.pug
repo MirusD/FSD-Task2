@@ -14,7 +14,8 @@ mixin header(options)
     .header__container.container
       if options.logo
         .header__logo
-          img(alt="logo" src=options.logo)
+          a(href="index.html")
+            img(alt="logo" src=options.logo)
       if options.menuItems
         .header__menu
           +menu({items: options.menuItems, userName: options.userName, buttons: options.buttons})
