@@ -1,0 +1,107 @@
+extends ../base/base
+include ../../components/date/date
+include ../../components/dropdown/dropdown
+include ../../components/range-slider/range-slider
+include ../../components/checkbox/checkbox
+include ../../components/checkbox-buttons/checkbox-buttons
+include ../../components/checkbox-list/checkbox-list
+include ../../components/room-card/room-card
+
+block title
+    | Toxin search room
+block main
+    .search-room
+        .container.search-room__container
+            section.search-room__list
+                h1.search-room__title Номера, которые мы для вас подобрали
+                .search-room__items
+                    - for(var i=0; i<10; i++)
+                        .search-room__card
+                            +room-card({
+                                number: 840,
+                                slider: {
+                                    images: [
+                                        {img: require('./img/rooms/1/room_1.jpg')},
+                                        {img: require('./img/rooms/1/room_2.jpg')},
+                                        {img: require('./img/rooms/1/room_3.jpg')},
+                                        {img: require('./img/rooms/1/room_4.jpg')}
+                                    ],
+                                    arrows: false
+                                },
+                                category: '',
+                                priceDay: 9990,
+                                rate: 4,
+                                reviews: 65
+                            })
+            aside.filter.search-room__filter
+                .filter__range-date
+                    h3.search-room_margin-bottom_5px Даты пребывания в отеле
+                    +date({
+                        dateFormat: 'd M',
+                        placeholder: 'ДД.ММ.ГГГГ',
+                        from: '2020-08-19',
+                        to: '2020-08-23'
+                    })
+                .filter__dropdown-guests
+                    h3.search-room_margin-bottom_5px Гости
+                    +dropdown({
+                        selectionText: 'Сколько гостей',
+                        items: [
+                            {text: 'Взрослые', defaultCount: 2, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Дети', defaultCount: 1, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
+                        ],
+                        controls: true
+                    })
+                .filter__range-slider
+                    h3.search-room_margin-bottom_5px Диапазон цены
+                    +range-slider({
+                        min: 700,
+                        max: 15500,
+                        from: 5000,
+                        to: 10000,
+                        step: 100
+                    })
+                .filter__checkbox-buttons
+                    h3.search-room_margin-bottom_5px checkbox buttons
+                    +checkbox-buttons({
+                        items: [
+                            {label: 'Можно курить', name: 'smoke'},
+                            {label: 'Можно с питомцами', name: 'animals', isChecked: true},
+                            {label: 'Можно пригласить гостей<br>(до 10 человек)', name: 'guests', isChecked: true}]
+                    })
+                .filter__rich-checkbox
+                    h3.search-room_margin-bottom_5px Доступность
+                    +input({
+                        type: 'checkbox',
+                        label: 'Широкий коридор',
+                        description: 'Ширина коридоров в номере <br> не менее 91 см.'
+                    })
+                    +input({
+                        type: 'checkbox',
+                        label: 'Помощник для инвалидов',
+                        description: 'На 1 этаже вас встретит специалист <br> и проводит до номера.'
+                    })
+                .filter__dropdown-rooms
+                    h3.search-room_margin-bottom_5px Удобства номера
+                    +dropdown({
+                        selectionText: 'Сколько комнат',
+                        items: [
+                            {text: 'Спальни', defaultCount: 2, textPlural: 'спальня, спальни, спален'},
+                            {text: 'Кровати', defaultCount: 2, textPlural: 'кровать, кровати, кроватей'},
+                            {text: 'Ванные комнаты', textPlural: 'ванная комната, ванные комнаты, ванных комнат'}
+                        ]
+                    })
+                .filter__checkbox-listener
+                    +checkbox-list({
+                        title: 'Дополнительные удобства',
+                        items: [
+                            {label: 'Завтрак', isChecked: true},
+                            {label: 'Письменный стол'},
+                            {label: 'Стул для кормления'},
+                            {label: 'Кроватка', isChecked: true},
+                            {label: 'Телевизор'},
+                            {label: 'Шампунь'}
+                        ],
+                        isExpanded: 'false'
+                    })

@@ -1,0 +1,54 @@
+.search-room {
+  padding-top: 30px;
+  background-color: white;
+  &__container {
+    display: flex;
+  }
+  &__list {
+    //flex: 1 0 72%;
+    order: 2;
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__card {
+    margin-bottom: 20px;
+  }
+  &__filter {
+    flex: 1 0 266px;
+    box-sizing: content-box;
+    order: 1;
+    margin-right: 5.2%;
+    background-color: white;
+  }
+  &_margin-bottom_5px {
+    margin-bottom: 5px;
+  }
+}
+
+.filter {
+  background-color: white;
+  &__range-date {
+    margin-bottom: 20px;
+  }
+  &__dropdown-guests {
+    margin-bottom: 40px;
+  }
+  &__range-slider {
+    margin-bottom: 20px;
+  }
+  &__checkbox-buttons {
+    margin-bottom: 20px;
+  }
+  &__rich-checkbox {
+    margin-bottom: 20px;
+  }
+  &__dropdown-rooms {
+    margin-bottom: 20px;
+  }
+}
