@@ -64,7 +64,6 @@ h3, .header_level-3 {
   box-sizing: border-box;
   box-shadow: 0 0 25px $color-fourth;
   border-radius: 4px;
-  align-self: flex-start;
   @include media-breakpoint-down(400px) {
     width: 22.857142857142857142857142857143rem; //320/14
     padding-left: 0;
