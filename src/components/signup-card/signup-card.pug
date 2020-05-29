@@ -3,58 +3,58 @@ include ../radio-buttons/radio-buttons
 include ../toggle/toggle
 include ../button/button
 
-mixin registration-card(options)
+mixin signup-card(options)
     if !options
         - options = {}
 
-    form.registration-card.cards
+    form.signup-card.cards
         h1 Регистрация аккаунта
-        .registration-card__name
+        .signup-card__name
             +input({
                 name: 'firstname',
                 type: 'text',
                 placeholder: 'Имя'
             })
-        .registration-card__surname
+        .signup-card__surname
             +input({
                 name: 'lastname',
                 type: 'text',
                 placeholder: 'Фамилия'
             })
-        .registration-card__gender
-            .registration-card__gender-mans
+        .signup-card__gender
+            .signup-card__gender-mans
                 +input({type: 'radio', name: 'sex', value: 'male', label: 'Мужчина', isChecked: true})
-            .registration-card__gender-womans
+            .signup-card__gender-womans
             +input({type: 'radio', name: 'sex', value: 'female', label: 'Женщина'})
-        .registration-card__date-of-birth
-            h3.header_level-3.registration-card__text-field-title Дата рождения
+        .signup-card__date-of-birth
+            h3.header_level-3.signup-card__text-field-title Дата рождения
             +input({
                 type: 'text',
                 placeholder: 'ДД.ММ.ГГГГ'
             })
-        .registration-card__login-information
-            h3.header_level-3.registration-card__text-field-title Данные для входа в сервис
-            .registration-card__email
+        .signup-card__login-information
+            h3.header_level-3.signup-card__text-field-title Данные для входа в сервис
+            .signup-card__email
                 +input({
                     name: 'email',
                     type: 'email',
                     placeholder: 'Email'
                 })
-            .registration-card__password
+            .signup-card__password
                 +input({
                     name: 'password',
                     type: 'password',
                     placeholder: 'Пароль'
                 })
-        .registration-card__special-offers
+        .signup-card__special-offers
             +input({type: 'toggle', label: 'Получать спецпредложения'})
-        .registration-card__payment-btn
+        .signup-card__payment-btn
             +button({
                 text: 'Перейти к оплате',
                 type: 'arrow-btn'
             })
-        .registration-card__entrance-btn
-            span.registration-card_text-color_black Уже есть аккаунт на Toxin
+        .signup-card__entrance-btn
+            span.signup-card_text-color_black Уже есть аккаунт на Toxin
             +button({
                 text: 'Войти',
                 type: 'outline'
