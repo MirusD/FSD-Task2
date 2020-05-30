@@ -1,0 +1,85 @@
+extends ../base/base
+include ../../components/reservation-card/reservation-card
+include ../../components/details/details
+include ../../components/feedback/feedback
+include ../../components/bullet-list/bullet-list
+
+block title
+    | Toxin signin
+block main
+    .room-details
+        .room-details__prev
+            .room-details__prev_big
+                img.room-details__img(alt="Фотография номера" src=require('./img/rooms/1/room_1.jpg'))
+            .room-details__prev_small
+                img.room-details__img.room-details__img_small(alt="Фотография номера" src=require('./img/rooms/1/room_2.jpg'))
+                img.room-details__img.room-details__img_small(alt="Фотография номера" src=require('./img/rooms/1/room_3.jpg'))
+        .container.room-details__container
+            .room-details__left-block
+                .room-details__wrapper
+                    .room-details__number-information
+                        h2 Сведения о номере
+                        +details({
+                            title: 'Комфорт',
+                            text: 'Шумопоглощающие стены',
+                            icon: require('./img/insert_emoticon.svg')
+                        })
+                        +details({
+                            title: 'Удобство',
+                            text: 'Окно в каждой из спален',
+                            icon: require('./img/location_city.svg')
+                        })
+                        +details({
+                            title: 'Уют',
+                            text: 'Номер оснащен камином',
+                            icon: require('./img/whatshot.svg')
+                        })
+                    .room-details__impressions-of-the-room
+                        h2 Впечатления от номера
+                        .diagram
+                            .great 50%
+                            .good 60%
+                .room-details__feedback
+                    +feedback({
+                        date: '2020-05-17T15:05:50.417+05:00',
+                        name: 'Мурад Сарафанов',
+                        text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.\n' +
+                            'И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару - никто\n' +
+                            'не жаловался из соседей.',
+                        avatar: require('./img/avatar/user1.jpg'),
+                        likes: {likes: 12, clicked: true}
+                    })
+                    +feedback({
+                        date: '2020-05-17T15:05:50.417+05:00',
+                        name: 'Патрисия Стёклышкова',
+                        text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать,\n' +
+                                'каждый день новое блюдо и десерт как комплимент',
+                        avatar: require('./img/avatar/user1.jpg'),
+                        likes: {likes: 2}
+                    })
+                .room-details__rules
+                    h2 Правила
+                    +bullet-list({
+                        value: [
+                            'Нельзя с питомцами',
+                            'Без вечеринок и мероприятий',
+                            'Время прибытия - после 13:00 <br> а выезд до 12:00'
+                        ]
+                    })
+            .room-details__right-block
+                +reservation-card({
+                    number: 888,
+                    category: 'Люкс',
+                    priceDay: 9990,
+                    dateFrom: '2020-08-19',
+                    dateTo: '2020-08-23',
+                    guests: [
+                        {text: 'Взрослые', defaultCount: 2, textPlural: 'гость, гостя, гостей'},
+                        {text: 'Дети', defaultCount: 1, textPlural: 'гость, гостя, гостей'},
+                        {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
+                    ],
+                    services: [
+                        {text: 'Сбор за услуги: скидка 2 179&#8381', price: 0, mark: true, discount: 2179},
+                        {text: 'Сбор за дополнительные услуги', price: 300, mark: true}
+                    ]
+                })

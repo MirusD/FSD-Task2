@@ -1,0 +1,56 @@
+.room-details {
+  background-color: white;
+  &__container {
+    display: flex;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    &_small {
+      height: 50%;
+    }
+  }
+  &__prev {
+    display: flex;
+    margin-bottom: 70px;
+    &_big {
+      flex: 1 0 70%;
+    }
+    &_small {
+      flex: 1 0 30%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  &__left-block {
+    margin-right: 30px;
+  }
+  &__number-information {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.great {
+  display: block;
+  float: left;
+}
+circle {
+  fill: rgba(0,0,0,0);
+  stroke: #eee;
+  stroke-width: 15;
+  stroke-dasharray: 408px 408px;
+}
+circle:nth-child(2) {
+  fill: rgba(0,0,0,0);
+  stroke: #30bae7;
+  stroke-width: 15;
+}
+
+circle:nth-child(3) {
+  fill: rgba(0,0,0,0);
+  stroke: red;
+  stroke-width: 15;
+}
