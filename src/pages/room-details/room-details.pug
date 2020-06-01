@@ -16,7 +16,7 @@ block main
                 img.room-details__img.room-details__img_small(alt="Фотография номера" src=require('./img/rooms/1/room_3.jpg'))
         .container.room-details__container
             .room-details__left-block
-                .room-details__wrapper
+                .room-details__left-block_stroke
                     .room-details__number-information
                         h2 Сведения о номере
                         +details({
@@ -37,8 +37,7 @@ block main
                     .room-details__impressions-of-the-room
                         h2 Впечатления от номера
                         .diagram
-                            .great 50%
-                            .good 60%
+                            .great 70%
                 .room-details__feedback
                     +feedback({
                         date: '2020-05-17T15:05:50.417+05:00',

@@ -26,6 +26,9 @@
   }
   &__left-block {
     margin-right: 30px;
+    &_stroke {
+      display: flex;
+    }
   }
   &__number-information {
     display: flex;
@@ -41,16 +44,28 @@ circle {
   fill: rgba(0,0,0,0);
   stroke: #eee;
   stroke-width: 15;
-  stroke-dasharray: 408px 408px;
+  stroke-dasharray: 408px, 408px;
 }
+circle:nth-child(1) {
+  fill: rgba(0,0,0,0);
+  stroke: #66D2EA;
+  stroke-width: 6;
+}
+
 circle:nth-child(2) {
   fill: rgba(0,0,0,0);
-  stroke: #30bae7;
-  stroke-width: 15;
+  stroke: #FFBA9C;
+  stroke-width: 6;
 }
 
 circle:nth-child(3) {
   fill: rgba(0,0,0,0);
-  stroke: red;
-  stroke-width: 15;
+  stroke: #8BA4F9;
+  stroke-width: 6;
+}
+
+circle:nth-child(4) {
+  fill: rgba(0,0,0,0);
+  stroke: #3D4975;
+  stroke-width: 6;
 }
