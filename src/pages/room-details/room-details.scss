@@ -36,36 +36,42 @@
   }
 }
 
-.great {
-  display: block;
-  float: left;
-}
+//.great {
+//  display: block;
+//  float: left;
+//}
 circle {
   fill: rgba(0,0,0,0);
   stroke: #eee;
   stroke-width: 15;
   stroke-dasharray: 408px, 408px;
 }
-circle:nth-child(1) {
-  fill: rgba(0,0,0,0);
-  stroke: #66D2EA;
-  stroke-width: 6;
-}
-
-circle:nth-child(2) {
+.great {
   fill: rgba(0,0,0,0);
   stroke: #FFBA9C;
   stroke-width: 6;
 }
 
-circle:nth-child(3) {
+.good {
+  fill: rgba(0,0,0,0);
+  stroke: #6FCF97;
+  stroke-width: 6;
+}
+
+.satisfactorily {
   fill: rgba(0,0,0,0);
   stroke: #8BA4F9;
   stroke-width: 6;
 }
 
-circle:nth-child(4) {
+.disappointed {
   fill: rgba(0,0,0,0);
   stroke: #3D4975;
   stroke-width: 6;
+}
+
+.disappointed-space, .satisfactorily-space, .good-space, .great-space, .zero {
+  fill: rgba(0,0,0,0);
+  stroke: white;
+  stroke-width: 7;
 }

@@ -36,8 +36,11 @@ block main
                         })
                     .room-details__impressions-of-the-room
                         h2 Впечатления от номера
-                        .diagram
-                            .great 70%
+                        .pieChart
+                            .pieChart__great 50%
+                            .pieChart__good 25%
+                            .pieChart__satisfactorily 25%
+                            .pieChart__disappointed 0%
                 .room-details__feedback
                     +feedback({
                         date: '2020-05-17T15:05:50.417+05:00',
