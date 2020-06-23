@@ -1,0 +1,21 @@
+//-
+    great - проголосовавших "Великолепно"
+    good - проголосовавших "Хорошо"
+    satisfactorily - проголосовавших "Удовлетворительно"
+    disappointed - проголосовавших "Разочарован"
+
+mixin pie-chart(options)
+    if !options
+        - options = {}
+
+    .pie-chart
+        .pie-chart__graph
+            .pie-chart__great=options.great || 0
+            .pie-chart__good=options.good || 0
+            .pie-chart__satisfactorily=options.satisfactorily || 0
+            .pie-chart__disappointed=options.disappointed || 0
+        .pie-chart__text
+            span.pie-chart__text_great Великолепно
+            span.pie-chart__text_good Хорошо
+            span.pie-chart__text_satisfactorily Удовлетворительно
+            span.pie-chart__text_disappointed Разочарован

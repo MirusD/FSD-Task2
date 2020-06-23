@@ -3,6 +3,7 @@ include ../../components/reservation-card/reservation-card
 include ../../components/details/details
 include ../../components/feedback/feedback
 include ../../components/bullet-list/bullet-list
+include ../../components/pie-chart/pie-chart
 
 block title
     | Toxin signin
@@ -19,55 +20,66 @@ block main
                 .room-details__left-block_stroke
                     .room-details__number-information
                         h2 Сведения о номере
-                        +details({
-                            title: 'Комфорт',
-                            text: 'Шумопоглощающие стены',
-                            icon: require('./img/insert_emoticon.svg')
-                        })
-                        +details({
-                            title: 'Удобство',
-                            text: 'Окно в каждой из спален',
-                            icon: require('./img/location_city.svg')
-                        })
-                        +details({
-                            title: 'Уют',
-                            text: 'Номер оснащен камином',
-                            icon: require('./img/whatshot.svg')
-                        })
+                        .room-details__number-information_margin-top
+                            +details({
+                                title: 'Комфорт',
+                                text: 'Шумопоглощающие стены',
+                                icon: require('./img/insert_emoticon.svg')
+                            })
+                        .room-details__number-information_margin-top
+                            +details({
+                                title: 'Удобство',
+                                text: 'Окно в каждой из спален',
+                                icon: require('./img/location_city.svg')
+                            })
+                        .room-details__number-information_margin-top
+                            +details({
+                                title: 'Уют',
+                                text: 'Номер оснащен камином',
+                                icon: require('./img/whatshot.svg')
+                            })
                     .room-details__impressions-of-the-room
-                        h2 Впечатления от номера
-                        .pieChart
-                            .pieChart__great 50%
-                            .pieChart__good 25%
-                            .pieChart__satisfactorily 25%
-                            .pieChart__disappointed 0%
+                        h2.room-details__title Впечатления от номера
+                        +pie-chart({
+                            great: 130,
+                            good: 65,
+                            satisfactorily: 65
+                        })
+
                 .room-details__feedback
+                    h2.room-details__title Отзывы посетителей номера
                     +feedback({
                         date: '2020-05-17T15:05:50.417+05:00',
                         name: 'Мурад Сарафанов',
-                        text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.\n' +
-                            'И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару - никто\n' +
+                        text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.<br>' +
+                            'И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару - никто<br>' +
                             'не жаловался из соседей.',
                         avatar: require('./img/avatar/user1.jpg'),
                         likes: {likes: 12, clicked: true}
                     })
-                    +feedback({
-                        date: '2020-05-17T15:05:50.417+05:00',
-                        name: 'Патрисия Стёклышкова',
-                        text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать,\n' +
-                                'каждый день новое блюдо и десерт как комплимент',
-                        avatar: require('./img/avatar/user1.jpg'),
-                        likes: {likes: 2}
-                    })
+                    .room-details__feedback_margin-top
+                        +feedback({
+                            date: '2020-05-17T15:05:50.417+05:00',
+                            name: 'Патрисия Стёклышкова',
+                            text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать,<br>' +
+                                    'каждый день новое блюдо и десерт как комплимент',
+                            avatar: require('./img/avatar/user1.jpg'),
+                            likes: {likes: 2}
+                        })
                 .room-details__rules
-                    h2 Правила
-                    +bullet-list({
-                        value: [
-                            'Нельзя с питомцами',
-                            'Без вечеринок и мероприятий',
-                            'Время прибытия - после 13:00 <br> а выезд до 12:00'
-                        ]
-                    })
+                    .room-details__rules_first-rules
+                        h2.room-details__title.room-details__title_margin-left Правила
+                        +bullet-list({
+                            value: [
+                                'Нельзя с питомцами',
+                                'Без вечеринок и мероприятий',
+                                'Время прибытия - после 13:00 <br> а выезд до 12:00'
+                            ]
+                        })
+                    .room-details__rules_second-rules
+                        .room-details__rules-cancellation-of-a-room-reservation
+                            h2.room-details__title Отмена
+                            p Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
             .room-details__right-block
                 +reservation-card({
                     number: 888,
