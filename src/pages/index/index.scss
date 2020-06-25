@@ -8,11 +8,26 @@
   margin: 0 auto;
   height: 100%;
   position: relative;
+  @include media-breakpoint-down(950px) {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .intro {
   background: url("./img/intro.jpg") no-repeat center center/cover;
   height: 94vh;
+  @include media-breakpoint-down(950px) {
+    height: 70vh;
+  }
+  @include media-breakpoint-down(400px) {
+    background-image: none;
+    background-color: white;
+    height: 60vh;
+  }
+  @include media-breakpoint-down(360px) {
+    height: 55vh;
+  }
   &__search-card {
     padding-top: 8%;
   }
@@ -23,5 +38,14 @@
     bottom: 5%;
     width: 297px;
     height: 48px;
+    @include media-breakpoint-down(1226px) {
+      right: 15px;
+    }
+    @include media-breakpoint-down(951px) {
+      //margin-right: 0;
+      right: 50%;
+      transform: translateX(50%);
+      text-align: center;
+    }
   }
 }
