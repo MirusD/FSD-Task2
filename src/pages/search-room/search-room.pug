@@ -14,9 +14,10 @@ block main
     .search-room
         .container.search-room__container
             section.search-room__list
+                .search-room__btn-filter Фильтр
                 h1.search-room__title Номера, которые мы для вас подобрали
                 .search-room__items
-                    - for(var i=0; i<10; i++)
+                    - for(var i=0; i<11; i++)
                         .search-room__card
                             +room-card({
                                 number: 840,

@@ -4,22 +4,54 @@
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: white;
+  &__btn-filter {
+    display: none;
+    background: url("img/icon/icon-filter.svg") no-repeat left 10px center/20px;
+    font-weight: bold;
+    color: $color-first;
+    text-align: left;
+    padding-left: 35px;
+    //margin: 0 auto;
+    //padding: 5px 10px 5px 35px;
+
+    //border: 1px solid black;
+    border-radius: 50px;
+    @include media-breakpoint-down(1180px) {
+      display: block;
+    }
+    @include media-breakpoint-down(860px) {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+  }
   &__container {
     display: flex;
+    justify-content: center;
   }
   &__list {
     order: 2;
+    @include media-breakpoint-down(1180px) {
+      text-align: center;
+    }
   }
   &__title {
     margin-bottom: 20px;
   }
   &__items {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    margin-left: -10px;
+    @include media-breakpoint-down(1180px) {
+      width: 850px;
+    }
+    @include media-breakpoint-down(860px) {
+      width: 100%;
+      justify-content: center;
+    }
   }
   &__card {
     margin-bottom: 20px;
+    margin-left: 10px;
   }
   &__filter {
     flex: 1 0 266px;
@@ -27,6 +59,9 @@
     order: 1;
     margin-right: 5.2%;
     background-color: white;
+    @include media-breakpoint-down(1180px) {
+      display: none;
+    }
   }
   &__pagination {
     display: flex;
