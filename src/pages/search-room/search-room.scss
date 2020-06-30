@@ -4,29 +4,10 @@
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: white;
-  &__btn-filter {
-    display: none;
-    background: url("img/icon/icon-filter.svg") no-repeat left 10px center/20px;
-    font-weight: bold;
-    color: $color-first;
-    text-align: left;
-    padding-left: 35px;
-    //margin: 0 auto;
-    //padding: 5px 10px 5px 35px;
-
-    //border: 1px solid black;
-    border-radius: 50px;
-    @include media-breakpoint-down(1180px) {
-      display: block;
-    }
-    @include media-breakpoint-down(860px) {
-      display: inline-block;
-      margin-bottom: 20px;
-    }
-  }
   &__container {
     display: flex;
     justify-content: center;
+    position: relative;
   }
   &__list {
     order: 2;
@@ -53,15 +34,25 @@
     margin-bottom: 20px;
     margin-left: 10px;
   }
+  &__btn-open-filter {
+    display: none;
+    background-color: white;
+    font-weight: bold;
+    line-height: 35px;
+    margin-bottom: 20px;
+    @include media-breakpoint-down(1180px) {
+      display: block;
+      border: 1px solid $color-third;
+      border-radius: 10px;
+      top: -1px;
+    }
+  }
   &__filter {
     flex: 1 0 266px;
     box-sizing: content-box;
     order: 1;
     margin-right: 5.2%;
     background-color: white;
-    @include media-breakpoint-down(1180px) {
-      display: none;
-    }
   }
   &__pagination {
     display: flex;
@@ -74,6 +65,11 @@
 
 .filter {
   background-color: white;
+  @include media-breakpoint-down(1180px) {
+    display: none;
+    background: white;
+    padding: 20px 20px;
+  }
   &__range-date {
     margin-bottom: 20px;
   }
@@ -108,5 +104,63 @@
 
   &__dropdown-rooms {
     margin-bottom: 30px;
+  }
+
+  &__mobile-header {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 420px;
+    background-color: white;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 4px 0px;
+    padding: 10px;
+    @include media-breakpoint-down(1180px) {
+      display: flex;
+    }
+    @include media-breakpoint-down(440px) {
+      width: 320px;
+    }
+  }
+
+  &.opened {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 420px;
+    overflow-y: auto;
+    display: block;
+    z-index: 10;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin-right: 0;
+    box-sizing: border-box;
+    @include media-breakpoint-down(440px) {
+      width: 320px;
+    }
+  }
+  &__btn-closed {
+    left: 0;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+    z-index: 50;
+    background: url("./img/icon/close.svg") no-repeat center center/15px 15px;
+  }
+  &__screen-black.active {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: black;
+    opacity: 50%;
   }
 }
