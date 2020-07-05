@@ -16,6 +16,7 @@ block main
                 img.room-details__img.room-details__img_small(alt="Фотография номера" src=require('./img/rooms/1/room_2.jpg'))
                 img.room-details__img.room-details__img_small(alt="Фотография номера" src=require('./img/rooms/1/room_3.jpg'))
         .container.room-details__container
+            .room-details__btn-open-reservation-information Сведения о брони
             .room-details__left-block
                 .room-details__left-block_stroke
                     .room-details__number-information
@@ -81,19 +82,21 @@ block main
                             h2.room-details__title Отмена
                             p Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
             .room-details__right-block
-                +reservation-card({
-                    number: 888,
-                    category: 'Люкс',
-                    priceDay: 9990,
-                    dateFrom: '2020-08-19',
-                    dateTo: '2020-08-23',
-                    guests: [
-                        {text: 'Взрослые', defaultCount: 2, textPlural: 'гость, гостя, гостей'},
-                        {text: 'Дети', defaultCount: 1, textPlural: 'гость, гостя, гостей'},
-                        {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
-                    ],
-                    services: [
-                        {text: 'Сбор за услуги: скидка 2 179&#8381', price: 0, mark: true, discount: 2179},
-                        {text: 'Сбор за дополнительные услуги', price: 300, mark: true}
-                    ]
-                })
+                .room-details__reservation-card
+                    .room-details__btn-close-reservation-information ЗАКРЫТЬ
+                    +reservation-card({
+                        number: 888,
+                        category: 'Люкс',
+                        priceDay: 9990,
+                        dateFrom: '2020-08-19',
+                        dateTo: '2020-08-23',
+                        guests: [
+                            {text: 'Взрослые', defaultCount: 2, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Дети', defaultCount: 1, textPlural: 'гость, гостя, гостей'},
+                            {text: 'Младенцы', textPlural: 'младенец, младенца, младенцев'}
+                        ],
+                        services: [
+                            {text: 'Сбор за услуги: скидка 2 179&#8381', price: 0, mark: true, discount: 2179},
+                            {text: 'Сбор за дополнительные услуги', price: 300, mark: true}
+                        ]
+                    })

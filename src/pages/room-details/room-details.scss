@@ -1,13 +1,54 @@
+@import "../../theme/variables";
+
 .room-details {
   background-color: white;
   &__container {
     display: flex;
     justify-content: space-between;
+    @include media-breakpoint-down(1170px) {
+      flex-direction: column;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+  &__btn-open-reservation-information {
+    display: none;
+    text-align: center;
+    border: 1px solid $color-third;
+    border-radius: 10px;
+    line-height: 35px;
+    margin-bottom: 40px;
+    background-color: white;
+    font-weight: bold;
+    @include media-breakpoint-down(1170px) {
+      display: block;
+    }
+    @include media-breakpoint-down(400px) {
+      display: none;
+    }
+  }
+  &__btn-close-reservation-information {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    z-index: 50;
+    background: url("./img/icon/close.svg") no-repeat right center/12px 12px;
+    padding-right: 15px;
+    @include media-breakpoint-down(1170px) {
+      display: block;
+    }
+    @include media-breakpoint-down(400px) {
+      display: none;
+    }
   }
   &__title {
     margin-bottom: 20px;
     &_margin-left {
       margin-left: 20px;
+      @include media-breakpoint-down(670px) {
+        margin-left: 0;
+      }
     }
   }
   &__img {
@@ -32,12 +73,53 @@
       display: flex;
       flex-wrap: wrap;
     }
+    @include media-breakpoint-down(950px) {
+      height: 55vh;
+      margin-bottom: 40px;
+    }
+    @include media-breakpoint-down(520px) {
+      height: 35vh;
+    }
   }
   &__left-block {
     margin-right: 30px;
     &_stroke {
       display: flex;
+      @include media-breakpoint-down(670px) {
+        flex-direction: column;
+        align-items: center;
+      }
     }
+    @include media-breakpoint-down(1170px) {
+      margin-right: 0;
+      margin-left: 15px;
+    }
+  }
+  &__right-block {
+    @include media-breakpoint-down(1170px) {
+      display: none;
+    }
+    @include media-breakpoint-down(400px) {
+      display: block;
+      order: -1;
+    }
+    &.open {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 10;
+    }
+  }
+  &__reservation-card {
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
   }
   &__number-information {
     flex: 0 1 51.7%;
@@ -49,6 +131,10 @@
   }
   &__impressions-of-the-room {
     flex: 0 1 48.3%;
+    @include media-breakpoint-down(670px) {
+      order: -1;
+      margin-bottom: 30px;
+    }
   }
   &__feedback {
     margin-top: 13px;
@@ -66,8 +152,21 @@
     &_second-rules {
       flex: 0 1 48.3%;
     }
+    @include media-breakpoint-down(670px) {
+      flex-direction: column;
+      align-items: center;
+      &_first-rules {
+        width: 100%;
+      }
+      &_second-rules {
+        width: 100%;
+      }
+    }
   }
   &__rules-cancellation-of-a-room-reservation {
     width: 330px;
+    @include media-breakpoint-down(670px) {
+      width: auto;
+    }
   }
 }
