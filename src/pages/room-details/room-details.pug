@@ -10,11 +10,13 @@ block title
 block main
     .room-details
         .room-details__prev
-            .room-details__prev_big
-                img.room-details__img(alt="Фотография номера" src=require('./img/rooms/1/room_1.jpg'))
-            .room-details__prev_small
-                img.room-details__img.room-details__img_small(alt="Фотография номера" src=require('./img/rooms/1/room_2.jpg'))
-                img.room-details__img.room-details__img_small(alt="Фотография номера" src=require('./img/rooms/1/room_3.jpg'))
+            .swiper-wrapper.grid
+                .swiper-slide
+                    img.room-details__img(alt="Фотография номера" src=require('./img/rooms/1/room_1.jpg'))
+                .swiper-slide
+                    img.room-details__img.room-details__img_small(alt="Фотография номера" src=require('./img/rooms/1/room_2.jpg'))
+                .swiper-slide
+                    img.room-details__img.room-details__img_small(alt="Фотография номера" src=require('./img/rooms/1/room_3.jpg'))
         .container.room-details__container
             .room-details__btn-open-reservation-information Сведения о брони
             .room-details__left-block
