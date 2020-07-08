@@ -1,4 +1,4 @@
-import Swiper from 'swiper';
+import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 import './room-details.scss'
 
@@ -25,17 +25,23 @@ const enableSwiper = function() {
     mySwiper = new Swiper('.room-details__prev', {
         direction: 'horizontal',
         loop: true,
-        centeredSlides: true,
-        centeredSlidesBounds: true,
         spaceBetween: 10,
-        slidesOffsetBefore: 20,
-        slidesOffsetAfter: 20,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true
+        }
     });
 };
 
-breakpoint.addListener(breakpointChecker);
-
-breakpointChecker();
+if (grid) {
+    breakpoint.addListener(breakpointChecker);
+    breakpointChecker();
+}
 
 let btnOpenReservationInfo = document.querySelector('.room-details__btn-open-reservation-information');
 let btnCloseReservationInfo = document.querySelector('.room-details__btn-close-reservation-information');
